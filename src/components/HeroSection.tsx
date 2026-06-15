@@ -84,27 +84,40 @@ const HeroSection = () => {
 
     const voices = window.speechSynthesis.getVoices();
     
-    // Priority 1: Specifically look for a Pakistani (en-PK) male or premium voice
-    let pakistaniVoice = voices.find(v => 
-      (v.lang.includes('PK') || v.name.includes('Pakistan')) && 
-      (v.name.includes('Natural') || v.name.toLowerCase().includes('male') || v.name.includes('Asad'))
-    );
+    // Helper to identify likely male voices across different OS's
+    const isMale = (v: SpeechSynthesisVoice) => {
+      const name = v.name.toLowerCase();
+      // Look for explicit 'male' tag or common built-in male voice names for iOS/Android/Windows
+      return name.includes('male') || 
+             name.includes('david') || // Windows US
+             name.includes('mark') ||  // Windows US
+             name.includes('daniel') || // iOS UK
+             name.includes('arthur') || // iOS UK
+             name.includes('aaron') ||  // iOS US
+             name.includes('rishi') ||  // iOS Indian English
+             name.includes('prabhat');  // Android/Google Indian English
+    };
 
-    // Priority 2: ANY Pakistani voice at all (en-PK)
-    if (!pakistaniVoice) {
-      pakistaniVoice = voices.find(v => v.lang.includes('PK') || v.name.includes('Pakistan'));
+    // Priority 1: Pakistani or Indian Male voice
+    let targetVoice = voices.find(v => (v.lang.includes('PK') || v.lang.includes('IN')) && isMale(v));
+
+    // Priority 2: UK or US Male voice
+    if (!targetVoice) {
+      targetVoice = voices.find(v => (v.lang.includes('GB') || v.lang.includes('UK') || v.lang.includes('US')) && isMale(v));
     }
 
-    // Priority 3: Fallback to a high-quality South Asian male voice if no PK voice exists
-    if (!pakistaniVoice) {
-      pakistaniVoice = voices.find(v => 
-        (v.lang.includes('IN') || v.name.includes('India')) && 
-        (v.name.includes('Natural') || v.name.toLowerCase().includes('male') || v.name.includes('Prabhat'))
-      );
+    // Priority 3: ANY Male voice at all
+    if (!targetVoice) {
+      targetVoice = voices.find(v => isMale(v));
+    }
+    
+    // Priority 4: If literally no male voice can be found, just fallback to standard English
+    if (!targetVoice) {
+      targetVoice = voices.find(v => v.lang.includes('GB') || v.lang.includes('UK') || v.lang.includes('US'));
     }
 
-    if (pakistaniVoice) {
-      utterance.voice = pakistaniVoice;
+    if (targetVoice) {
+      utterance.voice = targetVoice;
     }
     
     utterance.onstart = () => {
