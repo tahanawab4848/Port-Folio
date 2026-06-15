@@ -1,6 +1,7 @@
 import FadeIn from './FadeIn';
 import ContactButton from './ContactButton';
 import AnimatedText from './AnimatedText';
+import { Cpu, Terminal } from 'lucide-react';
 
 const ABOUT_TEXT =
   "I'm a Computer Science student at COMSATS University Islamabad with hands-on experience architecting and shipping full-stack web applications using the MERN stack and production-grade AI/ML systems. I focus on building scalable REST APIs, React SPAs, and machine learning pipelines. Let's build something incredible together!";
@@ -111,20 +112,19 @@ const AboutSection = () => {
 
           {/* Bottom Row: Tech Stack */}
           <FadeIn delay={0.15} className="relative w-full mt-4 lg:mt-6 border-t border-white/5 pt-8 lg:pt-10">
-            {/* Tech Stack Decorative Images */}
-            <div className="pointer-events-none absolute -top-16 sm:-top-24 left-[2%] sm:left-[5%] w-[55px] sm:w-[120px] md:w-[160px] opacity-60">
-              <img
-                src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png"
-                alt=""
-                className="w-full h-auto drop-shadow-2xl animate-[float_6s_ease-in-out_infinite]"
-              />
+            {/* Tech Animations */}
+            <div className="pointer-events-none absolute -top-8 sm:-top-10 left-[5%] sm:left-[10%] opacity-40">
+              <div className="relative flex h-14 w-14 sm:h-20 sm:w-20 items-center justify-center rounded-full border border-white/10 bg-white/5 shadow-[0_0_30px_rgba(255,255,255,0.05)] backdrop-blur-sm animate-[spin_12s_linear_infinite]">
+                <Cpu size={28} className="text-white/60 animate-[pulse_3s_ease-in-out_infinite]" />
+                <div className="absolute -inset-3 sm:-inset-4 rounded-full border border-dashed border-white/20 animate-[spin_20s_linear_infinite_reverse]" />
+              </div>
             </div>
-            <div className="pointer-events-none absolute -top-20 sm:-top-32 right-[2%] sm:right-[5%] w-[65px] sm:w-[140px] md:w-[180px] opacity-80">
-              <img
-                src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png"
-                alt=""
-                className="w-full h-auto drop-shadow-2xl animate-[float_5s_ease-in-out_infinite_reverse]"
-              />
+
+            <div className="pointer-events-none absolute -top-8 sm:-top-10 right-[5%] sm:right-[10%] opacity-40">
+              <div className="relative flex h-14 w-14 sm:h-20 sm:w-20 items-center justify-center rounded-full border border-white/10 bg-white/5 shadow-[0_0_30px_rgba(255,255,255,0.05)] backdrop-blur-sm animate-[float_4s_ease-in-out_infinite]">
+                <Terminal size={28} className="text-white/60" />
+                <div className="absolute -inset-3 sm:-inset-4 rounded-full border border-dotted border-white/30 animate-[spin_15s_linear_infinite]" />
+              </div>
             </div>
 
             <h3 className="mb-6 lg:mb-10 text-center text-xs sm:text-sm font-bold uppercase tracking-[0.4em] text-white/50 relative z-10">
