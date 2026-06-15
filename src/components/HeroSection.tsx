@@ -87,7 +87,7 @@ const HeroSection = () => {
     // Helper to identify likely male voices across different OS's
     const isMale = (v: SpeechSynthesisVoice) => {
       const name = v.name.toLowerCase();
-      // Look for explicit 'male' tag or common built-in male voice names for iOS/Android/Windows
+      // Look for explicit 'male' tag or common built-in male voice names for iOS/Android/Windows/Mac
       return name.includes('male') || 
              name.includes('david') || // Windows US
              name.includes('mark') ||  // Windows US
@@ -95,8 +95,16 @@ const HeroSection = () => {
              name.includes('arthur') || // iOS UK
              name.includes('aaron') ||  // iOS US
              name.includes('rishi') ||  // iOS Indian English
-             name.includes('prabhat');  // Android/Google Indian English
+             name.includes('prabhat') || // Android Indian English
+             name.includes('alex') ||    // Mac US
+             name.includes('fred') ||    // Mac US
+             name.includes('brian') ||   // Mac/iOS UK
+             name.includes('james') ||   // Windows
+             name.includes('cory') ||    // iOS
+             name.includes('guy');       // Windows
     };
+
+    let isDefinitelyMale = true;
 
     // Priority 1: Pakistani or Indian Male voice
     let targetVoice = voices.find(v => (v.lang.includes('PK') || v.lang.includes('IN')) && isMale(v));
@@ -111,13 +119,20 @@ const HeroSection = () => {
       targetVoice = voices.find(v => isMale(v));
     }
     
-    // Priority 4: If literally no male voice can be found, just fallback to standard English
+    // Priority 4: If literally no male voice can be found, fallback to standard English
     if (!targetVoice) {
       targetVoice = voices.find(v => v.lang.includes('GB') || v.lang.includes('UK') || v.lang.includes('US'));
+      isDefinitelyMale = false; // We failed to find a male voice
     }
 
     if (targetVoice) {
       utterance.voice = targetVoice;
+    }
+
+    // If the phone forces us to use a default female voice, drop the pitch aggressively 
+    // to synthetically make it sound masculine and robotic/premium.
+    if (!isDefinitelyMale) {
+      utterance.pitch = 0.5; // Deepen the voice
     }
     
     utterance.onstart = () => {
