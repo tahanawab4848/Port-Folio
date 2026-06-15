@@ -11,32 +11,16 @@ const AboutSection = () => {
       id="about"
       className="relative flex min-h-screen w-full items-center justify-center overflow-hidden px-5 sm:px-8 md:px-10 py-20"
     >
-      {/* Corner decorative 3D images */}
+      {/* Corner decorative 3D images (Top Row Only) */}
       <FadeIn
         delay={0.1}
         x={-80}
         y={0}
         duration={0.9}
-          className="pointer-events-none absolute top-10 sm:top-20 left-[1%] sm:left-[2%] md:left-[4%] w-[60px] sm:w-[160px] md:w-[210px]"
+          className="pointer-events-none absolute top-10 sm:top-20 left-[1%] sm:left-[2%] md:left-[4%] w-[60px] sm:w-[160px] md:w-[210px] opacity-70"
       >
         <img
           src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png"
-          alt=""
-          className="w-full h-auto"
-          loading="lazy"
-          draggable={false}
-        />
-      </FadeIn>
-
-      <FadeIn
-        delay={0.25}
-        x={-80}
-        y={0}
-        duration={0.9}
-          className="pointer-events-none absolute top-[30%] sm:top-[40%] left-[3%] sm:left-[6%] md:left-[10%] w-[55px] sm:w-[140px] md:w-[180px]"
-      >
-        <img
-          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png"
           alt=""
           className="w-full h-auto"
           loading="lazy"
@@ -49,26 +33,10 @@ const AboutSection = () => {
         x={80}
         y={0}
         duration={0.9}
-          className="pointer-events-none absolute top-10 sm:top-20 right-[1%] sm:right-[2%] md:right-[4%] w-[60px] sm:w-[160px] md:w-[210px]"
+          className="pointer-events-none absolute top-10 sm:top-20 right-[1%] sm:right-[2%] md:right-[4%] w-[60px] sm:w-[160px] md:w-[210px] opacity-70"
       >
         <img
           src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png"
-          alt=""
-          className="w-full h-auto"
-          loading="lazy"
-          draggable={false}
-        />
-      </FadeIn>
-
-      <FadeIn
-        delay={0.3}
-        x={80}
-        y={0}
-        duration={0.9}
-          className="pointer-events-none absolute top-[30%] sm:top-[40%] right-[3%] sm:right-[6%] md:right-[10%] w-[65px] sm:w-[170px] md:w-[220px]"
-      >
-        <img
-          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png"
           alt=""
           className="w-full h-auto"
           loading="lazy"
@@ -142,8 +110,24 @@ const AboutSection = () => {
           </div>
 
           {/* Bottom Row: Tech Stack */}
-          <FadeIn delay={0.15} className="w-full mt-10 lg:mt-16 border-t border-white/5 pt-10 lg:pt-16">
-            <h3 className="mb-8 lg:mb-12 text-center text-xs sm:text-sm font-bold uppercase tracking-[0.4em] text-white/50">
+          <FadeIn delay={0.15} className="relative w-full mt-4 lg:mt-6 border-t border-white/5 pt-8 lg:pt-10">
+            {/* Tech Stack Decorative Images */}
+            <div className="pointer-events-none absolute -top-16 sm:-top-24 left-[2%] sm:left-[5%] w-[55px] sm:w-[120px] md:w-[160px] opacity-60">
+              <img
+                src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png"
+                alt=""
+                className="w-full h-auto drop-shadow-2xl animate-[float_6s_ease-in-out_infinite]"
+              />
+            </div>
+            <div className="pointer-events-none absolute -top-20 sm:-top-32 right-[2%] sm:right-[5%] w-[65px] sm:w-[140px] md:w-[180px] opacity-80">
+              <img
+                src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png"
+                alt=""
+                className="w-full h-auto drop-shadow-2xl animate-[float_5s_ease-in-out_infinite_reverse]"
+              />
+            </div>
+
+            <h3 className="mb-6 lg:mb-10 text-center text-xs sm:text-sm font-bold uppercase tracking-[0.4em] text-white/50 relative z-10">
               Technical Arsenal
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8 w-full max-w-7xl mx-auto px-4 sm:px-0">
