@@ -196,8 +196,8 @@ const HeroSection = () => {
 
             <FadeIn delay={0.65} y={30}>
               <h1
-                className="hero-heading mt-6 md:mt-8 font-black uppercase tracking-tighter leading-[0.85] text-white"
-                style={{ fontSize: 'clamp(3rem, 10vw, 150px)' }}
+                className="hero-heading mt-4 sm:mt-6 md:mt-8 font-black uppercase tracking-tighter leading-[0.85] text-white break-words"
+                style={{ fontSize: 'clamp(2.25rem, 8vw, 150px)' }}
               >
                 <ScrambleText text="Muhammad Taha Nawab" delay={0.8} />
               </h1>
