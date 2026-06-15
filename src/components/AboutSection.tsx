@@ -18,12 +18,12 @@ const AboutSection = () => {
         x={-80}
         y={0}
         duration={0.9}
-          className="pointer-events-none absolute top-10 sm:top-20 left-[1%] sm:left-[2%] md:left-[4%] w-[60px] sm:w-[160px] md:w-[210px] opacity-70"
+          className="pointer-events-none absolute top-10 sm:top-20 left-[1%] sm:left-[2%] md:left-[4%] w-[60px] sm:w-[160px] md:w-[210px] opacity-70 animate-[float_7s_ease-in-out_infinite]"
       >
         <img
           src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png"
           alt=""
-          className="w-full h-auto"
+          className="w-full h-auto drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
           loading="lazy"
           draggable={false}
         />
@@ -34,12 +34,12 @@ const AboutSection = () => {
         x={80}
         y={0}
         duration={0.9}
-          className="pointer-events-none absolute top-10 sm:top-20 right-[1%] sm:right-[2%] md:right-[4%] w-[60px] sm:w-[160px] md:w-[210px] opacity-70"
+          className="pointer-events-none absolute top-10 sm:top-20 right-[1%] sm:right-[2%] md:right-[4%] w-[60px] sm:w-[160px] md:w-[210px] opacity-70 animate-[float_8s_ease-in-out_infinite_reverse]"
       >
         <img
           src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png"
           alt=""
-          className="w-full h-auto"
+          className="w-full h-auto drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
           loading="lazy"
           draggable={false}
         />
@@ -151,16 +151,16 @@ const AboutSection = () => {
               ].map((group) => (
                 <div
                   key={group.label}
-                  className="flex flex-col items-center xl:items-start gap-6 p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-colors"
+                  className="group/card flex flex-col items-center xl:items-start gap-6 p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 hover:bg-white/[0.05] hover:border-white/20 hover:-translate-y-3 hover:shadow-[0_30px_50px_rgba(0,0,0,0.6)] transition-all duration-500"
                 >
-                  <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#D7E2EA]/40 text-center xl:text-left">
+                  <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#D7E2EA]/40 text-center xl:text-left group-hover/card:text-white/70 transition-colors duration-500">
                     {group.label}
                   </span>
                   <div className="flex flex-wrap justify-center xl:justify-start gap-3">
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-[#D7E2EA]/15 bg-[#D7E2EA]/[0.03] px-4 py-2 text-[10px] sm:text-xs font-medium uppercase tracking-wider text-[#D7E2EA]/80 hover:border-[#D7E2EA]/40 hover:text-white transition-colors"
+                        className="rounded-full border border-[#D7E2EA]/15 bg-[#D7E2EA]/[0.03] px-4 py-2 text-[10px] sm:text-xs font-medium uppercase tracking-wider text-[#D7E2EA]/80 hover:scale-110 hover:-translate-y-1 hover:border-white/50 hover:bg-white/10 hover:text-white hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300"
                       >
                         {item}
                       </span>
