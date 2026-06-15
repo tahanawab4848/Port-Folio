@@ -10,7 +10,7 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="relative flex min-h-screen w-full items-center justify-center overflow-hidden px-5 sm:px-8 md:px-10 py-20"
+      className="relative flex min-h-[100dvh] w-full items-center justify-center overflow-hidden px-4 sm:px-8 md:px-10 py-16 sm:py-20"
     >
       {/* Corner decorative 3D images (Top Row Only) */}
       <FadeIn
