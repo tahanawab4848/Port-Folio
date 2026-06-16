@@ -41,11 +41,11 @@ const CertCard = ({ cert, index, total, onImageClick }: CertCardProps) => {
         className="origin-top mx-auto h-full w-full flex flex-col md:flex-row gap-6 md:gap-8 rounded-[40px] md:rounded-[60px] border border-white/10 bg-black/80 backdrop-blur-xl p-6 md:p-8 cursor-pointer group shadow-[0_0_50px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-white/30"
         onClick={() => onImageClick(cert.image)}
       >
-        <div className="flex-1 overflow-hidden rounded-[30px] md:rounded-[40px] relative">
+        <div className="flex-1 overflow-hidden rounded-[30px] md:rounded-[40px] relative bg-black/60 p-4 sm:p-8 flex items-center justify-center border border-white/5">
           <img
             src={cert.image}
             alt={cert.alt}
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            className="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]"
             loading="lazy"
             draggable={false}
           />
