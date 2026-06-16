@@ -184,6 +184,13 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-black/40" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
 
+      {/* Animated glowing orbs & tech grid */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[10%] left-[20%] h-[500px] w-[500px] rounded-full bg-blue-600/20 blur-[120px] mix-blend-screen" style={{ animation: 'floatOrb 15s ease-in-out infinite' }} />
+        <div className="absolute bottom-[10%] right-[10%] h-[600px] w-[600px] rounded-full bg-purple-600/20 blur-[150px] mix-blend-screen" style={{ animation: 'floatOrb 18s ease-in-out infinite reverse' }} />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA0MCAwIEwgMCAwIDAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40 mix-blend-overlay" />
+      </div>
+
       {/* Content layer */}
       <div className="relative z-10 flex h-full flex-col">
         {/* Top bar */}
@@ -319,6 +326,12 @@ const HeroSection = () => {
         @keyframes floatAvatar {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
           50% { transform: translateY(-12px) rotate(2deg); }
+        }
+        @keyframes floatOrb {
+          0% { transform: translate(0px, 0px) scale(1); }
+          33% { transform: translate(40px, -60px) scale(1.1); }
+          66% { transform: translate(-30px, 30px) scale(0.9); }
+          100% { transform: translate(0px, 0px) scale(1); }
         }
       `}</style>
     </section>
