@@ -75,3 +75,4 @@ const VideoModal = ({ open, onClose, youtubeId }: VideoModalProps) => {
 
 export default VideoModal;
 
+
