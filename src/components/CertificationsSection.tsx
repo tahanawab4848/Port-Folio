@@ -1,98 +1,131 @@
+import { useState, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import FadeIn from './FadeIn';
 
-const CERTIFICATIONS = [
-  {
-    title: "Machine Learning Specialization",
-    issuer: "Stanford University & DeepLearning.AI",
-    date: "2024",
-    skills: ["Python", "TensorFlow", "Neural Networks"],
-    icon: (
-      <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-      </svg>
-    )
-  },
-  {
-    title: "AWS Certified Developer",
-    issuer: "Amazon Web Services",
-    date: "2023",
-    skills: ["Cloud Architecture", "Serverless", "AWS Lambda"],
-    icon: (
-      <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
-      </svg>
-    )
-  },
-  {
-    title: "Full-Stack Web Development",
-    issuer: "Meta",
-    date: "2023",
-    skills: ["React", "Node.js", "System Design"],
-    icon: (
-      <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
-      </svg>
-    )
-  }
+const CERTIFICATES = [
+  { id: 1, image: "/certifications/Screenshot 2026-06-17 023529.png", alt: "Certification 1", title: "Certificate of Excellence" },
+  { id: 2, image: "/certifications/UC-a217c19a-8c5a-498f-9e2a-dd9bacbe0921.jpg", alt: "Certification 2", title: "Professional Credential" },
+  { id: 3, image: "/certifications/UC-bbaacbfa-cf79-4894-a981-378e8b7ac0b7.jpg", alt: "Certification 3", title: "Advanced Specialization" },
+  { id: 4, image: "/certifications/UC-f23a9b0e-1062-4877-80ae-cb78c2b203a4.jpg", alt: "Certification 4", title: "Technical Achievement" },
+  { id: 5, image: "/certifications/WhatsApp Image 2025-10-25 at 15.16.51_c39a18df.jpg", alt: "Certification 5", title: "Industry Recognition" },
+  { id: 6, image: "/certifications/certificate (4).png", alt: "Certification 6", title: "Skill Certification" },
+  { id: 7, image: "/certifications/certificate-3sumq6zebewy-1761167280_page-0001.jpg", alt: "Certification 7", title: "Mastery Award" }
 ];
 
-const CertificationsSection = () => {
+interface CertCardProps {
+  cert: any;
+  index: number;
+  total: number;
+  onImageClick: (img: string) => void;
+}
+
+const CertCard = ({ cert, index, total, onImageClick }: CertCardProps) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ['start end', 'start start'],
+  });
+
+  const targetScale = 1 - (total - 1 - index) * 0.05;
+  const scale = useTransform(scrollYProgress, [0, 1], [1, targetScale]);
+
   return (
-    <section id="certifications" className="relative w-full bg-[#050505] py-24 sm:py-32 overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-blue-600/10 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 h-[500px] w-[500px] rounded-full bg-purple-600/10 blur-[120px] pointer-events-none" />
-
-      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-10">
-        <FadeIn y={20}>
-          <div className="mb-16 md:mb-24 flex flex-col items-center text-center">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white">
-              Certifications
-            </h2>
-            <div className="mt-4 h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
-            <p className="mt-6 max-w-2xl text-sm md:text-base text-white/60">
-              Professional credentials demonstrating expertise in modern web technologies, cloud infrastructure, and artificial intelligence.
-            </p>
+    <div
+      ref={cardRef}
+      className="sticky top-24 md:top-32 h-[75vh] w-full max-w-5xl mx-auto"
+      style={{ top: `${96 + index * 30}px` }}
+    >
+      <motion.article
+        style={{ scale }}
+        className="origin-top mx-auto h-full w-full flex flex-col md:flex-row gap-6 md:gap-8 rounded-[40px] md:rounded-[60px] border border-white/10 bg-black/80 backdrop-blur-xl p-6 md:p-8 cursor-pointer group shadow-[0_0_50px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-white/30"
+        onClick={() => onImageClick(cert.image)}
+      >
+        <div className="flex-1 overflow-hidden rounded-[30px] md:rounded-[40px] relative">
+          <img
+            src={cert.image}
+            alt={cert.alt}
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+            draggable={false}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 flex items-end justify-center pb-10">
+             <span className="rounded-full bg-white/10 border border-white/20 backdrop-blur-md px-6 py-3 text-sm font-bold uppercase tracking-widest text-white shadow-xl transition-transform duration-500 hover:scale-110">
+               Click to View Full Size
+             </span>
           </div>
-        </FadeIn>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {CERTIFICATIONS.map((cert, idx) => (
-            <FadeIn key={idx} delay={idx * 0.15} y={30}>
-              <div className="group relative h-full rounded-2xl bg-white/5 border border-white/10 p-6 md:p-8 backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_40px_rgba(120,119,198,0.15)]">
-                {/* Glowing border effect on hover */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/0 via-purple-500/0 to-white/0 opacity-0 transition-opacity duration-500 group-hover:from-blue-500/10 group-hover:via-purple-500/10 group-hover:to-white/5 group-hover:opacity-100 pointer-events-none" />
-                
-                <div className="relative z-10 flex flex-col h-full">
-                  <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white shadow-inner transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
-                    {cert.icon}
-                  </div>
-                  
-                  <div className="mb-auto">
-                    <p className="mb-2 text-xs font-bold uppercase tracking-widest text-blue-400">
-                      {cert.date}
-                    </p>
-                    <h3 className="mb-2 text-lg font-bold text-white md:text-xl leading-tight">
-                      {cert.title}
-                    </h3>
-                    <p className="text-sm text-white/60">
-                      {cert.issuer}
-                    </p>
-                  </div>
-
-                  <div className="mt-8 flex flex-wrap gap-2">
-                    {cert.skills.map((skill, sIdx) => (
-                      <span key={sIdx} className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-[10px] font-medium uppercase tracking-wider text-white/70">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
-          ))}
         </div>
+        
+        {/* Subtle Side Info Panel */}
+        <div className="hidden md:flex flex-col justify-center w-1/4 min-w-[250px] border-l border-white/10 pl-8">
+           <span className="text-5xl font-black text-white/10 mb-4">{String(index + 1).padStart(2, '0')}</span>
+           <h3 className="text-2xl font-bold text-white mb-2">{cert.title}</h3>
+           <p className="text-white/50 text-sm uppercase tracking-widest">Verified Credential</p>
+           
+           <div className="mt-8 flex gap-2">
+             <div className="h-2 w-2 rounded-full bg-blue-500 animate-pulse"></div>
+             <div className="h-2 w-2 rounded-full bg-purple-500 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+           </div>
+        </div>
+      </motion.article>
+    </div>
+  );
+};
+
+const CertificationsSection = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  return (
+    <section id="certifications" className="relative w-full bg-[#050505] py-24 sm:py-32 px-4 sm:px-6 md:px-10">
+      <FadeIn y={40}>
+        <h2
+          className="hero-heading text-center font-black uppercase tracking-tight leading-none mb-20 sm:mb-28 text-white"
+          style={{ fontSize: 'clamp(2.5rem, 10vw, 120px)' }}
+        >
+          Certifications
+        </h2>
+      </FadeIn>
+
+      <div className="relative z-10 mx-auto max-w-7xl pb-32">
+        {CERTIFICATES.map((cert, idx) => (
+          <CertCard 
+            key={cert.id} 
+            cert={cert} 
+            index={idx} 
+            total={CERTIFICATES.length} 
+            onImageClick={setSelectedImage}
+          />
+        ))}
       </div>
+
+      {/* Background Glows */}
+      <div className="absolute top-[20%] right-0 h-[800px] w-[800px] rounded-full bg-blue-600/5 blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-[20%] left-0 h-[800px] w-[800px] rounded-full bg-purple-600/5 blur-[150px] pointer-events-none" />
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-md transition-opacity duration-300"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-h-[90vh] max-w-[90vw]">
+            <button 
+              className="absolute -top-12 right-0 rounded-full bg-white/10 border border-white/20 p-3 text-white hover:bg-white/20 hover:scale-110 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+              onClick={() => setSelectedImage(null)}
+            >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <img 
+              src={selectedImage} 
+              alt="Expanded Certification" 
+              className="max-h-[85vh] max-w-full rounded-2xl object-contain shadow-[0_0_100px_rgba(255,255,255,0.1)] border border-white/10"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
