@@ -57,3 +57,4 @@ const ScrambleText = ({ text, className = '', delay = 0 }: ScrambleTextProps) =>
 };
 
 export default ScrambleText;
+
