@@ -15,9 +15,9 @@ const CertificationsSection = () => {
 
   return (
     <section id="certifications" className="relative w-full bg-[#050505] py-20 sm:py-32 px-4 sm:px-6 md:px-10 overflow-hidden">
-      {/* Background Glows */}
-      <div className="absolute top-[10%] right-[-10%] h-[500px] w-[500px] rounded-full bg-blue-600/10 blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-[10%] left-[-10%] h-[500px] w-[500px] rounded-full bg-purple-600/10 blur-[150px] pointer-events-none" />
+      {/* Background Glows (Optimized with Radial Gradients) */}
+      <div className="absolute top-[10%] right-[-10%] h-[1000px] w-[1000px] -translate-y-1/2 translate-x-1/4 bg-[radial-gradient(circle,rgba(37,99,235,0.10)_0%,transparent_60%)] pointer-events-none" />
+      <div className="absolute bottom-[10%] left-[-10%] h-[1000px] w-[1000px] translate-y-1/4 -translate-x-1/4 bg-[radial-gradient(circle,rgba(147,51,234,0.10)_0%,transparent_60%)] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <FadeIn y={20}>

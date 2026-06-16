@@ -187,8 +187,8 @@ const HeroSection = () => {
 
       {/* Animated glowing orbs & tech grid */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[10%] left-[20%] h-[500px] w-[500px] rounded-full bg-blue-600/20 blur-[120px] mix-blend-screen" style={{ animation: 'floatOrb 15s ease-in-out infinite' }} />
-        <div className="absolute bottom-[10%] right-[10%] h-[600px] w-[600px] rounded-full bg-purple-600/20 blur-[150px] mix-blend-screen" style={{ animation: 'floatOrb 18s ease-in-out infinite reverse' }} />
+        <div className="absolute top-[10%] left-[20%] h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle,rgba(37,99,235,0.15)_0%,transparent_60%)] mix-blend-screen" style={{ animation: 'floatOrb 15s ease-in-out infinite' }} />
+        <div className="absolute bottom-[10%] right-[10%] h-[1000px] w-[1000px] translate-x-1/4 translate-y-1/4 bg-[radial-gradient(circle,rgba(147,51,234,0.15)_0%,transparent_60%)] mix-blend-screen" style={{ animation: 'floatOrb 18s ease-in-out infinite reverse' }} />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA0MCAwIEwgMCAwIDAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40 mix-blend-overlay" />
       </div>
 
