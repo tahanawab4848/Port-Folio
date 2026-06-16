@@ -11,6 +11,7 @@ A state-of-the-art, premium portfolio showcasing my work as a **Full-Stack Devel
 *   **Immersive Micro-animations:** Tactile hover-lift effects, animated tech grids, floating glowing orbs, and scramble text effects.
 *   **Interactive Certifications Gallery:** A responsive, interactive image grid that allows users to seamlessly browse and enlarge my professional credentials.
 *   **Dynamic Project Stacking:** A beautifully crafted, sticky scrolling animation stack using `framer-motion` for displaying case studies and projects.
+*   **Performance Optimized:** Utilizing React lazy loading and optimized radial gradients instead of heavy CSS blurs to ensure a stutter-free 60fps experience.
 
 ## 🛠️ Technology Stack
 
