@@ -5,8 +5,8 @@ const CustomCursor = () => {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Spring physics for buttery smooth trailing (lowered stiffness)
-  const outerSpringConfig = { damping: 30, stiffness: 100, mass: 0.6 };
+  // Spring physics for faster trailing (increased stiffness, lower mass)
+  const outerSpringConfig = { damping: 25, stiffness: 400, mass: 0.1 };
   const cursorXSpring = useSpring(cursorX, outerSpringConfig);
   const cursorYSpring = useSpring(cursorY, outerSpringConfig);
 
@@ -105,7 +105,7 @@ const CustomCursor = () => {
           backgroundColor: isHovering ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
           borderColor: isHovering ? 'rgba(255, 255, 255, 0.5)' : 'rgba(255, 255, 255, 0.2)',
         }}
-        transition={{ type: 'tween', ease: 'easeOut', duration: 0.15 }}
+        transition={{ type: 'tween', ease: 'easeOut', duration: 0.08 }}
       />
       {/* Inner dot that snaps instantly */}
       <motion.div
