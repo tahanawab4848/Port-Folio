@@ -94,7 +94,7 @@ const ContactSection = () => {
 
                   {/* DP Image that pops in on hover */}
                   <div className="relative z-10 flex h-0 w-0 items-center justify-center overflow-hidden rounded-full border-2 border-white/50 opacity-0 transition-all duration-300 ease-out group-hover:h-8 group-hover:w-8 group-hover:opacity-100 group-hover:scale-110">
-                    <img src="/profile.png" alt="Taha" className="h-full w-full object-cover" />
+                    <img src="/profile.webp" alt="Taha" className="h-full w-full object-cover" />
                   </div>
 
                   <Icon size={24} strokeWidth={2} className="transition-transform duration-300 group-hover:scale-110 relative z-10" />

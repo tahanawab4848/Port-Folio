@@ -66,7 +66,7 @@ const AboutSection = () => {
                 {/* DP Avatar */}
                 <div className="relative mb-6 h-32 w-32 sm:h-40 sm:w-40 overflow-hidden rounded-full border-2 border-white/20 shadow-2xl">
                   <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent mix-blend-overlay pointer-events-none z-10" />
-                  <img src="/profile.png" alt="Muhammad Taha Nawab" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" draggable={false} />
+                  <img src="/profile.webp" alt="Muhammad Taha Nawab" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" draggable={false} />
                 </div>
                 
                 {/* ID Info */}

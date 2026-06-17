@@ -2,12 +2,12 @@ import { useState } from 'react';
 import FadeIn from './FadeIn';
 
 const CERTIFICATES = [
-  { id: 1, image: "/certifications/Screenshot 2026-06-17 023529.png", alt: "Certification 1" },
-  { id: 2, image: "/certifications/UC-a217c19a-8c5a-498f-9e2a-dd9bacbe0921.jpg", alt: "Certification 2" },
-  { id: 3, image: "/certifications/UC-bbaacbfa-cf79-4894-a981-378e8b7ac0b7.jpg", alt: "Certification 3" },
-  { id: 4, image: "/certifications/UC-f23a9b0e-1062-4877-80ae-cb78c2b203a4.jpg", alt: "Certification 4" },
-  { id: 6, image: "/certifications/certificate (4).png", alt: "Certification 6" },
-  { id: 7, image: "/certifications/certificate-3sumq6zebewy-1761167280_page-0001.jpg", alt: "Certification 7" }
+  { id: 1, image: "/certifications/Screenshot 2026-06-17 023529.webp", alt: "Certification 1" },
+  { id: 2, image: "/certifications/UC-a217c19a-8c5a-498f-9e2a-dd9bacbe0921.webp", alt: "Certification 2" },
+  { id: 3, image: "/certifications/UC-bbaacbfa-cf79-4894-a981-378e8b7ac0b7.webp", alt: "Certification 3" },
+  { id: 4, image: "/certifications/UC-f23a9b0e-1062-4877-80ae-cb78c2b203a4.webp", alt: "Certification 4" },
+  { id: 6, image: "/certifications/certificate (4).webp", alt: "Certification 6" },
+  { id: 7, image: "/certifications/certificate-3sumq6zebewy-1761167280_page-0001.webp", alt: "Certification 7" }
 ];
 
 const CertificationsSection = () => {

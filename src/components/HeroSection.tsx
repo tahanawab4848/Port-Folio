@@ -184,7 +184,7 @@ const HeroSection = () => {
         preload="auto"
         className="absolute inset-0 h-full w-full object-cover"
       >
-        <source src="/intro.mp4" type="video/mp4" />
+        <source src="/intro.webm" type="video/webm" />
       </video>
 
       {/* Cinematic gradient overlays */}
