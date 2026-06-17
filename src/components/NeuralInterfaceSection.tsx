@@ -106,35 +106,15 @@ export default function NeuralInterfaceSection() {
 
   return (
     <>
-      {/* Floating Action Button - Enhanced Cyberpunk Aesthetic */}
-      <motion.button
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 2, type: 'spring', stiffness: 200 }}
+      {/* Floating Action Button - Matches 'Download CV' styling */}
+      <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-40 flex items-center justify-center gap-3 px-6 h-14 rounded-full bg-black/60 border border-blue-500/50 shadow-[0_0_30px_rgba(37,99,235,0.4)] backdrop-blur-xl group cursor-pointer overflow-hidden"
+        className="fixed bottom-6 right-6 z-40 group relative inline-flex items-center gap-2 rounded-full border border-white/20 bg-[#0C0C0C]/80 px-6 py-3 text-sm font-bold uppercase tracking-widest text-white backdrop-blur-md transition-all hover:bg-white/10 hover:border-white/40 hover:scale-105 cursor-pointer shadow-[0_0_20px_rgba(0,0,0,0.5)]"
       >
-        {/* Background Pulse */}
-        <div className="absolute inset-0 bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors duration-500" />
-        
-        {/* Core Icon & Outlined Text */}
-        <div className="relative flex items-center gap-3 z-10">
-          <div className="relative">
-            <Cpu className="w-5 h-5 text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.8)] group-hover:scale-110 transition-transform duration-500" />
-            <Zap className="absolute -top-1 -right-1 w-2 h-2 text-white animate-bounce" />
-          </div>
-          {/* Outlined Text Effect */}
-          <span 
-            className="font-mono text-sm font-black tracking-[0.2em] text-transparent"
-            style={{ WebkitTextStroke: '1px rgba(147, 197, 253, 0.8)' }}
-          >
-            TahAI
-          </span>
-        </div>
-        
-        {/* Scanning Glow Border Effect */}
-        <div className="absolute inset-0 rounded-full border border-blue-400 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-500" />
-      </motion.button>
+        <Cpu className="w-4 h-4 transition-transform group-hover:-translate-y-1" />
+        TahAI
+        <Zap className="absolute top-2 right-3 w-2 h-2 text-white animate-pulse opacity-50" />
+      </button>
 
       {/* Sidebar Interface */}
       <AnimatePresence>
