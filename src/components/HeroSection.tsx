@@ -181,14 +181,14 @@ const HeroSection = () => {
         loop
         playsInline
         preload="auto"
-        className="absolute inset-0 h-full w-full object-cover"
+        className={`absolute inset-0 h-full w-full object-cover transition-all duration-1000 ease-in-out ${speaking ? 'opacity-100 scale-105' : 'opacity-40 grayscale-[40%] scale-100'}`}
       >
         <source src="/intro.webm" type="video/webm" />
       </video>
 
-      {/* Cinematic gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-black/40" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
+      {/* Cinematic gradient overlays that react to voice */}
+      <div className={`absolute inset-0 transition-colors duration-1000 ${speaking ? 'bg-gradient-to-r from-black/60 via-transparent to-black/40' : 'bg-gradient-to-r from-black/80 via-black/50 to-black/60'}`} />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70 pointer-events-none" />
 
       {/* Animated glowing orbs & tech grid */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
