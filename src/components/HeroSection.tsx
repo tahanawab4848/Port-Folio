@@ -168,28 +168,19 @@ const HeroSection = () => {
       window.speechSynthesis.getVoices();
     };
 
-    // Auto-play the avatar on the first visit, upon the very first click anywhere on the page
+    // User requested: Auto-play the avatar speech immediately on load for the first visit
     const hasHeardIntro = localStorage.getItem('hasHeardIntro');
     
-    const handleFirstInteraction = () => {
-      // The browser now allows speech because the user clicked the screen
-      toggleSpeech();
-      // Mark as heard so it doesn't auto-play on their 2nd visit
-      localStorage.setItem('hasHeardIntro', 'true');
-      // Clean up event listeners immediately
-      document.removeEventListener('click', handleFirstInteraction);
-      document.removeEventListener('touchstart', handleFirstInteraction);
-    };
-
     if (!hasHeardIntro) {
-      document.addEventListener('click', handleFirstInteraction);
-      document.addEventListener('touchstart', handleFirstInteraction);
+      // Give the browser 1 second to fully load the voices, then force it to speak
+      setTimeout(() => {
+        toggleSpeech();
+        localStorage.setItem('hasHeardIntro', 'true');
+      }, 1000);
     }
 
     return () => {
       if (window.speechSynthesis) window.speechSynthesis.cancel();
-      document.removeEventListener('click', handleFirstInteraction);
-      document.removeEventListener('touchstart', handleFirstInteraction);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
