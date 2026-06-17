@@ -177,6 +177,7 @@ const HeroSection = () => {
       {/* Video background */}
       <video
         ref={videoRef}
+        autoPlay
         muted
         loop
         playsInline
