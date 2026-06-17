@@ -31,12 +31,16 @@ const KNOWLEDGE_BASE = [
     response: "> QUERY MATCH: 'SECONDARY_CONTACTS'\n> ALTERNATE EMAILS:\n  - official.taha.nawab@gmail.com\n  - tahanawab.official@gmail.com\n  - laurel4848@gmail.com\n  - nawabtaha61@gmail.com\n  - tisart4848@gmail.com\n> WHATSAPP (Direct Link): https://wa.me/923054776655\n> PHONE: +92 305-4776655"
   },
   {
+    keywords: ['age', 'dob', 'date of birth', 'born', 'birthday', 'old', 'birth'],
+    response: "> QUERY MATCH: 'PERSONAL_INFO'\n> DATE OF BIRTH: 3rd Oct, 2005\n> AGE: 20 years old"
+  },
+  {
     keywords: ['hi', 'hello', 'hey', 'greetings', 'who', 'system'],
-    response: "> INITIALIZING GREETING PROTOCOL...\n> Welcome, User. I am TahAI. You may query my databases regarding Taha's [PROJECTS], [SKILLS], [EDUCATION], or [CONTACT] information."
+    response: "> INITIALIZING GREETING PROTOCOL...\n> Welcome, User. I am TahAI. You may query my databases regarding Taha's [PROJECTS], [SKILLS], [EDUCATION], [CONTACT], or [AGE] information."
   }
 ];
 
-const DEFAULT_RESPONSE = "> ERROR: QUERY NOT RECOGNIZED.\n> Please restrict queries to parameters: ['projects', 'skills', 'education', 'contact'].";
+const DEFAULT_RESPONSE = "> ERROR: QUERY NOT RECOGNIZED.\n> Please restrict queries to parameters: ['projects', 'skills', 'education', 'contact', 'age'].";
 
 export default function NeuralInterfaceSection() {
   const [isOpen, setIsOpen] = useState(false);
