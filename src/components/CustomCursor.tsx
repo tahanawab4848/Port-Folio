@@ -5,13 +5,13 @@ const CustomCursor = () => {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Spring physics for faster trailing (increased stiffness, lower mass)
-  const outerSpringConfig = { damping: 25, stiffness: 400, mass: 0.1 };
+  // Spring physics for extremely responsive but fluid trailing
+  const outerSpringConfig = { damping: 30, stiffness: 800, mass: 0.05 };
   const cursorXSpring = useSpring(cursorX, outerSpringConfig);
   const cursorYSpring = useSpring(cursorY, outerSpringConfig);
 
-  // Ultra-fast spring for the inner dot to smooth out low polling rate mice
-  const innerSpringConfig = { damping: 25, stiffness: 600, mass: 0.05 };
+  // Ultra-fast instantaneous tracking (1:1 with hardware cursor but interpolated for smoothness)
+  const innerSpringConfig = { damping: 40, stiffness: 1500, mass: 0.01 };
   const innerXSpring = useSpring(cursorX, innerSpringConfig);
   const innerYSpring = useSpring(cursorY, innerSpringConfig);
 
