@@ -27,6 +27,10 @@ const KNOWLEDGE_BASE = [
     response: "> QUERY MATCH: 'CONTACT_INFO'\n> EMAIL: official.taha.nawab@gmail.com\n> PHONE: 0306-2540001\n> LINKEDIN: linkedin.com/in/tahanawab4848\n> GITHUB: github.com/tahanawab4848\n> LOCATION: Islamabad, Pakistan."
   },
   {
+    keywords: ['other contacts', 'more contacts', 'alternate', 'whatsapp', 'emails'],
+    response: "> QUERY MATCH: 'SECONDARY_CONTACTS'\n> ALTERNATE EMAILS:\n  - official.taha.nawab@gmail.com\n  - tahanawab.official@gmail.com\n  - laurel4848@gmail.com\n  - nawabtaha61@gmail.com\n  - tisart4848@gmail.com\n> WHATSAPP (Direct Link): https://wa.me/923054776655\n> PHONE: +92 305-4776655"
+  },
+  {
     keywords: ['hi', 'hello', 'hey', 'greetings', 'who', 'system'],
     response: "> INITIALIZING GREETING PROTOCOL...\n> Welcome, User. I am TahAI. You may query my databases regarding Taha's [PROJECTS], [SKILLS], [EDUCATION], or [CONTACT] information."
   }
@@ -108,18 +112,28 @@ export default function NeuralInterfaceSection() {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 2, type: 'spring', stiffness: 200 }}
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-40 flex items-center justify-center w-16 h-16 rounded-full bg-black/50 border border-blue-500/50 shadow-[0_0_30px_rgba(37,99,235,0.4)] backdrop-blur-xl group cursor-pointer"
+        className="fixed bottom-6 right-6 z-40 flex items-center justify-center gap-3 px-6 h-14 rounded-full bg-black/60 border border-blue-500/50 shadow-[0_0_30px_rgba(37,99,235,0.4)] backdrop-blur-xl group cursor-pointer overflow-hidden"
       >
-        {/* Orbital Rings */}
-        <div className="absolute inset-0 rounded-full border-t-2 border-blue-400 animate-[spin_4s_linear_infinite] opacity-50" />
-        <div className="absolute inset-2 rounded-full border-b-2 border-purple-500 animate-[spin_3s_linear_infinite_reverse] opacity-50" />
-        <div className="absolute inset-0 bg-blue-500/20 rounded-full animate-pulse group-hover:bg-blue-500/40 transition-colors" />
+        {/* Background Pulse */}
+        <div className="absolute inset-0 bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors duration-500" />
         
-        {/* Core Icon */}
-        <div className="relative flex items-center justify-center w-full h-full">
-          <Cpu className="w-7 h-7 text-blue-300 drop-shadow-[0_0_8px_rgba(147,197,253,0.8)] transition-transform duration-500 group-hover:scale-110" />
-          <Zap className="absolute top-4 right-4 w-3 h-3 text-white animate-bounce" />
+        {/* Core Icon & Outlined Text */}
+        <div className="relative flex items-center gap-3 z-10">
+          <div className="relative">
+            <Cpu className="w-5 h-5 text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.8)] group-hover:scale-110 transition-transform duration-500" />
+            <Zap className="absolute -top-1 -right-1 w-2 h-2 text-white animate-bounce" />
+          </div>
+          {/* Outlined Text Effect */}
+          <span 
+            className="font-mono text-sm font-black tracking-[0.2em] text-transparent"
+            style={{ WebkitTextStroke: '1px rgba(147, 197, 253, 0.8)' }}
+          >
+            TahAI
+          </span>
         </div>
+        
+        {/* Scanning Glow Border Effect */}
+        <div className="absolute inset-0 rounded-full border border-blue-400 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-500" />
       </motion.button>
 
       {/* Sidebar Interface */}
