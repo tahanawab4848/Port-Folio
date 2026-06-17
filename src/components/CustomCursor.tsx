@@ -5,8 +5,8 @@ const CustomCursor = () => {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Spring physics for a highly responsive, lightweight feel
-  const springConfig = { damping: 25, stiffness: 400, mass: 0.2 };
+  // Spring physics for buttery smooth trailing (lowered stiffness)
+  const springConfig = { damping: 25, stiffness: 150, mass: 0.4 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
@@ -14,10 +14,14 @@ const CustomCursor = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    let rafId: number | null = null;
     const moveCursor = (e: MouseEvent) => {
-      cursorX.set(e.clientX - 18); // Center the 36x36 outer ring
-      cursorY.set(e.clientY - 18);
-      if (!isVisible) setIsVisible(true);
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        cursorX.set(e.clientX - 18); // Center the 36x36 outer ring
+        cursorY.set(e.clientY - 18);
+        if (!isVisible) setIsVisible(true);
+      });
     };
 
     const handleMouseOver = (e: MouseEvent) => {
