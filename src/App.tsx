@@ -3,6 +3,7 @@ import HeroSection from './components/HeroSection';
 import CustomCursor from './components/CustomCursor';
 
 // Lazy load components that are below the fold
+const NeuralInterfaceSection = lazy(() => import('./components/NeuralInterfaceSection'));
 const AboutSection = lazy(() => import('./components/AboutSection'));
 const ServicesSection = lazy(() => import('./components/ServicesSection'));
 const ProjectsSection = lazy(() => import('./components/ProjectsSection'));
@@ -25,6 +26,7 @@ const App = () => {
       <HeroSection />
       
       <Suspense fallback={<LoadingFallback />}>
+        <NeuralInterfaceSection />
         <AboutSection />
         <ServicesSection />
         <ProjectsSection />

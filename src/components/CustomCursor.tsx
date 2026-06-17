@@ -5,8 +5,8 @@ const CustomCursor = () => {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Spring physics for smooth trailing
-  const springConfig = { damping: 25, stiffness: 300, mass: 0.5 };
+  // Spring physics for a highly responsive, lightweight feel
+  const springConfig = { damping: 25, stiffness: 400, mass: 0.2 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
@@ -15,8 +15,8 @@ const CustomCursor = () => {
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
-      cursorX.set(e.clientX - 16); // Center the 32x32 outer ring
-      cursorY.set(e.clientY - 16);
+      cursorX.set(e.clientX - 18); // Center the 36x36 outer ring
+      cursorY.set(e.clientY - 18);
       if (!isVisible) setIsVisible(true);
     };
 
@@ -81,31 +81,31 @@ const CustomCursor = () => {
 
   return (
     <>
-      {/* Outer trailing aura */}
+      {/* Outer trailing ring */}
       <motion.div
-        className="pointer-events-none fixed top-0 left-0 z-[9999] rounded-full border border-white/40 bg-white/5 mix-blend-difference shadow-[0_0_20px_rgba(255,255,255,0.3)] backdrop-blur-sm"
+        className="pointer-events-none fixed top-0 left-0 z-[9999] rounded-full border border-white/40 shadow-sm"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
-          width: 32,
-          height: 32,
+          width: 36,
+          height: 36,
           opacity: isVisible ? 1 : 0,
         }}
         animate={{
-          scale: isHovering ? 2 : 1,
-          backgroundColor: isHovering ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.02)',
-          borderColor: isHovering ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0.4)',
+          scale: isHovering ? 1.5 : 1,
+          backgroundColor: isHovering ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+          borderColor: isHovering ? 'rgba(255, 255, 255, 0.5)' : 'rgba(255, 255, 255, 0.2)',
         }}
         transition={{ type: 'tween', ease: 'easeOut', duration: 0.15 }}
       />
       {/* Inner dot that snaps instantly */}
       <motion.div
-        className="pointer-events-none fixed top-0 left-0 z-[10000] rounded-full bg-white mix-blend-difference"
+        className="pointer-events-none fixed top-0 left-0 z-[10000] rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.8)]"
         style={{
-          x: useTransform(cursorX, (x) => x + 13),
-          y: useTransform(cursorY, (y) => y + 13),
-          width: 6,
-          height: 6,
+          x: useTransform(cursorX, (x) => x + 14),
+          y: useTransform(cursorY, (y) => y + 14),
+          width: 8,
+          height: 8,
           opacity: isVisible ? 1 : 0,
         }}
         animate={{
