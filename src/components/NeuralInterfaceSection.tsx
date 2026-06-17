@@ -85,27 +85,102 @@ export default function NeuralInterfaceSection() {
     setIsAiTyping(true);
 
     // AI Response logic
-    setTimeout(() => {
-      const inputLower = userMsg.text.toLowerCase();
-      let match = KNOWLEDGE_BASE.find(kb => kb.keywords.some(kw => inputLower.includes(kw)));
+    const fetchGroqResponse = async () => {
+      const apiKey = import.meta.env.VITE_GROQ_API_KEY;
       
-      const responseText = match ? match.response : DEFAULT_RESPONSE;
+      // If no API key, fallback to local knowledge base
+      if (!apiKey) {
+        setTimeout(() => {
+          const inputLower = userMsg.text.toLowerCase();
+          let match = KNOWLEDGE_BASE.find(kb => kb.keywords.some(kw => inputLower.includes(kw)));
+          const responseText = match ? match.response : DEFAULT_RESPONSE;
+          
+          const aiMsg: Message = {
+            id: (Date.now() + 1).toString(),
+            sender: 'ai',
+            text: responseText,
+            isTyping: true
+          };
 
-      const aiMsg: Message = {
-        id: (Date.now() + 1).toString(),
-        sender: 'ai',
-        text: responseText,
-        isTyping: true
-      };
+          setMessages(prev => [...prev, aiMsg]);
+          
+          setTimeout(() => {
+            setMessages(prev => prev.map(m => m.id === aiMsg.id ? { ...m, isTyping: false } : m));
+            setIsAiTyping(false);
+          }, responseText.length * 20 + 1000);
+        }, 800);
+        return;
+      }
 
-      setMessages(prev => [...prev, aiMsg]);
+      // Live Groq AI Integration
+      try {
+        const systemPrompt = `You are TahAI, a high-tech AI portfolio assistant for Muhammad Taha Nawab.
+Your job is to answer questions about Taha's experience, skills, and projects in a professional, slightly cyberpunk tone. 
+Start your responses with "> " to match the terminal aesthetic. Keep them concise.
 
-      setTimeout(() => {
-        setMessages(prev => prev.map(m => m.id === aiMsg.id ? { ...m, isTyping: false } : m));
+Taha's Data:
+- DATE OF BIRTH: 3rd Oct, 2005 (Age: 20)
+- LOCATION: Islamabad, Pakistan
+- EDUCATION: BS Computer Science at COMSATS University Islamabad (Sep 2023 - Present)
+- PROJECTS: ToxiGlow (AI wound analysis), MediPredict (Disease prediction), Ticket System SLA, LearnWave.
+- SKILLS: React.js, FastAPI, Node.js, Python, TypeScript, PostgreSQL, Machine Learning, OpenCV
+- CONTACT: official.taha.nawab@gmail.com, Phone: +92 305-4776655`;
+
+        const groqMessages = [
+          { role: 'system', content: systemPrompt },
+          ...messages.filter(m => !m.isTyping).map(m => ({ role: m.sender === 'ai' ? 'assistant' : 'user', content: m.text })),
+          { role: 'user', content: userMsg.text }
+        ];
+
+        const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${apiKey}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            model: 'llama3-8b-8192',
+            messages: groqMessages,
+            temperature: 0.7,
+            max_tokens: 300,
+          })
+        });
+
+        if (!response.ok) throw new Error('API Error');
+        const data = await response.json();
+        let aiText = data.choices[0]?.message?.content || "> ERROR: NEURAL LINK FAILED.";
+        
+        // Ensure it starts with terminal prefix
+        if (!aiText.startsWith('>')) aiText = "> " + aiText.replace(/\n/g, '\n> ');
+
+        const aiMsg: Message = {
+          id: (Date.now() + 1).toString(),
+          sender: 'ai',
+          text: aiText,
+          isTyping: true
+        };
+
+        setMessages(prev => [...prev, aiMsg]);
+        
+        setTimeout(() => {
+          setMessages(prev => prev.map(m => m.id === aiMsg.id ? { ...m, isTyping: false } : m));
+          setIsAiTyping(false);
+        }, 1500);
+
+      } catch (error) {
+        console.error("Groq API Error:", error);
+        const errorMsg: Message = {
+          id: (Date.now() + 1).toString(),
+          sender: 'ai',
+          text: "> ERROR: SERVER UNREACHABLE. REVERTING TO LOCAL DATABANKS.",
+          isTyping: true
+        };
+        setMessages(prev => [...prev, errorMsg]);
         setIsAiTyping(false);
-      }, responseText.length * 20 + 1000); // Dynamic duration
+      }
+    };
 
-    }, 800); // Network latency simulation
+    fetchGroqResponse();
   };
 
   return (
