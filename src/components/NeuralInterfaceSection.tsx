@@ -190,7 +190,7 @@ English (Professional), Urdu (Native), Punjabi (Native)
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            model: 'llama3-8b-8192',
+            model: 'llama-3.1-8b-instant',
             messages: groqMessages,
             temperature: 0.7,
             max_tokens: 300,
@@ -223,11 +223,15 @@ English (Professional), Urdu (Native), Punjabi (Native)
         const errorMsg: Message = {
           id: (Date.now() + 1).toString(),
           sender: 'ai',
-          text: "> ERROR: SERVER UNREACHABLE. REVERTING TO LOCAL DATABANKS.",
+          text: "> ERROR: AI NEURAL LINK DISCONNECTED. REVERTING TO LOCAL DATABANKS.",
           isTyping: true
         };
         setMessages(prev => [...prev, errorMsg]);
-        setIsAiTyping(false);
+        
+        setTimeout(() => {
+          setMessages(prev => prev.map(m => m.id === errorMsg.id ? { ...m, isTyping: false } : m));
+          setIsAiTyping(false);
+        }, 1500);
       }
     };
 
