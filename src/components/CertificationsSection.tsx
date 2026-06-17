@@ -36,7 +36,7 @@ const CertificationsSection = () => {
           {CERTIFICATES.map((cert, idx) => (
             <FadeIn key={cert.id} delay={idx * 0.1} y={30}>
               <div 
-                className="group relative h-64 md:h-80 w-full cursor-pointer overflow-hidden rounded-[20px] md:rounded-[30px] border border-white/10 bg-black/50 p-4 md:p-6 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:bg-black/70 hover:border-white/20 hover:shadow-[0_0_40px_rgba(120,119,198,0.2)] flex items-center justify-center"
+                className="group relative h-64 md:h-80 w-full cursor-pointer overflow-hidden rounded-[20px] md:rounded-[30px] border border-white/10 bg-black/80 p-4 md:p-6 transition-all duration-500 hover:-translate-y-2 hover:bg-black/90 hover:border-white/20 hover:shadow-[0_0_40px_rgba(120,119,198,0.2)] flex items-center justify-center"
                 onClick={() => setSelectedImage(cert.image)}
               >
                 <img 
@@ -50,7 +50,7 @@ const CertificationsSection = () => {
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 flex items-center justify-center">
                    <div className="translate-y-4 transform transition-all duration-500 group-hover:translate-y-0">
-                     <span className="rounded-full bg-white/10 border border-white/20 backdrop-blur-md px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white shadow-xl flex items-center gap-2">
+                     <span className="rounded-full bg-black/80 border border-white/20 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white shadow-xl flex items-center gap-2">
                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
                        </svg>
@@ -67,7 +67,7 @@ const CertificationsSection = () => {
       {/* Image Modal */}
       {selectedImage && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 backdrop-blur-lg transition-opacity duration-300"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 transition-opacity duration-300"
           onClick={() => setSelectedImage(null)}
         >
           <div className="relative max-h-[90vh] max-w-[90vw]">

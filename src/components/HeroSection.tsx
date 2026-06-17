@@ -193,9 +193,9 @@ const HeroSection = () => {
 
       {/* Animated glowing orbs & tech grid */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[10%] left-[20%] h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle,rgba(255,255,255,0.08)_0%,transparent_60%)] mix-blend-screen" style={{ animation: 'floatOrb 15s ease-in-out infinite' }} />
-        <div className="absolute bottom-[10%] right-[10%] h-[1000px] w-[1000px] translate-x-1/4 translate-y-1/4 bg-[radial-gradient(circle,rgba(255,255,255,0.05)_0%,transparent_60%)] mix-blend-screen" style={{ animation: 'floatOrb 18s ease-in-out infinite reverse' }} />
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA0MCAwIEwgMCAwIDAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40 mix-blend-overlay" />
+        <div className="absolute top-[10%] left-[20%] h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle,rgba(255,255,255,0.06)_0%,transparent_60%)]" style={{ animation: 'floatOrb 15s ease-in-out infinite' }} />
+        <div className="absolute bottom-[10%] right-[10%] h-[1000px] w-[1000px] translate-x-1/4 translate-y-1/4 bg-[radial-gradient(circle,rgba(255,255,255,0.04)_0%,transparent_60%)]" style={{ animation: 'floatOrb 18s ease-in-out infinite reverse' }} />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA0MCAwIEwgMCAwIDAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20" />
       </div>
 
       {/* Content layer */}
@@ -218,7 +218,7 @@ const HeroSection = () => {
 
             <a
               href="#contact"
-              className="hidden sm:inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 sm:px-5 sm:py-2.5 text-[10px] sm:text-xs font-medium uppercase tracking-[0.2em] text-white backdrop-blur-md transition hover:bg-white/20 hover:scale-[1.03]"
+              className="hidden sm:inline-flex items-center rounded-full border border-white/20 bg-[#1A1A1A] px-4 py-2 sm:px-5 sm:py-2.5 text-[10px] sm:text-xs font-medium uppercase tracking-[0.2em] text-white transition hover:bg-white/20 hover:scale-[1.03]"
             >
               Email me
             </a>
@@ -229,7 +229,7 @@ const HeroSection = () => {
         <div className="flex flex-1 items-center">
           <div className="w-full max-w-7xl px-6 md:px-10">
             <FadeIn delay={0.3} y={20}>
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 backdrop-blur-md shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-[#1A1A1A] px-4 py-1.5 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-50"></span>
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
@@ -262,7 +262,7 @@ const HeroSection = () => {
                 <a
                   href="/Muhammad_Taha_Nawab_CV.pdf"
                   download="Muhammad_Taha_Nawab_CV.pdf"
-                  className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-white/30 bg-white/10 px-6 py-3 sm:px-8 sm:py-3.5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur-md transition-all hover:border-white/50 hover:bg-white/20 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]"
+                  className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-white/30 bg-[#1A1A1A] px-6 py-3 sm:px-8 sm:py-3.5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-white transition-all hover:border-white/50 hover:bg-white/20 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]"
                 >
                   <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"></span>
                   <svg className="relative z-10" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -299,7 +299,7 @@ const HeroSection = () => {
             <button
               onClick={toggleSpeech}
               aria-label={speaking ? 'Stop speaking' : 'Speak intro'}
-              className="group relative flex items-center gap-3 rounded-full border border-white/10 bg-[#0C0C0C]/80 px-5 py-2.5 sm:px-6 sm:py-3 text-white shadow-[0_0_20px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all hover:border-white/30 hover:bg-white/10 hover:scale-105"
+              className="group relative flex items-center gap-3 rounded-full border border-white/10 bg-[#0C0C0C]/90 px-5 py-2.5 sm:px-6 sm:py-3 text-white shadow-[0_0_20px_rgba(0,0,0,0.5)] transition-all hover:border-white/30 hover:bg-white/10 hover:scale-105"
             >
               <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-white/10 to-white/5 blur-md opacity-0 transition-opacity group-hover:opacity-100" />
               

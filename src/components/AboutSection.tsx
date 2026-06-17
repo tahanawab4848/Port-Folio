@@ -59,13 +59,13 @@ const AboutSection = () => {
           <div className="flex flex-col lg:flex-row items-center lg:items-start gap-16 lg:gap-24 xl:gap-32 w-full max-w-7xl mx-auto px-4 sm:px-0">
             {/* Left Column: Glassmorphism ID Card */}
             <FadeIn delay={0.1} y={20} className="w-full max-w-sm shrink-0 mt-2 lg:mt-6">
-              <div className="relative flex flex-col items-center rounded-[2rem] border border-white/10 bg-white/5 p-8 sm:p-10 backdrop-blur-xl shadow-[0_30px_60px_rgba(0,0,0,0.4)] overflow-hidden group">
+              <div className="relative flex flex-col items-center rounded-[2rem] border border-white/10 bg-[#0C0C0C] p-8 sm:p-10 shadow-[0_30px_60px_rgba(0,0,0,0.4)] overflow-hidden group">
                 {/* Shine effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100 pointer-events-none" />
                 
                 {/* DP Avatar */}
                 <div className="relative mb-6 h-32 w-32 sm:h-40 sm:w-40 overflow-hidden rounded-full border-2 border-white/20 shadow-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent mix-blend-overlay pointer-events-none z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent pointer-events-none z-10" />
                   <img src="/profile.webp" alt="Muhammad Taha Nawab" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" draggable={false} />
                 </div>
                 
@@ -114,14 +114,14 @@ const AboutSection = () => {
           <FadeIn delay={0.15} className="relative w-full mt-4 lg:mt-6 border-t border-white/5 pt-8 lg:pt-10">
             {/* Tech Animations */}
             <div className="pointer-events-none absolute -top-8 sm:-top-10 left-[5%] sm:left-[10%] opacity-40">
-              <div className="relative flex h-14 w-14 sm:h-20 sm:w-20 items-center justify-center rounded-full border border-white/10 bg-white/5 shadow-[0_0_30px_rgba(255,255,255,0.05)] backdrop-blur-sm animate-[spin_12s_linear_infinite]">
+              <div className="relative flex h-14 w-14 sm:h-20 sm:w-20 items-center justify-center rounded-full border border-white/10 bg-[#0C0C0C] shadow-[0_0_30px_rgba(255,255,255,0.05)] animate-[spin_12s_linear_infinite]">
                 <Cpu size={28} className="text-white/60 animate-[pulse_3s_ease-in-out_infinite]" />
                 <div className="absolute -inset-3 sm:-inset-4 rounded-full border border-dashed border-white/20 animate-[spin_20s_linear_infinite_reverse]" />
               </div>
             </div>
 
             <div className="pointer-events-none absolute -top-8 sm:-top-10 right-[5%] sm:right-[10%] opacity-40">
-              <div className="relative flex h-14 w-14 sm:h-20 sm:w-20 items-center justify-center rounded-full border border-white/10 bg-white/5 shadow-[0_0_30px_rgba(255,255,255,0.05)] backdrop-blur-sm animate-[float_4s_ease-in-out_infinite]">
+              <div className="relative flex h-14 w-14 sm:h-20 sm:w-20 items-center justify-center rounded-full border border-white/10 bg-[#0C0C0C] shadow-[0_0_30px_rgba(255,255,255,0.05)] animate-[float_4s_ease-in-out_infinite]">
                 <Terminal size={28} className="text-white/60" />
                 <div className="absolute -inset-3 sm:-inset-4 rounded-full border border-dotted border-white/30 animate-[spin_15s_linear_infinite]" />
               </div>
