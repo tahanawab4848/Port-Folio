@@ -167,9 +167,31 @@ const HeroSection = () => {
     window.speechSynthesis.onvoiceschanged = () => {
       window.speechSynthesis.getVoices();
     };
+
+    // Auto-play the avatar on the first visit, upon the very first click anywhere on the page
+    const hasHeardIntro = localStorage.getItem('hasHeardIntro');
+    
+    const handleFirstInteraction = () => {
+      // The browser now allows speech because the user clicked the screen
+      toggleSpeech();
+      // Mark as heard so it doesn't auto-play on their 2nd visit
+      localStorage.setItem('hasHeardIntro', 'true');
+      // Clean up event listeners immediately
+      document.removeEventListener('click', handleFirstInteraction);
+      document.removeEventListener('touchstart', handleFirstInteraction);
+    };
+
+    if (!hasHeardIntro) {
+      document.addEventListener('click', handleFirstInteraction);
+      document.addEventListener('touchstart', handleFirstInteraction);
+    }
+
     return () => {
       if (window.speechSynthesis) window.speechSynthesis.cancel();
+      document.removeEventListener('click', handleFirstInteraction);
+      document.removeEventListener('touchstart', handleFirstInteraction);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
