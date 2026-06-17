@@ -131,13 +131,13 @@ export default function NeuralInterfaceSection() {
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50 pointer-events-none" />
             </motion.div>
 
-            {/* Sidebar Panel - The "Digital Wonder" */}
+            {/* Chat Widget Panel */}
             <motion.div
-              initial={{ x: '100%', opacity: 0, skewX: -5 }}
-              animate={{ x: 0, opacity: 1, skewX: 0 }}
-              exit={{ x: '100%', opacity: 0, skewX: 5 }}
-              transition={{ type: 'spring', damping: 20, stiffness: 150 }}
-              className="fixed top-0 right-0 z-50 h-[100dvh] w-full max-w-sm sm:max-w-md bg-[#0C0C0C] border-l border-white/10 shadow-[-20px_0_50px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden"
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed bottom-24 right-6 z-50 h-[500px] max-h-[80dvh] w-[360px] max-w-[calc(100vw-3rem)] bg-[#0C0C0C] border border-white/20 rounded-3xl shadow-[0_10px_50px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden origin-bottom-right"
             >
               {/* Animated HUD Grid Background */}
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-20" />
