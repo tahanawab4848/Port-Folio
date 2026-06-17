@@ -109,11 +109,11 @@ export default function NeuralInterfaceSection() {
       {/* Floating Action Button - Matches 'Download CV' styling */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-40 group inline-flex items-center gap-2 rounded-full border border-white/20 bg-[#0C0C0C]/80 px-6 py-3 text-sm font-bold uppercase tracking-widest text-white backdrop-blur-md transition-all hover:bg-white/10 hover:border-white/40 hover:scale-105 cursor-pointer shadow-[0_0_20px_rgba(0,0,0,0.5)]"
+        className="fixed bottom-6 right-6 z-40 group inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-[#0C0C0C]/80 px-4 py-2 text-[11px] font-bold uppercase tracking-widest text-white backdrop-blur-md transition-all hover:bg-white/10 hover:border-white/40 hover:scale-105 cursor-pointer shadow-[0_0_20px_rgba(0,0,0,0.5)]"
       >
-        <Cpu className="w-4 h-4 transition-transform group-hover:-translate-y-1" />
+        <Cpu className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-1" />
         TahAI
-        <Zap className="absolute top-2 right-3 w-2 h-2 text-white animate-pulse opacity-50" />
+        <Zap className="absolute top-1.5 right-2 w-1.5 h-1.5 text-white animate-pulse opacity-50" />
       </button>
 
       {/* Sidebar Interface */}

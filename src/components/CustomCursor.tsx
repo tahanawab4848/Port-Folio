@@ -6,9 +6,14 @@ const CustomCursor = () => {
   const cursorY = useMotionValue(-100);
 
   // Spring physics for buttery smooth trailing (lowered stiffness)
-  const springConfig = { damping: 25, stiffness: 150, mass: 0.4 };
-  const cursorXSpring = useSpring(cursorX, springConfig);
-  const cursorYSpring = useSpring(cursorY, springConfig);
+  const outerSpringConfig = { damping: 30, stiffness: 100, mass: 0.6 };
+  const cursorXSpring = useSpring(cursorX, outerSpringConfig);
+  const cursorYSpring = useSpring(cursorY, outerSpringConfig);
+
+  // Ultra-fast spring for the inner dot to smooth out low polling rate mice
+  const innerSpringConfig = { damping: 25, stiffness: 600, mass: 0.05 };
+  const innerXSpring = useSpring(cursorX, innerSpringConfig);
+  const innerYSpring = useSpring(cursorY, innerSpringConfig);
 
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -104,10 +109,10 @@ const CustomCursor = () => {
       />
       {/* Inner dot that snaps instantly */}
       <motion.div
-        className="pointer-events-none fixed top-0 left-0 z-[10000] rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.8)]"
+        className="pointer-events-none fixed top-0 left-0 z-[10000] rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]"
         style={{
-          x: useTransform(cursorX, (x) => x + 14),
-          y: useTransform(cursorY, (y) => y + 14),
+          x: useTransform(innerXSpring, (x) => x + 14),
+          y: useTransform(innerYSpring, (y) => y + 14),
           width: 8,
           height: 8,
           opacity: isVisible ? 1 : 0,
