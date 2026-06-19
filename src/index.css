@@ -53,6 +53,15 @@ img {
   user-select: none;
 }
 
+/* Custom Sleek Dark Pointer (Hardware Accelerated) */
+*, body {
+  cursor: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.5 3L18.5 13.5L11.5 14.5L8.5 21L4.5 3Z' fill='%231A1A1A' stroke='%23FFFFFF' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E"), auto;
+}
+
+a, button, [role="button"], input, select, textarea, .cursor-pointer {
+  cursor: pointer;
+}
+
 
 
 
