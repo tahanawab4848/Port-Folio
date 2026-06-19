@@ -1,7 +1,6 @@
-import { Suspense, lazy, useState, useEffect } from 'react';
+import { Suspense, lazy } from 'react';
 import HeroSection from './components/HeroSection';
 import CustomCursor from './components/CustomCursor';
-import VideoModal from './components/VideoModal';
 
 // Lazy load components that are below the fold
 const NeuralInterfaceSection = lazy(() => import('./components/NeuralInterfaceSection'));
@@ -18,16 +17,6 @@ const LoadingFallback = () => (
 );
 
 const App = () => {
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
-
-  useEffect(() => {
-    // Open the intro video automatically after a short delay when the site loads
-    const timer = setTimeout(() => {
-      setIsVideoOpen(true);
-    }, 800);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <main
       className="relative w-full"
@@ -44,13 +33,6 @@ const App = () => {
         <CertificationsSection />
         <ContactSection />
       </Suspense>
-
-      {/* Intro Video Auto-Popup */}
-      <VideoModal
-        open={isVideoOpen}
-        onClose={() => setIsVideoOpen(false)}
-        youtubeId="dQw4w9WgXcQ" /* Replace this with your actual YouTube ID */
-      />
     </main>
   );
 };
