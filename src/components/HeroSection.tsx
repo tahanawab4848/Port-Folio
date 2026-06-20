@@ -24,7 +24,6 @@ const HeroSection = () => {
           const v = videoRef.current;
           if (v && !v.muted) {
             v.muted = true;
-            setSpeaking(false);
           }
         }
       },
@@ -77,33 +76,112 @@ const HeroSection = () => {
   }, []);
 
   const toggleSpeech = () => {
-    if (!videoRef.current) return;
-
-    if (speaking) {
-      videoRef.current.muted = true;
+    if (window.speechSynthesis.speaking) {
+      window.speechSynthesis.cancel();
       setSpeaking(false);
-    } else {
-      videoRef.current.muted = false;
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch((err) => {
-        console.warn('Autoplay with sound blocked by browser:', err);
-        videoRef.current!.muted = true;
-        setSpeaking(false);
-      });
-      setSpeaking(true);
+      return;
     }
+    // Adding deliberate punctuation forces the AI voice to take natural breaths and pauses
+    const text = "Hi... I'm Muhammad Taha Nawab. A Computer Science student, and Full-Stack Developer, with expertise in A.I. and Machine Learning. Welcome, to my portfolio.";
+    const utterance = new SpeechSynthesisUtterance(text);
+    
+    // Smooth, refined pacing
+    utterance.pitch = 0.95;
+    utterance.rate = 0.92;
+
+    const voices = window.speechSynthesis.getVoices();
+    
+    // Helper to identify likely male voices across different OS's
+    const isMale = (v: SpeechSynthesisVoice) => {
+      const name = v.name.toLowerCase();
+      // Look for explicit 'male' tag or common built-in male voice names for iOS/Android/Windows/Mac
+      return name.includes('male') || 
+             name.includes('david') || // Windows US
+             name.includes('mark') ||  // Windows US
+             name.includes('daniel') || // iOS UK
+             name.includes('arthur') || // iOS UK
+             name.includes('aaron') ||  // iOS US
+             name.includes('rishi') ||  // iOS Indian English
+             name.includes('prabhat') || // Android Indian English
+             name.includes('alex') ||    // Mac US
+             name.includes('fred') ||    // Mac US
+             name.includes('brian') ||   // Mac/iOS UK
+             name.includes('james') ||   // Windows
+             name.includes('cory') ||    // iOS
+             name.includes('guy');       // Windows
+    };
+
+    let isDefinitelyMale = true;
+
+    // Priority 1: Pakistani or Indian Male voice
+    let targetVoice = voices.find(v => (v.lang.includes('PK') || v.lang.includes('IN')) && isMale(v));
+
+    // Priority 2: UK or US Male voice
+    if (!targetVoice) {
+      targetVoice = voices.find(v => (v.lang.includes('GB') || v.lang.includes('UK') || v.lang.includes('US')) && isMale(v));
+    }
+
+    // Priority 3: ANY Male voice at all
+    if (!targetVoice) {
+      targetVoice = voices.find(v => isMale(v));
+    }
+    
+    // Priority 4: If literally no male voice can be found, fallback to standard English
+    if (!targetVoice) {
+      targetVoice = voices.find(v => v.lang.includes('GB') || v.lang.includes('UK') || v.lang.includes('US'));
+      isDefinitelyMale = false; // We failed to find a male voice
+    }
+
+    if (targetVoice) {
+      utterance.voice = targetVoice;
+    }
+
+    // If the phone forces us to use a default female voice, drop the pitch aggressively 
+    // to synthetically make it sound masculine and robotic/premium.
+    if (!isDefinitelyMale) {
+      utterance.pitch = 0.5; // Deepen the voice
+    }
+    
+    utterance.onstart = () => {
+      setSpeaking(true);
+      if (videoRef.current) {
+        // Restart video so the avatar's animation starts exactly when the voice does
+        videoRef.current.currentTime = 0;
+        videoRef.current.play();
+      }
+    };
+
+    utterance.onend = () => {
+      setSpeaking(false);
+      if (videoRef.current) {
+        // Pause the video so the avatar stops moving its mouth when the voice ends
+        videoRef.current.pause();
+      }
+    };
+    
+    window.speechSynthesis.speak(utterance);
   };
 
   useEffect(() => {
+    // Force Chrome to load voices
+    window.speechSynthesis.onvoiceschanged = () => {
+      window.speechSynthesis.getVoices();
+    };
+
     // User requested: Auto-play the avatar speech immediately on load for the first visit
     const hasHeardIntro = localStorage.getItem('hasHeardIntro');
     
     if (!hasHeardIntro) {
+      // Give the browser 1 second to fully load the voices, then force it to speak
       setTimeout(() => {
         toggleSpeech();
         localStorage.setItem('hasHeardIntro', 'true');
       }, 1000);
     }
+
+    return () => {
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+    };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
