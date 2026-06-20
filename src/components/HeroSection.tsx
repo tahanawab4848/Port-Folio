@@ -114,9 +114,9 @@ const HeroSection = () => {
         ref={videoRef}
         autoPlay
         muted
-        loop
         playsInline
         preload="auto"
+        onEnded={() => setSpeaking(false)}
         className={`absolute inset-0 h-full w-full object-cover transition-all duration-1000 ease-in-out ${speaking ? 'opacity-100 scale-105' : 'opacity-40 grayscale-[40%] scale-100'}`}
       >
         <source src="/make_the_avatar_give_iNtro_whi.webm" type="video/webm" />
@@ -235,24 +235,24 @@ const HeroSection = () => {
             <button
               onClick={toggleSpeech}
               aria-label={speaking ? 'Stop speaking' : 'Speak intro'}
-              className="group relative flex items-center gap-3 rounded-full border border-white/10 bg-[#0C0C0C]/90 px-5 py-2.5 sm:px-6 sm:py-3 text-white shadow-[0_0_20px_rgba(0,0,0,0.5)] transition-all hover:border-white/30 hover:bg-white/10 hover:scale-105"
+              className="group relative flex items-center gap-2 rounded-full border border-white/10 bg-[#0C0C0C]/90 px-3 py-1.5 sm:px-4 sm:py-2 text-white shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all hover:border-white/30 hover:bg-white/10 hover:scale-105"
             >
               <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-white/10 to-white/5 blur-md opacity-0 transition-opacity group-hover:opacity-100" />
               
-              <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em]">
+              <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.2em]">
                 {speaking ? 'Stop' : 'Hear Intro'}
               </span>
               
               {speaking ? (
-                <div className="flex items-center justify-center w-6 h-6 rounded-full bg-white/20 text-white">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2">
+                <div className="flex items-center justify-center w-4 h-4 rounded-full bg-white/20 text-white">
+                  <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2">
                     <rect x="6" y="4" width="4" height="16" />
                     <rect x="14" y="4" width="4" height="16" />
                   </svg>
                 </div>
               ) : (
-                <div className="flex items-center justify-center w-6 h-6 rounded-full bg-white/20 text-white">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <div className="flex items-center justify-center w-4 h-4 rounded-full bg-white/20 text-white">
+                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
                     <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
                   </svg>
