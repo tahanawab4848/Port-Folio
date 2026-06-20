@@ -122,7 +122,7 @@ const HeroSection = () => {
           <FadeIn delay={0.2} y={20}>
             <button
               onClick={handleEnter}
-              className="group relative overflow-hidden rounded-full border border-white/20 bg-white/5 px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-white transition-all hover:bg-white/10 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.1)]"
+              className="group relative overflow-hidden rounded-full border border-white/20 bg-white/10 px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-white transition-all hover:bg-white/10 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.1)]"
             >
               <span className="relative z-10 flex items-center gap-3">
                 <span className="flex h-2 w-2 rounded-full bg-white animate-pulse" />
@@ -218,7 +218,7 @@ const HeroSection = () => {
             </FadeIn>
 
             <FadeIn delay={0.85} y={20}>
-              <p className="mt-5 md:mt-7 text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.3em] bg-gradient-to-r from-gray-400 via-gray-200 to-white bg-clip-text text-transparent">
+              <p className="mt-5 md:mt-7 text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-[#E2E8F0]">
                 Full-Stack Developer · AI/ML Engineer
               </p>
             </FadeIn>
@@ -265,7 +265,7 @@ const HeroSection = () => {
             <button
               onClick={toggleSpeech}
               aria-label={speaking ? 'Stop speaking' : 'Speak intro'}
-              className="group relative flex items-center gap-2 rounded-full border border-white/10 bg-[#0C0C0C]/90 px-3 py-1.5 sm:px-4 sm:py-2 text-white shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all hover:border-white/30 hover:bg-white/10 hover:scale-105"
+              className="group relative flex items-center gap-2 rounded-full border border-white/10 bg-[#0A0A0A]/90 px-3 py-1.5 sm:px-4 sm:py-2 text-white shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all hover:border-white/30 hover:bg-white/10 hover:scale-105"
             >
               <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-white/10 to-white/5 blur-md opacity-0 transition-opacity group-hover:opacity-100" />
               

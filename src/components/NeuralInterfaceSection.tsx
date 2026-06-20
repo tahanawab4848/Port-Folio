@@ -243,7 +243,7 @@ English (Professional), Urdu (Native), Punjabi (Native)
       {/* Floating Action Button - Matches 'Download CV' styling */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-40 group inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-[#0C0C0C] px-4 py-2 text-[11px] font-bold uppercase tracking-widest text-white transition-all hover:bg-white/10 hover:border-white/40 hover:scale-105 cursor-pointer shadow-[0_0_20px_rgba(0,0,0,0.5)]"
+        className="fixed bottom-6 right-6 z-40 group inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-[#0A0A0A] px-4 py-2 text-[11px] font-bold uppercase tracking-widest text-white transition-all hover:bg-white/10 hover:border-white/40 hover:scale-105 cursor-pointer shadow-[0_0_20px_rgba(0,0,0,0.5)]"
       >
         <Cpu className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-1" />
         TahAI
@@ -271,7 +271,7 @@ English (Professional), Urdu (Native), Punjabi (Native)
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed bottom-24 right-6 z-50 h-[500px] max-h-[80dvh] w-[360px] max-w-[calc(100vw-3rem)] bg-[#0C0C0C] border border-white/20 rounded-3xl shadow-[0_10px_50px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden origin-bottom-right"
+              className="fixed bottom-24 right-6 z-50 h-[500px] max-h-[80dvh] w-[360px] max-w-[calc(100vw-3rem)] bg-[#0A0A0A] border border-white/10 rounded-3xl shadow-[0_10px_50px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden origin-bottom-right"
             >
               {/* Animated HUD Grid Background */}
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-20" />
@@ -282,14 +282,14 @@ English (Professional), Urdu (Native), Punjabi (Native)
               </div>
 
               {/* Header */}
-              <div className="relative z-30 flex items-center justify-between px-6 py-5 border-b border-white/10 bg-[#0C0C0C]">
+              <div className="relative z-30 flex items-center justify-between px-6 py-5 border-b border-white/10 bg-[#0A0A0A]">
                 <div className="flex items-center gap-4">
-                  <div className="relative flex items-center justify-center w-10 h-10 rounded-sm bg-white/5 border border-white/20 overflow-hidden">
+                  <div className="relative flex items-center justify-center w-10 h-10 rounded-sm bg-white/5 border border-white/10 overflow-hidden">
                     <div className="absolute inset-0 bg-white/10 animate-pulse" />
                     <Terminal className="w-5 h-5 text-white relative z-10" />
                   </div>
                   <div>
-                    <h3 className="text-xs font-black uppercase tracking-[0.3em] text-[#D7E2EA] flex items-center gap-2">
+                    <h3 className="text-xs font-black uppercase tracking-[0.3em] text-[white] flex items-center gap-2">
                       TahAI <Activity className="w-3 h-3 text-white/70" />
                     </h3>
                     <div className="flex items-center gap-2 mt-1">
@@ -302,7 +302,7 @@ English (Professional), Urdu (Native), Punjabi (Native)
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-sm bg-white/5 border border-white/10 text-[#D7E2EA] hover:bg-white/10 hover:text-white transition-all hover:scale-110"
+                  className="p-2 rounded-sm bg-white/5 border border-white/10 text-[white] hover:bg-white/10 hover:text-white transition-all hover:scale-110"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -320,7 +320,7 @@ English (Professional), Urdu (Native), Punjabi (Native)
                       className={`flex flex-col gap-2 max-w-[90%] ${msg.sender === 'user' ? 'self-end' : 'self-start'}`}
                     >
                       {/* Sender Label */}
-                      <div className={`flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest ${msg.sender === 'user' ? 'justify-end text-white/60' : 'text-[#D7E2EA]'}`}>
+                      <div className={`flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest ${msg.sender === 'user' ? 'justify-end text-white/60' : 'text-[white]'}`}>
                         {msg.sender === 'user' ? (
                           <>GUEST_USER <User className="w-3 h-3" /></>
                         ) : (
@@ -332,7 +332,7 @@ English (Professional), Urdu (Native), Punjabi (Native)
                       <div className={`relative px-4 py-3 text-sm font-mono leading-relaxed ${
                         msg.sender === 'user' 
                           ? 'bg-white/5 border-r-2 border-white/30 text-white' 
-                          : 'bg-white/10 border-l-2 border-white/50 text-[#D7E2EA]'
+                          : 'bg-white/10 border-l-2 border-white/50 text-[white]'
                       }`}>
                         {/* High-tech corner accents */}
                         <div className={`absolute top-0 w-2 h-px ${msg.sender === 'user' ? 'right-0 bg-white/50' : 'left-0 bg-white/80'}`} />
@@ -340,7 +340,7 @@ English (Professional), Urdu (Native), Punjabi (Native)
 
                         {msg.isTyping ? (
                           <div className="flex items-center gap-2">
-                            <span className="animate-pulse text-[#D7E2EA]">DECRYPTING_DATA</span>
+                            <span className="animate-pulse text-[white]">DECRYPTING_DATA</span>
                             <div className="flex gap-1">
                               <span className="w-1 h-3 bg-white/50 animate-[pulse_1s_infinite_0ms]" />
                               <span className="w-1 h-3 bg-white/50 animate-[pulse_1s_infinite_150ms]" />
@@ -360,7 +360,7 @@ English (Professional), Urdu (Native), Punjabi (Native)
               </div>
 
               {/* Input Area */}
-              <div className="relative z-20 p-5 border-t border-white/10 bg-[#0C0C0C]">
+              <div className="relative z-20 p-5 border-t border-white/10 bg-[#0A0A0A]">
                 <form onSubmit={handleSend} className="relative flex items-center group">
                   <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none text-white/50 font-mono">
                     {'>'}
@@ -371,7 +371,7 @@ English (Professional), Urdu (Native), Punjabi (Native)
                     onChange={(e) => setInputValue(e.target.value)}
                     placeholder="Enter command..."
                     disabled={isAiTyping}
-                    className="w-full bg-[#0C0C0C] border border-white/20 py-3.5 pl-8 pr-14 text-sm font-mono text-[#D7E2EA] placeholder-white/30 focus:outline-none focus:border-white/50 focus:bg-white/5 transition-all disabled:opacity-50"
+                    className="w-full bg-[#0A0A0A] border border-white/10 py-3.5 pl-8 pr-14 text-sm font-mono text-[white] placeholder-white/30 focus:outline-none focus:border-white/50 focus:bg-white/5 transition-all disabled:opacity-50"
                   />
                   <button
                     type="submit"
