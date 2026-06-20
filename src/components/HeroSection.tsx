@@ -13,6 +13,7 @@ const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [speaking, setSpeaking] = useState(false);
+  const [showEnterOverlay, setShowEnterOverlay] = useState(false);
   // Auto-mute video when scrolling past hero
   useEffect(() => {
     const section = sectionRef.current;
@@ -99,16 +100,45 @@ const HeroSection = () => {
     const hasHeardIntro = localStorage.getItem('hasHeardIntro');
     
     if (!hasHeardIntro) {
-      setTimeout(() => {
-        toggleSpeech();
-        localStorage.setItem('hasHeardIntro', 'true');
-      }, 1000);
+      setShowEnterOverlay(true);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const handleEnter = () => {
+    setShowEnterOverlay(false);
+    localStorage.setItem('hasHeardIntro', 'true');
+    // Slight delay to allow overlay to fade before playing
+    setTimeout(() => {
+      toggleSpeech();
+    }, 300);
+  };
+
   return (
     <section ref={sectionRef} className="relative h-[100dvh] min-h-[600px] w-full overflow-hidden bg-black">
+      {/* Entry Overlay to guarantee unmuted autoplay */}
+      {showEnterOverlay && (
+        <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-black backdrop-blur-xl transition-opacity duration-1000">
+          <FadeIn delay={0.2} y={20}>
+            <button
+              onClick={handleEnter}
+              className="group relative overflow-hidden rounded-full border border-white/20 bg-white/5 px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-white transition-all hover:bg-white/10 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.1)]"
+            >
+              <span className="relative z-10 flex items-center gap-3">
+                <span className="flex h-2 w-2 rounded-full bg-white animate-pulse" />
+                Enter Portfolio
+              </span>
+              <div className="absolute inset-0 -z-10 translate-y-full bg-gradient-to-t from-white/20 to-transparent transition-transform duration-500 group-hover:translate-y-0" />
+            </button>
+          </FadeIn>
+          <FadeIn delay={0.6} y={10}>
+            <p className="mt-6 text-[9px] sm:text-[10px] font-medium uppercase tracking-[0.2em] text-white/40">
+              Click to start interactive experience
+            </p>
+          </FadeIn>
+        </div>
+      )}
+
       {/* Video background */}
       <video
         ref={videoRef}
