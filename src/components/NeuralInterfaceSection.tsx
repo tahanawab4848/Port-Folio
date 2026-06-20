@@ -86,8 +86,8 @@ export default function NeuralInterfaceSection() {
 
     // AI Response logic
     const fetchGroqResponse = async () => {
-      // API Key explicitly provided so Vercel redeploys don't block the live site
-      const apiKey = "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";
+      // Load API key from environment variable to prevent GitHub auto-revocation
+      const apiKey = import.meta.env.VITE_GROQ_API_KEY;
       
       // If no API key, fallback to local knowledge base
       if (!apiKey) {
