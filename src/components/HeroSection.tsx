@@ -184,7 +184,7 @@ const HeroSection = () => {
 
             <a
               href="#contact"
-              className="hidden sm:inline-flex items-center rounded-full border border-white/20 bg-[#1A1A1A] px-4 py-2 sm:px-5 sm:py-2.5 text-[10px] sm:text-xs font-medium uppercase tracking-[0.2em] text-white transition hover:bg-white/20 hover:scale-[1.03]"
+              className="hidden sm:inline-flex items-center rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-4 py-2 sm:px-5 sm:py-2.5 text-[10px] sm:text-xs font-medium uppercase tracking-[0.2em] text-white transition hover:bg-white/20 hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
             >
               Email me
             </a>
@@ -195,7 +195,7 @@ const HeroSection = () => {
         <div className="flex flex-1 items-center">
           <div className="w-full max-w-7xl px-6 md:px-10">
             <FadeIn delay={0.3} y={20}>
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-[#1A1A1A] px-4 py-1.5 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-4 py-1.5 shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all hover:bg-white/10 hover:border-white/30">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-50"></span>
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
@@ -210,7 +210,7 @@ const HeroSection = () => {
 
             <FadeIn delay={0.65} y={30}>
               <h1
-                className="mt-4 sm:mt-6 md:mt-8 font-black uppercase tracking-tighter leading-[0.85] text-white break-words"
+                className="mt-4 sm:mt-6 md:mt-8 font-black uppercase tracking-tighter leading-[0.85] text-white break-words [text-shadow:0_0_40px_rgba(255,255,255,0.15)]"
                 style={{ fontSize: 'clamp(2.25rem, 8vw, 150px)' }}
               >
                 <ScrambleText text="Muhammad Taha Nawab" delay={0.8} />
@@ -218,7 +218,7 @@ const HeroSection = () => {
             </FadeIn>
 
             <FadeIn delay={0.85} y={20}>
-              <p className="mt-5 md:mt-7 text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-[#E2E8F0]">
+              <p className="mt-5 md:mt-7 text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.4em] text-[#E2E8F0] [text-shadow:0_0_20px_rgba(255,255,255,0.3)]">
                 Full-Stack Developer · AI/ML Engineer
               </p>
             </FadeIn>
@@ -228,7 +228,7 @@ const HeroSection = () => {
                 <a
                   href="/Muhammad_Taha_Nawab_CV.pdf"
                   download="Muhammad_Taha_Nawab_CV.pdf"
-                  className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-white/30 bg-[#1A1A1A] px-6 py-3 sm:px-8 sm:py-3.5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-white transition-all hover:border-white/50 hover:bg-white/20 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]"
+                  className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-6 py-3 sm:px-8 sm:py-3.5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-white transition-all hover:border-white/50 hover:bg-white/20 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
                 >
                   <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"></span>
                   <svg className="relative z-10" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
