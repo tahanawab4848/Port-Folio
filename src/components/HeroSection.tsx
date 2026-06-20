@@ -197,8 +197,8 @@ const HeroSection = () => {
         preload="auto"
         className={`absolute inset-0 h-full w-full object-cover transition-all duration-1000 ease-in-out ${speaking ? 'opacity-100 scale-105' : 'opacity-40 grayscale-[40%] scale-100'}`}
       >
-        <source src="/intro.webm" type="video/webm" />
-        <source src="/intro.mp4" type="video/mp4" />
+        <source src="/make_the_avatar_give_iNtro_whi.webm" type="video/webm" />
+        <source src="/make_the_avatar_give_iNtro_whi.mp4" type="video/mp4" />
       </video>
 
       {/* Cinematic gradient overlays that react to voice */}
