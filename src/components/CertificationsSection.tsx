@@ -14,10 +14,10 @@ const CertificationsSection = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <section id="certifications" className="relative w-full bg-[#050505] py-20 sm:py-32 px-4 sm:px-6 md:px-10 overflow-hidden">
+    <section id="certifications" className="relative w-full bg-black py-20 sm:py-32 px-4 sm:px-6 md:px-10 overflow-hidden">
       {/* Background Glows (Optimized with Radial Gradients) */}
-      <div className="absolute top-[10%] right-[-10%] h-[1000px] w-[1000px] -translate-y-1/2 translate-x-1/4 bg-[radial-gradient(circle,rgba(37,99,235,0.10)_0%,transparent_60%)] pointer-events-none" />
-      <div className="absolute bottom-[10%] left-[-10%] h-[1000px] w-[1000px] translate-y-1/4 -translate-x-1/4 bg-[radial-gradient(circle,rgba(147,51,234,0.10)_0%,transparent_60%)] pointer-events-none" />
+      <div className="absolute top-[10%] right-[-10%] h-[1000px] w-[1000px] -translate-y-1/2 translate-x-1/4 bg-[radial-gradient(circle,rgba(255,255,255,0.03)_0%,transparent_60%)] pointer-events-none" />
+      <div className="absolute bottom-[10%] left-[-10%] h-[1000px] w-[1000px] translate-y-1/4 -translate-x-1/4 bg-[radial-gradient(circle,rgba(255,255,255,0.03)_0%,transparent_60%)] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <FadeIn y={20}>
@@ -25,36 +25,37 @@ const CertificationsSection = () => {
             <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white">
               Certifications
             </h2>
-            <div className="mt-4 h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
+            <div className="mt-4 h-px w-20 bg-white/30 rounded-full" />
             <p className="mt-6 max-w-2xl text-sm md:text-base text-white/60">
               Verified credentials and professional achievements.
             </p>
           </div>
         </FadeIn>
 
-        <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-5 max-w-5xl mx-auto">
           {CERTIFICATES.map((cert, idx) => (
             <FadeIn key={cert.id} delay={idx * 0.1} y={30}>
               <div 
-                className="group relative h-64 md:h-80 w-full cursor-pointer overflow-hidden rounded-[20px] md:rounded-[30px] border border-white/10 bg-black/80 p-4 md:p-6 transition-all duration-500 hover:-translate-y-2 hover:bg-black/90 hover:border-white/20 hover:shadow-[0_0_40px_rgba(120,119,198,0.2)] flex items-center justify-center"
+                className="group relative h-32 sm:h-40 md:h-48 w-full cursor-pointer overflow-hidden rounded-[15px] border border-white/10 bg-white/5 backdrop-blur-xl p-3 md:p-4 transition-all duration-500 hover:scale-[1.6] hover:z-50 hover:bg-white/10 hover:border-white/40 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)] flex items-center justify-center"
                 onClick={() => setSelectedImage(cert.image)}
               >
                 <img 
                   src={cert.image} 
                   alt={cert.alt} 
-                  className="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-105 drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]"
+                  className="max-h-full max-w-full object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]"
                   loading="lazy"
                   draggable={false}
                 />
                 
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 flex items-center justify-center">
-                   <div className="translate-y-4 transform transition-all duration-500 group-hover:translate-y-0">
-                     <span className="rounded-full bg-black/80 border border-white/20 px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white shadow-xl flex items-center gap-2">
-                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-500 group-hover:opacity-100 flex items-center justify-center">
+                   <div className="scale-90 opacity-0 transform transition-all duration-500 group-hover:scale-100 group-hover:opacity-100">
+                     <span className="rounded-full bg-white/10 border border-white/30 px-3 py-1.5 text-[8px] sm:text-[10px] font-bold uppercase tracking-widest text-white shadow-xl flex items-center gap-1.5">
+                       <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.478 0-8.268-2.943-9.542-7z" />
                        </svg>
-                       View Certificate
+                       View
                      </span>
                    </div>
                 </div>
