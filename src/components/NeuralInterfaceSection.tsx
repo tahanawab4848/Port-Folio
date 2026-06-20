@@ -271,7 +271,7 @@ English (Professional), Urdu (Native), Punjabi (Native)
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed bottom-24 right-6 z-50 h-[500px] max-h-[80dvh] w-[360px] max-w-[calc(100vw-3rem)] bg-black border border-white/10 rounded-3xl shadow-[0_0_40px_rgba(255,255,255,0.15)] border-white/20 flex flex-col overflow-hidden origin-bottom-right"
+              className="fixed bottom-24 right-6 z-50 h-[420px] max-h-[70dvh] w-[320px] max-w-[calc(100vw-3rem)] bg-black/40 backdrop-blur-2xl border border-white/20 rounded-3xl shadow-[0_0_30px_rgba(255,255,255,0.15)] flex flex-col overflow-hidden origin-bottom-right"
             >
               {/* Animated HUD Grid Background */}
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-20" />
@@ -282,7 +282,7 @@ English (Professional), Urdu (Native), Punjabi (Native)
               </div>
 
               {/* Header */}
-              <div className="relative z-30 flex items-center justify-between px-6 py-5 border-b border-white/10 bg-black">
+              <div className="relative z-30 flex items-center justify-between px-5 py-4 border-b border-white/10 bg-white/5 backdrop-blur-md">
                 <div className="flex items-center gap-4">
                   <div className="relative flex items-center justify-center w-10 h-10 rounded-sm bg-white/5 border border-white/10 overflow-hidden">
                     <div className="absolute inset-0 bg-white/10 animate-pulse" />
@@ -331,8 +331,8 @@ English (Professional), Urdu (Native), Punjabi (Native)
                       {/* Message Body */}
                       <div className={`relative px-4 py-3 text-sm font-mono leading-relaxed ${
                         msg.sender === 'user' 
-                          ? 'bg-white/5 border-r-2 border-white/30 text-white' 
-                          : 'bg-white/10 border-l-2 border-white/50 text-[white]'
+                          ? 'bg-white/5 backdrop-blur-sm border-r-2 border-white/30 text-white' 
+                          : 'bg-white/10 backdrop-blur-sm border-l-2 border-white/50 text-[white]'
                       }`}>
                         {/* High-tech corner accents */}
                         <div className={`absolute top-0 w-2 h-px ${msg.sender === 'user' ? 'right-0 bg-white/50' : 'left-0 bg-white/80'}`} />
@@ -360,7 +360,7 @@ English (Professional), Urdu (Native), Punjabi (Native)
               </div>
 
               {/* Input Area */}
-              <div className="relative z-20 p-5 border-t border-white/10 bg-black">
+              <div className="relative z-20 p-4 border-t border-white/10 bg-white/5 backdrop-blur-md">
                 <form onSubmit={handleSend} className="relative flex items-center group">
                   <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none text-white/50 font-mono">
                     {'>'}
@@ -371,7 +371,7 @@ English (Professional), Urdu (Native), Punjabi (Native)
                     onChange={(e) => setInputValue(e.target.value)}
                     placeholder="Enter command..."
                     disabled={isAiTyping}
-                    className="w-full bg-black border border-white/10 py-3.5 pl-8 pr-14 text-sm font-mono text-[white] placeholder-white/30 focus:outline-none focus:border-white/50 focus:bg-white/5 transition-all disabled:opacity-50"
+                    className="w-full bg-black/40 backdrop-blur-md border border-white/10 py-3 pl-8 pr-14 text-sm font-mono text-[white] placeholder-white/30 focus:outline-none focus:border-white/50 focus:bg-white/5 transition-all disabled:opacity-50"
                   />
                   <button
                     type="submit"
