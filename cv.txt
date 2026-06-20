@@ -1,0 +1,99 @@
+MUHAMMAD TAHA NAWAB 
+Full-Stack Developer  |  AI/ML Engineer 
+Islamabad, Pakistan  •  0306-2540001  •  official.taha.nawab@gmail.com •  linkedin.com/in/tahanawab4848  •  
+github.com/tahanawab4848 
+PROFESSIONAL SUMMARY 
+Computer Science student at COMSATS University Islamabad with hands-on experience architecting and 
+shipping full-stack web applications using the MERN stack and production-grade AI/ML systems. Proficient in 
+building scalable REST APIs, React SPAs, and machine learning pipelines — from data preprocessing and model 
+training to live inference and deployment. Adept at integrating LLMs and Generative AI APIs into user-facing 
+products. Seeking an internship or junior role to contribute to product development while deepening expertise in 
+cloud-native MERN architecture and applied machine learning. 
+TECHNICAL SKILLS 
+Frontend: React.js, Vite, HTML5/CSS3, Bootstrap, JavaScript (ES6+), Responsive Design, Component 
+Architecture 
+Backend: Node.js, Express.js, FastAPI, Flask, REST APIs, JWT Authentication, WebSockets, BullMQ (async 
+queues) 
+Databases: MongoDB, PostgreSQL, MySQL, Firebase/Cloud Firestore, TimescaleDB, pgvector, SQL Window 
+Functions & Triggers, Schema Normalization, Query Optimization 
+AI / ML: scikit-learn, HuggingFace Transformers (BERT, RoBERTa, LayoutLMv3), OpenCV, MediaPipe, 
+Tesseract OCR, Generative AI APIs (Gemini, OpenAI), Active Learning, Anomaly Detection, NumPy, Pandas 
+DevOps & Tools: Git, GitHub, Docker (basics), Linux/Bash, Postman, VS Code, npm/pip 
+CS Fundamentals: Data Structures & Algorithms, OOP, Computer Networks (TCP/IP, HTTP/HTTPS), Operating 
+Systems, Agile/SDLC, Compiler Design 
+Languages: JavaScript, Python, SQL, Java, C++, Dart, Mojo 
+PROJECTS 
+MediPredict — AI Medical Diagnosis System                                                              Jan 2025 – Present 
+FastAPI  •  React  •  PostgreSQL  •  scikit-learn  •  JWT 
+• Architected a full-stack disease-prediction platform processing 100+ symptom combinations using a trained 
+RandomForestClassifier, achieving ~90% classification accuracy with confidence scoring on live inference. 
+• Engineered a FastAPI backend with JWT authentication, role-based access, and a normalized PostgreSQL 
+schema (users, history, audit); REST endpoints consumed by a responsive React SPA 
+• Built an end-to-end ML pipeline — data preprocessing, feature engineering, model serialization — reducing 
+average prediction latency to under 200 ms per request. 
+ 
+Customer Support Ticket System with SLA Monitoring                                               Jan 2026 – Present 
+Node.js  •  Express.js  •  React  •  PostgreSQL  •  SQL Triggers  •  RBAC 
+• Delivered an enterprise-grade ticketing platform capable of processing 10,000+ concurrent tickets with 
+automated SLA escalation — critical tickets auto-escalate to managers via PostgreSQL database trigger if 
+unresponded within 4 hours. 
+• Implemented role-based agent assignment with row-level locking to eliminate race conditions on ticket 
+claiming, plus a real-time dashboard surfacing open tickets, average response times, and per-agent workload 
+via SQL window functions. 
+• Designed a tamper-proof audit log capturing every status transition (actor, timestamp, delta), enabling full 
+compliance traceability across the ticket lifecycle. 
+• Optimized a normalized 6-table schema with indexed foreign keys, cutting average JOIN query time by ~40% 
+under load. 
+LearnWave — E-Learning Platform                                                                              Jun 2025 – Dec 2025 
+React  •  Vite  •  FastAPI  •  PostgreSQL  •  JavaScript 
+
+• Architected and deployed a full-stack instructor platform serving course creation, enrollment, and content 
+delivery — React/Vite frontend + FastAPI backend connected to PostgreSQL. 
+• Implemented modular component architecture with ESLint-enforced code quality and responsive UI, 
+reducing reported UI bugs by 60% during QA. 
+• Built CRUD course-management APIs and a complete user authentication flow (register, login, JWT 
+refresh) consumed by the React SPA. 
+ 
+ToxiGlow — AI-Powered Wound Analysis Platform                                                       Apr 2026 – Jun 2026 
+React 19  •  Vite  •  FastAPI  •  OpenCV  •  OpenAI GPT  •  SQLAlchemy  •  Python 
+• Architected a full-stack medical AI platform for wound assessment — built for BioNova Innovathon 2026 — 
+delivering clinical-grade tissue segmentation (granulation, slough, necrosis, epithelial) and infection risk 
+detection in under 5 seconds per image. 
+• Engineered a computer vision pipeline (OpenCV + NumPy + Pillow) for automated wound measurement 
+(area, perimeter, diameter) and a severity scoring engine (0–100) with annotated before/after visual output 
+and downloadable PDF reports. 
+• Implemented role-based access control across 3 user tiers (Patient, Clinician, Admin) with an admin 
+analytics dashboard serving live severity distributions, tissue pattern analysis, and CSV export; frontend 
+bundle optimized to 289 KB (84 KB gzipped). 
+ 
+VisionAI Utility Application                                                                                               Jan 2026  
+Python  •  Tesseract OCR  •  TTS  •  Modular Architecture 
+• Engineered a Python AI toolkit with OCR (Tesseract) and Text-to-Speech capabilities, processing 
+documents 3× faster than manual transcription via automated pipeline. 
+• Separated concerns across dedicated modules (model handling, image preprocessing, custom UI), 
+improving maintainability and enabling plug-and-play extension of new AI utilities. 
+ 
+Intelligent Warehouse Robot Simulation                                                                       Jun 2024 – Dec 2024 
+Python  •  Tkinter  •  A*  •  BFS  •  Genetic Algorithm 
+• Built an AI warehouse simulation with autonomous robot navigation using A* and BFS pathfinding, 
+benchmarking Greedy Search, Hill Climbing, and Genetic Algorithms — A* delivered optimal routes 95% of 
+the time. 
+• Developed an interactive Tkinter GUI enabling real-time visualisation of pathfinding decisions, reducing 
+debugging cycles by 50% compared to headless testing. 
+EDUCATION 
+BS Computer Science  —  COMSATS University Islamabad                                                                   Sep 2023 
+– Present 
+Relevant coursework: Data Structures & Algorithms, Database Systems, Software Engineering, Computer 
+Networks, Operating Systems, Compiler Design, AI Fundamentals 
+Intermediate — FSC / ICS  —  Punjab Group of Colleges                                                                              Sep 
+2021 – Jul 2023 
+CERTIFICATIONS 
+• AI Hero: 12-Month Journey from Zero to Expert (Python, Math, ML, Deep Learning, NLP, Agents & 
+MLOps) — Udemy — School of AI (Feb 2026) 
+• AI Fluency for Students  —  Anthropic  (Oct 2025) 
+• CSS, Bootstrap, JavaScript & Python Stack  —  Udemy  (Oct 2025) 
+• Implementing MVC ToDo App with Flask  —  CodeSignal  (Aug 2025) 
+• Git Version Control for Beginners  —  CodeSignal  (Aug 2025) 
+• Computer Science Introduction  —  Udemy  (Nov 2025) 
+LANGUAGES 
+English (Professional)   •   Urdu (Native)   •   Punjabi (Native) 
