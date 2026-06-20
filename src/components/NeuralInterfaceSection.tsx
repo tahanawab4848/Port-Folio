@@ -87,7 +87,7 @@ export default function NeuralInterfaceSection() {
     // AI Response logic
     const fetchGroqResponse = async () => {
       // Load API key from environment variable to prevent GitHub auto-revocation
-      const apiKey = import.meta.env.VITE_GROQ_API_KEY;
+      const apiKey = (import.meta as any).env.VITE_GROQ_API_KEY;
       
       // If no API key, fallback to local knowledge base
       if (!apiKey) {
