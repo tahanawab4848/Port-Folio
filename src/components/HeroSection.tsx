@@ -117,7 +117,7 @@ const HeroSection = () => {
         loop
         playsInline
         preload="auto"
-        className={`absolute inset-0 h-full w-full object-contain transition-all duration-1000 ease-in-out ${speaking ? 'opacity-100 scale-[1.15]' : 'opacity-60 grayscale-[20%] scale-105'}`}
+        className={`absolute inset-0 h-full w-full object-cover object-[center_top] sm:object-[center_15%] transition-all duration-1000 ease-in-out ${speaking ? 'opacity-100 scale-110' : 'opacity-60 grayscale-[20%] scale-105'}`}
       >
         <source src="/make_the_avatar_give_iNtro_whi.webm" type="video/webm" />
         <source src="/make_the_avatar_give_iNtro_whi.mp4" type="video/mp4" />
