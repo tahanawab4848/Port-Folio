@@ -139,16 +139,21 @@ const HeroSection = () => {
             </div>
 
             {/* Floating Glassmorphic Navbar */}
-            <nav className={`absolute transition-all duration-[1200ms] ease-in-out inline-flex items-center rounded-full border border-white/10 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.8)] hover:bg-[#0A0A0A]/80 hover:border-white/30 ${speaking ? 'left-6 md:left-10 translate-x-0 bg-[#0A0A0A]/20 px-6 py-3 opacity-60 hover:opacity-100' : 'left-1/2 -translate-x-1/2 bg-[#0A0A0A]/60 px-8 py-3.5 sm:px-12 sm:py-4 opacity-100'}`}>
-              <ul className={`flex items-center transition-all duration-[1200ms] ease-in-out ${speaking ? 'gap-6 sm:gap-8' : 'gap-8 sm:gap-14'}`}>
+            <nav className={`absolute transition-all duration-[1200ms] ease-in-out inline-flex items-center rounded-full border border-white/10 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.8)] hover:bg-[#0A0A0A]/90 hover:border-white/20 hover:shadow-[0_0_40px_rgba(255,255,255,0.08)] ${speaking ? 'left-6 md:left-10 translate-x-0 bg-[#0A0A0A]/20 p-1.5 opacity-60 hover:opacity-100' : 'left-1/2 -translate-x-1/2 bg-[#0A0A0A]/50 p-2 sm:p-2.5 opacity-100'}`}>
+              <ul className={`flex items-center transition-all duration-[1200ms] ease-in-out ${speaking ? 'gap-1' : 'gap-2 sm:gap-4'}`}>
                 {NAV_LINKS.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="group relative text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-white/70 transition-colors duration-300 hover:text-white whitespace-nowrap"
+                      className="group relative flex items-center justify-center px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-white/70 transition-all duration-300 hover:text-white hover:scale-105"
                     >
-                      {link.label}
-                      <span className={`absolute -bottom-2 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-white transition-all duration-300 group-hover:w-full shadow-[0_0_15px_rgba(255,255,255,0.9)] ${speaking ? 'hidden' : 'block'}`} />
+                      <span className="relative z-10">{link.label}</span>
+                      
+                      {/* Animated Glow Hover Pill */}
+                      <span className="absolute inset-0 rounded-full bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-0 scale-75 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:bg-white/[0.08]" />
+                      
+                      {/* Glowing Underline - Softened */}
+                      <span className={`absolute bottom-0 left-1/2 h-[1px] w-0 -translate-x-1/2 bg-white transition-all duration-500 ease-out group-hover:w-1/2 shadow-[0_0_10px_rgba(255,255,255,0.8)] ${speaking ? 'hidden' : 'block'}`} />
                     </a>
                   </li>
                 ))}
