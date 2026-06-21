@@ -161,7 +161,7 @@ const HeroSection = () => {
         </FadeIn>
 
         {/* Middle-left: PORTFOLIO + Name + Subtitle */}
-        <div className="flex flex-1 items-center pb-16 sm:pb-24 md:pb-32 pointer-events-none">
+        <div className="flex flex-1 items-center pt-8 sm:pt-12 md:pt-16 pointer-events-none">
           <div className="w-full max-w-7xl px-6 md:px-10 pointer-events-auto">
             <FadeIn delay={0.65} y={30}>
               <h1
