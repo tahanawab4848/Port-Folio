@@ -2,6 +2,8 @@ import FadeIn from './FadeIn';
 import ContactButton from './ContactButton';
 import AnimatedText from './AnimatedText';
 import { Cpu, Terminal, Moon, Hexagon } from 'lucide-react';
+import GitHubCalendar from 'react-github-calendar';
+
 
 const ABOUT_TEXT =
   "I'm a Computer Science student at COMSATS University Islamabad with hands-on experience architecting and shipping full-stack web applications using the MERN stack and production-grade AI/ML systems. I focus on building scalable REST APIs, React SPAs, and machine learning pipelines. Let's build something incredible together!";
@@ -156,6 +158,34 @@ const AboutSection = () => {
                   </div>
                 </div>
               ))}
+            </div>
+          </FadeIn>
+
+          {/* Live Activity Section */}
+          <FadeIn delay={0.6} y={30} className="mt-20">
+            <div className="flex items-center gap-4 mb-10">
+              <div className="relative flex h-3 w-3">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500"></span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold tracking-widest text-white uppercase">
+                Live GitHub Activity
+              </h3>
+            </div>
+            
+            <div className="w-full flex justify-center rounded-2xl border border-white/10 bg-[#0A0A0A]/40 backdrop-blur-md p-6 sm:p-10 shadow-[0_0_30px_rgba(0,0,0,0.5)] overflow-x-auto transition-all hover:bg-[#0A0A0A]/60 hover:border-white/20">
+              <div className="min-w-max">
+                <GitHubCalendar 
+                  username="tahanawab4848" 
+                  colorScheme="dark"
+                  theme={{
+                    dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
+                  }}
+                  blockSize={14}
+                  blockMargin={6}
+                  fontSize={14}
+                />
+              </div>
             </div>
           </FadeIn>
         </div>
