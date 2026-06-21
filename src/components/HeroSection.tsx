@@ -150,7 +150,7 @@ const HeroSection = () => {
 
         {/* Middle-left: PORTFOLIO + Name + Subtitle */}
         <div className="flex flex-1 items-center">
-          <div className={`w-full max-w-7xl px-6 md:px-10 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${speaking ? 'opacity-0 translate-y-12 blur-xl pointer-events-none' : 'opacity-100 translate-y-0 blur-0'}`}>
+          <div className="w-full max-w-7xl px-6 md:px-10">
             <FadeIn delay={0.3} y={20}>
               <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-4 py-1.5 shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all hover:bg-white/10 hover:border-white/30">
                 <span className="relative flex h-2 w-2">
@@ -167,7 +167,7 @@ const HeroSection = () => {
 
             <FadeIn delay={0.65} y={30}>
               <h1
-                className="mt-4 sm:mt-6 md:mt-8 font-black uppercase tracking-tighter leading-[0.85] text-white break-words [text-shadow:0_0_40px_rgba(255,255,255,0.15)]"
+                className={`mt-4 sm:mt-6 md:mt-8 text-white uppercase tracking-tighter leading-[0.85] break-words [text-shadow:0_0_40px_rgba(255,255,255,0.15)] transition-all duration-1000 origin-left ${speaking ? 'scale-[0.4] sm:scale-[0.5] font-light opacity-50 pointer-events-none' : 'scale-100 font-black opacity-100'}`}
                 style={{ fontSize: 'clamp(2.25rem, 8vw, 150px)' }}
               >
                 <ScrambleText text="Muhammad Taha Nawab" delay={0.8} />
