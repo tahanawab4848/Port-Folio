@@ -1,7 +1,7 @@
 import FadeIn from './FadeIn';
 import ContactButton from './ContactButton';
 import AnimatedText from './AnimatedText';
-import { Cpu, Terminal } from 'lucide-react';
+import { Cpu, Terminal, Moon, Hexagon } from 'lucide-react';
 
 const ABOUT_TEXT =
   "I'm a Computer Science student at COMSATS University Islamabad with hands-on experience architecting and shipping full-stack web applications using the MERN stack and production-grade AI/ML systems. I focus on building scalable REST APIs, React SPAs, and machine learning pipelines. Let's build something incredible together!";
@@ -18,15 +18,9 @@ const AboutSection = () => {
         x={-80}
         y={0}
         duration={0.9}
-          className="pointer-events-none absolute top-10 sm:top-20 left-[1%] sm:left-[2%] md:left-[4%] w-[60px] sm:w-[160px] md:w-[210px] opacity-70 animate-[float_7s_ease-in-out_infinite]"
+        className="pointer-events-none absolute top-10 sm:top-20 left-[1%] sm:left-[2%] md:left-[4%] opacity-20 animate-[float_7s_ease-in-out_infinite]"
       >
-        <img
-          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png"
-          alt=""
-          className="w-full h-auto drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
-          loading="lazy"
-          draggable={false}
-        />
+        <Moon size={120} className="text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]" />
       </FadeIn>
 
       <FadeIn
@@ -34,15 +28,9 @@ const AboutSection = () => {
         x={80}
         y={0}
         duration={0.9}
-          className="pointer-events-none absolute top-10 sm:top-20 right-[1%] sm:right-[2%] md:right-[4%] w-[60px] sm:w-[160px] md:w-[210px] opacity-70 animate-[float_8s_ease-in-out_infinite_reverse]"
+        className="pointer-events-none absolute top-10 sm:top-20 right-[1%] sm:right-[2%] md:right-[4%] opacity-20 animate-[float_8s_ease-in-out_infinite_reverse]"
       >
-        <img
-          src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png"
-          alt=""
-          className="w-full h-auto drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
-          loading="lazy"
-          draggable={false}
-        />
+        <Hexagon size={120} className="text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]" />
       </FadeIn>
 
       {/* Center content */}
@@ -66,7 +54,7 @@ const AboutSection = () => {
                 {/* DP Avatar */}
                 <div className="relative mb-6 h-32 w-32 sm:h-40 sm:w-40 overflow-hidden rounded-full border-2 border-white/20 shadow-2xl">
                   <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent pointer-events-none z-10" />
-                  <img src="/profile.webp" alt="Muhammad Taha Nawab" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" draggable={false} />
+                  <img src="/profile.webp" alt="Muhammad Taha Nawab" className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0" draggable={false} />
                 </div>
                 
                 {/* ID Info */}
