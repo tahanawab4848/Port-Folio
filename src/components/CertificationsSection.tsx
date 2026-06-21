@@ -79,14 +79,14 @@ const CertificationsSection = () => {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-5 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {CERTIFICATES.map((cert, idx) => (
             <FadeIn key={cert.id} delay={idx * 0.1} y={30}>
               <div 
-                className="group relative flex flex-col h-auto w-full cursor-pointer overflow-hidden rounded-[15px] border border-white/10 bg-white/5 backdrop-blur-xl p-3 md:p-4 transition-all duration-500 hover:scale-105 hover:z-50 hover:bg-white/10 hover:border-white/40 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]"
+                className="group relative flex flex-col h-auto w-full cursor-pointer overflow-hidden rounded-[15px] border border-white/10 bg-white/5 backdrop-blur-xl p-4 md:p-5 transition-all duration-500 hover:scale-105 hover:z-50 hover:bg-white/10 hover:border-white/40 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]"
                 onClick={() => setSelectedCert(cert)}
               >
-                <div className="relative h-32 sm:h-40 md:h-48 w-full flex items-center justify-center overflow-hidden rounded-lg bg-black/20 mb-3">
+                <div className="relative h-48 sm:h-56 md:h-64 w-full flex items-center justify-center overflow-hidden rounded-lg bg-black/20 mb-4">
                   <img 
                     src={cert.images[0]} 
                     alt={cert.alt} 
@@ -98,8 +98,8 @@ const CertificationsSection = () => {
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-500 group-hover:opacity-100 flex items-center justify-center">
                      <div className="scale-90 opacity-0 transform transition-all duration-500 group-hover:scale-100 group-hover:opacity-100">
-                       <span className="rounded-full bg-white/10 border border-white/30 px-3 py-1.5 text-[8px] sm:text-[10px] font-bold uppercase tracking-widest text-white shadow-xl flex items-center gap-1.5">
-                         <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                       <span className="rounded-full bg-white/10 border border-white/30 px-4 py-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-white shadow-xl flex items-center gap-2">
+                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.478 0-8.268-2.943-9.542-7z" />
                          </svg>
@@ -110,9 +110,9 @@ const CertificationsSection = () => {
                 </div>
                 
                 {/* Text Content */}
-                <div className="flex flex-col gap-1 px-1">
-                  <h3 className="text-white font-bold text-[11px] sm:text-xs tracking-wide line-clamp-1" title={cert.title}>{cert.title}</h3>
-                  <p className="text-white/50 text-[9px] sm:text-[10px] line-clamp-1" title={cert.description}>{cert.description}</p>
+                <div className="flex flex-col gap-1.5 px-2">
+                  <h3 className="text-white font-bold text-sm sm:text-base tracking-wide line-clamp-1" title={cert.title}>{cert.title}</h3>
+                  <p className="text-white/50 text-xs sm:text-sm line-clamp-2" title={cert.description}>{cert.description}</p>
                 </div>
               </div>
             </FadeIn>

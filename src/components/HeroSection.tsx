@@ -150,7 +150,7 @@ const HeroSection = () => {
 
         {/* Middle-left: PORTFOLIO + Name + Subtitle */}
         <div className="flex flex-1 items-center">
-          <div className="w-full max-w-7xl px-6 md:px-10">
+          <div className={`w-full max-w-7xl px-6 md:px-10 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${speaking ? 'opacity-0 translate-y-12 blur-xl pointer-events-none' : 'opacity-100 translate-y-0 blur-0'}`}>
             <FadeIn delay={0.3} y={20}>
               <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-4 py-1.5 shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all hover:bg-white/10 hover:border-white/30">
                 <span className="relative flex h-2 w-2">
