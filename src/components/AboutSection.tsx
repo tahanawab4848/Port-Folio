@@ -2,7 +2,7 @@ import FadeIn from './FadeIn';
 import ContactButton from './ContactButton';
 import AnimatedText from './AnimatedText';
 import { Cpu, Terminal, Moon, Hexagon } from 'lucide-react';
-import GitHubCalendar from 'react-github-calendar';
+import { GitHubCalendar } from 'react-github-calendar';
 
 
 const ABOUT_TEXT =
