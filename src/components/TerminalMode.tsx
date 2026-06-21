@@ -9,22 +9,56 @@ interface CommandOutput {
 
 const TerminalMode = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isBooting, setIsBooting] = useState(false);
+  const [bootText, setBootText] = useState('');
   const [history, setHistory] = useState<CommandOutput[]>([]);
   const [input, setInput] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  // Focus input when opened or clicked
+  // Boot sequence logic
   useEffect(() => {
     if (isOpen) {
-      inputRef.current?.focus();
+      setIsBooting(true);
+      setHistory([]);
+      let step = 0;
+      const bootLines = [
+        'Booting TahaOS v2.0.4 (x86_64)...',
+        'Loading kernel modules... OK',
+        'Mounting virtual filesystems... OK',
+        'Starting neural network interface... OK',
+        'Establishing secure connection... OK',
+        'Access granted.'
+      ];
+      
+      const interval = setInterval(() => {
+        if (step < bootLines.length) {
+          setBootText((prev) => prev + (prev ? '\n' : '') + bootLines[step]);
+          step++;
+        } else {
+          clearInterval(interval);
+          setTimeout(() => {
+            setIsBooting(false);
+            setBootText('');
+            inputRef.current?.focus();
+          }, 500);
+        }
+      }, 300);
+      return () => clearInterval(interval);
     }
   }, [isOpen]);
 
-  // Scroll to bottom when history changes
+  // Focus input
+  useEffect(() => {
+    if (isOpen && !isBooting) {
+      inputRef.current?.focus();
+    }
+  }, [isOpen, isBooting]);
+
+  // Scroll to bottom
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [history]);
+  }, [history, bootText]);
 
   const handleCommand = (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,9 +109,13 @@ const TerminalMode = () => {
         return;
       default:
         if (cmd.startsWith('cat ')) {
-          output = `cat: ${cmd.slice(4)}: No such file or directory`;
-        } else if (cmd === 'sudo') {
-           output = 'taha is not in the sudoers file. This incident will be reported.';
+          output = `cat: ${cmd.slice(4)}: Permission denied`;
+        } else if (cmd === 'sudo' || cmd.startsWith('sudo ')) {
+           output = 'taha is not in the sudoers file. This incident will be reported to the cyber police.';
+        } else if (cmd === 'date') {
+           output = new Date().toString();
+        } else if (cmd === 'matrix') {
+           output = 'Wake up, Neo... The Matrix has you...';
         } else {
           output = `Command not found: ${cmd}. Type 'help' for available commands.`;
         }
@@ -99,66 +137,84 @@ const TerminalMode = () => {
 
       {/* Terminal Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 z-[100] bg-[#050505] font-mono text-sm sm:text-base text-green-500 overflow-y-auto p-4 sm:p-8 cursor-text" onClick={() => inputRef.current?.focus()}>
-          <div className="max-w-4xl mx-auto w-full min-h-full flex flex-col relative z-10">
-            <div className="flex justify-between items-center mb-8 border-b border-green-500/30 pb-4">
-              <div className="text-green-400 opacity-80 select-none">
-                guest@tahanawab.portfolio: ~
+        <div className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-xl flex items-center justify-center p-2 sm:p-6 cursor-default">
+          {/* MacOS style window */}
+          <div className="w-full max-w-5xl h-[85vh] bg-[#0A0A0A] rounded-xl border border-white/20 shadow-[0_0_50px_rgba(0,0,0,0.8),inset_0_0_20px_rgba(34,197,94,0.05)] flex flex-col overflow-hidden relative">
+            
+            {/* Header bar */}
+            <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-[#111] select-none">
+              <div className="flex items-center gap-2">
+                <div className="h-3 w-3 rounded-full bg-red-500 hover:bg-red-400 cursor-pointer transition-colors" onClick={() => setIsOpen(false)} title="Close" />
+                <div className="h-3 w-3 rounded-full bg-yellow-500" />
+                <div className="h-3 w-3 rounded-full bg-green-500" />
               </div>
-              <button 
-                onClick={(e) => { e.stopPropagation(); setIsOpen(false); }}
-                className="text-green-500 hover:text-white transition-colors"
-                title="Close Terminal"
-              >
-                <X className="h-6 w-6" />
-              </button>
+              <div className="text-gray-400 text-xs font-mono">guest@tahanawab.portfolio: ~ (bash)</div>
+              <div className="w-16"></div> {/* Spacer for centering */}
             </div>
 
-            <FadeIn delay={0.1} y={10}>
-              <div className="mb-6 whitespace-pre-wrap select-none text-green-400">
-                Welcome to TahaOS v1.0.0<br/>
-                Type 'help' to see available commands.<br/>
-                <br/>
-              </div>
-            </FadeIn>
+            {/* Terminal Body */}
+            <div className="flex-1 overflow-y-auto p-4 sm:p-6 font-mono text-sm sm:text-base text-green-500 [text-shadow:0_0_5px_rgba(34,197,94,0.4)] cursor-text" onClick={() => !isBooting && inputRef.current?.focus()}>
+              
+              {isBooting ? (
+                <div className="whitespace-pre-wrap">{bootText}<span className="animate-pulse">_</span></div>
+              ) : (
+                <>
+                  <FadeIn delay={0.1} y={10}>
+                    <div className="mb-6 whitespace-pre-wrap select-none text-green-400 font-bold">
+{`
+  _____     _           ___  ____  
+ |_   _|   | |         / _ \\/ ___| 
+   | | __ _| |__   __ | | | \\___ \\ 
+   | |/ _\` | '_ \\ / _\`| | | |___) |
+   |_| (_| | | | | (_| | |_| |____/ 
+                                   
+`}
+                      Welcome to TahaOS v2.0.4<br/>
+                      Type 'help' to see available commands.<br/>
+                      <br/>
+                    </div>
+                  </FadeIn>
 
-            <div className="flex-1">
-              {history.map((entry, i) => (
-                <div key={i} className="mb-4">
-                  <div className="flex items-center gap-2 select-none">
-                    <span className="text-blue-400 font-bold">guest@portfolio</span>
-                    <span className="text-white">:</span>
-                    <span className="text-green-400 font-bold">~</span>
-                    <span className="text-white">$</span>
-                    <span className="text-white">{entry.command}</span>
-                  </div>
-                  <div className="mt-1 whitespace-pre-wrap text-gray-300">
-                    {entry.output}
-                  </div>
-                </div>
-              ))}
+                  <div className="flex-1">
+                    {history.map((entry, i) => (
+                      <div key={i} className="mb-4">
+                        <div className="flex items-center gap-2 select-none flex-wrap">
+                          <span className="text-blue-400 font-bold">guest@portfolio</span>
+                          <span className="text-white">:</span>
+                          <span className="text-green-400 font-bold">~</span>
+                          <span className="text-white">$</span>
+                          <span className="text-white">{entry.command}</span>
+                        </div>
+                        <div className="mt-1 whitespace-pre-wrap text-green-300 opacity-90 leading-relaxed">
+                          {entry.output}
+                        </div>
+                      </div>
+                    ))}
 
-              <form onSubmit={handleCommand} className="flex items-center gap-2 mt-4" onClick={(e) => e.stopPropagation()}>
-                <span className="text-blue-400 font-bold select-none">guest@portfolio</span>
-                <span className="text-white select-none">:</span>
-                <span className="text-green-400 font-bold select-none">~</span>
-                <span className="text-white select-none">$</span>
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  className="flex-1 bg-transparent border-none outline-none text-white font-mono shadow-none focus:ring-0"
-                  autoComplete="off"
-                  spellCheck="false"
-                  autoFocus
-                />
-              </form>
-              <div ref={bottomRef} className="h-8" />
+                    <form onSubmit={handleCommand} className="flex items-center gap-2 mt-4 flex-wrap">
+                      <span className="text-blue-400 font-bold select-none">guest@portfolio</span>
+                      <span className="text-white select-none">:</span>
+                      <span className="text-green-400 font-bold select-none">~</span>
+                      <span className="text-white select-none">$</span>
+                      <input
+                        ref={inputRef}
+                        type="text"
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        className="flex-1 min-w-[200px] bg-transparent border-none outline-none text-white font-mono shadow-none focus:ring-0 p-0"
+                        autoComplete="off"
+                        spellCheck="false"
+                        autoFocus
+                      />
+                    </form>
+                    <div ref={bottomRef} className="h-8" />
+                  </div>
+                </>
+              )}
             </div>
             
-            {/* Ambient scanline effect */}
-            <div className="fixed inset-0 pointer-events-none opacity-5 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] z-0 mix-blend-overlay"></div>
+            {/* CRT Scanline effect overlaid on terminal window */}
+            <div className="absolute inset-0 pointer-events-none opacity-10 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] z-0 mix-blend-overlay"></div>
           </div>
         </div>
       )}
