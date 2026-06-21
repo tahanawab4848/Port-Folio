@@ -123,29 +123,15 @@ const HeroSection = () => {
       {/* Content layer */}
       <div className="relative z-10 flex h-full flex-col">
         {/* Top bar */}
-        <FadeIn delay={0} y={-20} className="absolute top-6 sm:top-10 inset-x-0 z-50 flex justify-center w-full px-4">
-          <nav className={`inline-flex items-center rounded-full border border-white/10 bg-[#0A0A0A]/50 backdrop-blur-2xl shadow-[0_20px_40px_rgba(0,0,0,0.8)] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#0A0A0A]/70 hover:border-white/30 ${speaking ? 'px-6 py-3 scale-90 opacity-60 translate-y-[-10px]' : 'px-8 py-3.5 sm:px-12 sm:py-4 scale-100 opacity-100'}`}>
-            <ul className={`flex items-center transition-all duration-700 ${speaking ? 'gap-6 sm:gap-8' : 'gap-8 sm:gap-14'}`}>
-              {NAV_LINKS.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="group relative text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-white/70 transition-colors duration-300 hover:text-white"
-                  >
-                    {link.label}
-                    <span className="absolute -bottom-2 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-white transition-all duration-300 group-hover:w-full shadow-[0_0_15px_rgba(255,255,255,0.9)]" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </FadeIn>
-
-        {/* Middle-left: PORTFOLIO + Name + Subtitle */}
-        <div className="flex flex-1 items-center pt-8 sm:pt-12 md:pt-16">
-          <div className="w-full max-w-7xl px-6 md:px-10">
-            <FadeIn delay={0.3} y={20}>
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-4 py-1.5 shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all hover:bg-white/10 hover:border-white/30">
+        <FadeIn delay={0} y={-20} className="absolute top-6 sm:top-10 inset-x-0 z-50 flex items-center w-full px-4 sm:px-6 md:px-10">
+          {/* Animated Left Spacer for Centering -> Left alignment */}
+          <div className={`transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] ${speaking ? 'flex-none w-0' : 'flex-1'}`} />
+          
+          {/* Content Wrapper */}
+          <div className="flex items-center gap-4 sm:gap-6">
+            {/* Portfolio Badge */}
+            <div className={`overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] flex items-center ${speaking ? 'max-w-0 opacity-0 scale-50 mr-0' : 'max-w-[200px] opacity-100 scale-100'}`}>
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-4 py-1.5 shadow-[0_0_20px_rgba(255,255,255,0.1)] whitespace-nowrap">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-50"></span>
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
@@ -154,10 +140,33 @@ const HeroSection = () => {
                   Portfolio · 2026
                 </p>
               </div>
-            </FadeIn>
+            </div>
 
+            {/* Floating Glassmorphic Navbar */}
+            <nav className={`inline-flex items-center rounded-full border border-white/10 bg-[#0A0A0A]/50 backdrop-blur-2xl shadow-[0_20px_40px_rgba(0,0,0,0.8)] transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#0A0A0A]/70 hover:border-white/30 ${speaking ? 'px-6 py-3 opacity-80' : 'px-8 py-3.5 sm:px-12 sm:py-4 opacity-100'}`}>
+              <ul className={`flex items-center transition-all duration-1000 ${speaking ? 'gap-6 sm:gap-8' : 'gap-8 sm:gap-14'}`}>
+                {NAV_LINKS.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="group relative text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-white/70 transition-colors duration-300 hover:text-white whitespace-nowrap"
+                    >
+                      {link.label}
+                      <span className="absolute -bottom-2 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-white transition-all duration-300 group-hover:w-full shadow-[0_0_15px_rgba(255,255,255,0.9)]" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+          
+          {/* Right Spacer for Centering */}
+          <div className="flex-1" />
+        </FadeIn>
 
-
+        {/* Middle-left: PORTFOLIO + Name + Subtitle */}
+        <div className="flex flex-1 items-center pt-8 sm:pt-12 md:pt-16">
+          <div className="w-full max-w-7xl px-6 md:px-10">
             <FadeIn delay={0.65} y={30}>
               <h1
                 className={`mt-4 sm:mt-6 md:mt-8 text-white uppercase tracking-tight leading-[0.95] break-words [text-shadow:0_0_40px_rgba(255,255,255,0.15)] transition-all duration-1000 origin-left ${speaking ? 'scale-[0.4] sm:scale-[0.5] font-light opacity-50 pointer-events-none' : 'scale-100 font-extrabold opacity-100'}`}
