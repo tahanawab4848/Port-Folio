@@ -83,7 +83,7 @@ const CertificationsSection = () => {
           {CERTIFICATES.map((cert, idx) => (
             <FadeIn key={cert.id} delay={idx * 0.1} y={30}>
               <div 
-                className="group relative flex flex-col h-auto w-full cursor-pointer overflow-hidden rounded-[15px] border border-white/10 bg-white/5 backdrop-blur-xl p-4 md:p-5 transition-all duration-500 hover:scale-105 hover:z-50 hover:bg-white/10 hover:border-white/40 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]"
+                className="group relative flex flex-col h-auto w-full cursor-pointer overflow-hidden rounded-[15px] border border-white/10 bg-[#0c0c0c]/80 backdrop-blur-sm p-4 md:p-5 transition-all duration-500 hover:scale-[1.02] hover:z-50 hover:bg-white/10 hover:border-white/40 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]"
                 onClick={() => setSelectedCert(cert)}
               >
                 <div className="relative h-48 sm:h-56 md:h-64 w-full flex items-center justify-center overflow-hidden rounded-lg bg-black/20 mb-4">
