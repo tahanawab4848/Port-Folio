@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image, ImageEnhance, ImageOps
 
 image_path = 'public/profile.webp'
 try:
@@ -7,24 +7,46 @@ except Exception as e:
     print(f"Error opening image: {e}")
     exit(1)
 
-# Resize image
-width, height = img.size
-new_width = 45
-aspect_ratio = height / width
-# Multiply by 0.5 because terminal characters are usually twice as tall as they are wide
-new_height = int(aspect_ratio * new_width * 0.5)
-img = img.resize((new_width, new_height))
-
 # Convert to grayscale
 img = img.convert('L')
 
-# ASCII characters from darkest to lightest
-chars = ["@", "%", "#", "*", "+", "=", "-", ":", ".", " "]
+# Crop to center square if it's not a face crop
+width, height = img.size
+min_dim = min(width, height)
+left = (width - min_dim)/2
+top = (height - min_dim)/2
+right = (width + min_dim)/2
+bottom = (height + min_dim)/2
+img = img.crop((left, top, right, bottom))
+
+# Increase contrast significantly
+enhancer = ImageEnhance.Contrast(img)
+img = enhancer.enhance(1.8)
+
+# Resize image
+new_width = 80
+aspect_ratio = 1.0
+# Multiply by 0.55 because terminal characters are usually twice as tall as they are wide
+new_height = int(aspect_ratio * new_width * 0.55)
+img = img.resize((new_width, new_height))
+
+# More detailed ASCII characters from darkest to lightest
+chars = ["@", "#", "S", "%", "?", "*", "+", ";", ":", ",", ".", " "]
 
 pixels = img.getdata()
 ascii_str = ''
+
+# Normalize pixel values
+min_p = min(pixels)
+max_p = max(pixels)
+range_p = max_p - min_p if max_p != min_p else 1
+
 for pixel in pixels:
-    ascii_str += chars[pixel // 26]
+    # Map pixel to 0-11
+    val = int(((pixel - min_p) / range_p) * 11)
+    if val > 11: val = 11
+    if val < 0: val = 0
+    ascii_str += chars[val]
 
 # Split string into lines
 ascii_img = ""
