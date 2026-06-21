@@ -124,47 +124,34 @@ const HeroSection = () => {
       {/* Content layer */}
       <div className="relative z-10 flex h-full flex-col">
         {/* Top bar */}
-        <FadeIn delay={0} y={-20} className="absolute top-6 sm:top-10 inset-x-0 z-50 w-full pointer-events-none">
-          <div className="relative mx-auto flex items-center justify-center w-full max-w-7xl h-12 px-6 md:px-10 pointer-events-auto">
-            {/* Portfolio Badge */}
-            <div className={`absolute left-6 md:left-10 overflow-hidden transition-all duration-[1200ms] ease-in-out flex items-center ${speaking ? 'max-w-0 opacity-0 scale-75' : 'max-w-[300px] opacity-100 scale-100'}`}>
-              <div className="w-max inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-5 py-2 shadow-[0_0_20px_rgba(255,255,255,0.1)] whitespace-nowrap">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-50"></span>
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
+        <FadeIn delay={0} y={-20} className="absolute top-6 sm:top-8 inset-x-0 z-50 w-full pointer-events-none">
+          <div className="relative mx-auto flex items-center justify-center w-full max-w-5xl h-14 px-6 md:px-10 pointer-events-auto">
+            
+            {/* Highly Refined Integrated Navbar */}
+            <nav className={`absolute transition-all duration-[1000ms] ease-[cubic-bezier(0.23,1,0.32,1)] flex items-center rounded-full border border-white/10 bg-[#050505]/60 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.1)] p-1.5 ${speaking ? 'left-6 md:left-10 translate-x-0 scale-90 opacity-60 hover:opacity-100' : 'left-1/2 -translate-x-1/2 scale-100 opacity-100'}`}>
+              
+              {/* Integrated Badge */}
+              <div className={`overflow-hidden transition-all duration-[1000ms] ease-in-out flex items-center ${speaking ? 'max-w-0 opacity-0 px-0' : 'max-w-[200px] opacity-100 px-4 sm:px-5 border-r border-white/10 mr-1 sm:mr-2'}`}>
+                <span className="relative flex h-1.5 w-1.5 mr-2.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-60"></span>
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-green-500"></span>
                 </span>
-                <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.35em] text-white/90">
-                  Portfolio · 2026
-                </p>
+                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.25em] text-white/90 whitespace-nowrap">
+                  Taha Nawab
+                </span>
               </div>
-            </div>
 
-            {/* Floating Glassmorphic Navbar */}
-            <nav className={`absolute transition-all duration-[1200ms] ease-in-out inline-flex items-center rounded-full border border-white/5 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.9)] hover:bg-[#0A0A0A]/90 hover:border-white/10 hover:shadow-[0_0_40px_rgba(255,255,255,0.05)] ${speaking ? 'left-6 md:left-10 translate-x-0 bg-[#0A0A0A]/20 p-1 opacity-60 hover:opacity-100' : 'left-1/2 -translate-x-1/2 bg-[#0A0A0A]/40 p-1.5 opacity-100'}`}>
-              
-              {/* Ambient Breathing Glow */}
-              <div className={`absolute inset-0 rounded-full bg-white/10 animate-pulse pointer-events-none transition-all duration-1000 ${speaking ? 'opacity-0' : 'opacity-100'}`} style={{ animationDuration: '4s' }} />
-              
-              {/* Pulsing Top Edge Light */}
-              <div className={`absolute -top-[1px] left-[15%] w-[70%] h-[2px] bg-gradient-to-r from-transparent via-white/80 to-transparent pointer-events-none animate-pulse transition-opacity duration-1000 ${speaking ? 'opacity-0' : 'opacity-100'}`} style={{ animationDuration: '2s' }} />
-              
-              {/* Pulsing Bottom Edge Light */}
-              <div className={`absolute -bottom-[1px] right-[15%] w-[70%] h-[2px] bg-gradient-to-r from-transparent via-white/60 to-transparent pointer-events-none animate-pulse transition-opacity duration-1000 ${speaking ? 'opacity-0' : 'opacity-100'}`} style={{ animationDuration: '3s' }} />
-
-              <ul className={`relative z-10 flex items-center transition-all duration-[1200ms] ease-in-out ${speaking ? 'gap-1' : 'gap-2 sm:gap-4'}`}>
+              <ul className="flex items-center gap-1 sm:gap-2">
                 {NAV_LINKS.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="group relative flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.2em] text-white/60 transition-all duration-300 hover:text-white hover:scale-105"
+                      className="group relative flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[9px] sm:text-[10px] font-medium uppercase tracking-[0.15em] text-[#A0AEC0] transition-colors duration-300 hover:text-white"
                     >
                       <span className="relative z-10">{link.label}</span>
                       
-                      {/* Animated Glow Hover Pill */}
-                      <span className="absolute inset-0 rounded-full bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-0 scale-75 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 group-hover:bg-white/[0.08]" />
-                      
-                      {/* Glowing Underline - Softened */}
-                      <span className={`absolute bottom-0 left-1/2 h-[1px] w-0 -translate-x-1/2 bg-white transition-all duration-500 ease-out group-hover:w-1/2 shadow-[0_0_10px_rgba(255,255,255,0.8)] ${speaking ? 'hidden' : 'block'}`} />
+                      {/* Minimalist Pill Hover */}
+                      <span className="absolute inset-0 rounded-full bg-white/[0.06] opacity-0 scale-90 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:scale-100" />
                     </a>
                   </li>
                 ))}
