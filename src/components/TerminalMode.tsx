@@ -84,7 +84,42 @@ const TerminalMode = () => {
         );
         break;
       case 'whoami':
-        output = 'Muhammad Taha Nawab. CS Student @ COMSATS. Full-Stack Developer & ML Engineer.';
+        output = (
+          <div className="flex flex-col sm:flex-row gap-6 mt-4 mb-4">
+            <div className="shrink-0 relative group">
+              <img 
+                src="/profile.webp" 
+                alt="Taha Nawab" 
+                className="w-32 h-32 sm:w-48 sm:h-48 object-cover rounded-sm border-2 border-green-500/30 opacity-80 filter grayscale contrast-150 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+              />
+              <div className="absolute inset-0 bg-green-500/10 mix-blend-overlay pointer-events-none" />
+              {/* Scanline over image */}
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] pointer-events-none opacity-50" />
+            </div>
+            <div className="flex flex-col text-green-400 gap-1 font-mono">
+              <div className="text-white font-bold text-lg mb-2">taha@portfolio-os</div>
+              <div>-------------------</div>
+              <div><span className="text-blue-400 font-bold">OS:</span> TahaOS v2.0.4</div>
+              <div><span className="text-blue-400 font-bold">Host:</span> Neural_Interface_Node_01</div>
+              <div><span className="text-blue-400 font-bold">Kernel:</span> 5.15.0-generic (Cybernetics)</div>
+              <div><span className="text-blue-400 font-bold">Uptime:</span> 21 years, 5 months</div>
+              <div><span className="text-blue-400 font-bold">Packages:</span> 4096 (npm), 256 (pip)</div>
+              <div><span className="text-blue-400 font-bold">Shell:</span> bash 5.1.16</div>
+              <div><span className="text-blue-400 font-bold">Role:</span> Full-Stack Dev & ML Engineer</div>
+              <div><span className="text-blue-400 font-bold">Location:</span> Islamabad, Pakistan</div>
+              <div className="mt-2 flex gap-2">
+                <span className="bg-black w-4 h-4 inline-block" />
+                <span className="bg-red-500 w-4 h-4 inline-block" />
+                <span className="bg-green-500 w-4 h-4 inline-block" />
+                <span className="bg-yellow-500 w-4 h-4 inline-block" />
+                <span className="bg-blue-500 w-4 h-4 inline-block" />
+                <span className="bg-purple-500 w-4 h-4 inline-block" />
+                <span className="bg-cyan-500 w-4 h-4 inline-block" />
+                <span className="bg-white w-4 h-4 inline-block" />
+              </div>
+            </div>
+          </div>
+        );
         break;
       case 'ls':
         output = (
