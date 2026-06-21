@@ -13,7 +13,6 @@ const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [speaking, setSpeaking] = useState(false);
-  const [showEnterOverlay, setShowEnterOverlay] = useState(false);
   // Auto-mute video when scrolling past hero
   useEffect(() => {
     const section = sectionRef.current;
@@ -95,50 +94,8 @@ const HeroSection = () => {
     }
   };
 
-  useEffect(() => {
-    // User requested: Auto-play the avatar speech immediately on load for the first visit
-    const hasHeardIntro = localStorage.getItem('hasHeardIntro');
-    
-    if (!hasHeardIntro) {
-      setShowEnterOverlay(true);
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const handleEnter = () => {
-    setShowEnterOverlay(false);
-    localStorage.setItem('hasHeardIntro', 'true');
-    // Slight delay to allow overlay to fade before playing
-    setTimeout(() => {
-      toggleSpeech();
-    }, 300);
-  };
-
   return (
     <section ref={sectionRef} className="relative h-[100dvh] min-h-[600px] w-full overflow-hidden bg-black">
-      {/* Entry Overlay to guarantee unmuted autoplay */}
-      {showEnterOverlay && (
-        <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-black backdrop-blur-xl transition-opacity duration-1000">
-          <FadeIn delay={0.2} y={20}>
-            <button
-              onClick={handleEnter}
-              className="group relative overflow-hidden rounded-full border border-white/20 bg-white/10 px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-white transition-all hover:bg-white/10 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.1)]"
-            >
-              <span className="relative z-10 flex items-center gap-3">
-                <span className="flex h-2 w-2 rounded-full bg-white animate-pulse" />
-                Enter Portfolio
-              </span>
-              <div className="absolute inset-0 -z-10 translate-y-full bg-gradient-to-t from-white/20 to-transparent transition-transform duration-500 group-hover:translate-y-0" />
-            </button>
-          </FadeIn>
-          <FadeIn delay={0.6} y={10}>
-            <p className="mt-6 text-[9px] sm:text-[10px] font-medium uppercase tracking-[0.2em] text-white/40">
-              Click to start interactive experience
-            </p>
-          </FadeIn>
-        </div>
-      )}
-
       {/* Video background */}
       <video
         ref={videoRef}
@@ -228,10 +185,10 @@ const HeroSection = () => {
                 <a
                   href="/Muhammad_Taha_Nawab_CV.pdf"
                   download="Muhammad_Taha_Nawab_CV.pdf"
-                  className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-6 py-3 sm:px-8 sm:py-3.5 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] text-white transition-all hover:border-white/50 hover:bg-white/20 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+                  className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-4 py-2 sm:px-5 sm:py-2.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-white transition-all hover:border-white/50 hover:bg-white/20 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
                 >
                   <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"></span>
-                  <svg className="relative z-10" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg className="relative z-10" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                     <polyline points="7 10 12 15 17 10" />
                     <line x1="12" y1="15" x2="12" y2="3" />
