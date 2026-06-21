@@ -7,44 +7,6 @@ interface CommandOutput {
   output: React.ReactNode;
 }
 
-const FakeInstaller = ({ onComplete }: { onComplete: () => void }) => {
-  const [lines, setLines] = useState<string[]>([]);
-  
-  useEffect(() => {
-    const installSequence = [
-      '> Resolving dependencies...',
-      '> Fetching packages from tahai-registry...',
-      '> Downloading tahai-core-v2.0.0 [====================] 100%',
-      '> Extracting neural models...',
-      '> Compiling quantum pathways...',
-      '> TahAI successfully installed!',
-      'Type "tahai" to initialize the AI assistant.'
-    ];
-    let i = 0;
-    const interval = setInterval(() => {
-      if (i < installSequence.length) {
-        setLines(prev => [...prev, installSequence[i]]);
-        i++;
-      } else {
-        clearInterval(interval);
-        onComplete();
-      }
-    }, 400);
-    return () => clearInterval(interval);
-  }, [onComplete]);
-
-  return (
-    <div className="flex flex-col gap-1 mt-1">
-      {lines.map((line, idx) => (
-        <span key={idx} className={line.includes('successfully') ? 'text-green-400 font-bold' : 'text-gray-300'}>
-          {line}
-        </span>
-      ))}
-      {lines.length < 7 && <span className="animate-pulse text-green-400">_</span>}
-    </div>
-  );
-};
-
 const TerminalMode = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBooting, setIsBooting] = useState(false);
@@ -99,7 +61,7 @@ const TerminalMode = () => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [history, bootText]);
 
-  const handleCommand = (e: React.FormEvent) => {
+  const handleCommand = async (e: React.FormEvent) => {
     e.preventDefault();
     const cmd = input.trim().toLowerCase();
     setInput('');
@@ -157,7 +119,42 @@ const TerminalMode = () => {
            output = 'Wake up, Neo... The Matrix has you...';
         } else if (cmd.includes('install tahai')) {
            setIsBusy(true);
-           output = <FakeInstaller onComplete={() => setIsBusy(false)} />;
+           setHistory((prev) => [...prev, { command: input, output: '' }]);
+           
+           const installSequence = [
+              '> Resolving dependencies...',
+              '> Fetching packages from tahai-registry...',
+              '> Downloading tahai-core-v2.0.0 [====================] 100%',
+              '> Extracting neural models...',
+              '> Compiling quantum pathways...',
+              '> TahAI successfully installed!',
+              'Type "tahai" to initialize the AI assistant.'
+           ];
+           
+           for (let i = 0; i < installSequence.length; i++) {
+             await new Promise(resolve => setTimeout(resolve, 400));
+             setHistory(prev => {
+                const newHistory = [...prev];
+                if (newHistory.length === 0) return newHistory;
+                const lastIdx = newHistory.length - 1;
+                newHistory[lastIdx] = {
+                  ...newHistory[lastIdx],
+                  output: (
+                    <div className="flex flex-col gap-1 mt-1 text-gray-300">
+                      {installSequence.slice(0, i + 1).map((line, idx) => (
+                        <span key={idx} className={line.includes('successfully') ? 'text-green-400 font-bold' : ''}>
+                          {line}
+                        </span>
+                      ))}
+                      {i < installSequence.length - 1 && <span className="animate-pulse text-green-400">_</span>}
+                    </div>
+                  )
+                };
+                return newHistory;
+             });
+           }
+           setIsBusy(false);
+           return;
         } else if (cmd === 'tahai' || cmd.startsWith('tahai ')) {
            output = 'TahAI Neural Link active. Please close the terminal and use the main GUI widget to interact with the AI.';
         } else {
