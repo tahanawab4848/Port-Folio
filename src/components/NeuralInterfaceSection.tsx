@@ -249,17 +249,17 @@ English (Professional), Urdu (Native), Punjabi (Native)
         <div className="absolute inset-0 -z-30 bg-black" />
         
         {/* Spinning Gradient Border (Glitter/Powered Effect) */}
-        <div className="absolute inset-[-150%] -z-20 animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,rgba(0,0,0,0)_0%,rgba(34,197,94,0.8)_50%,rgba(0,0,0,0)_100%)]" />
+        <div className="absolute inset-[-150%] -z-20 animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,rgba(0,0,0,0)_0%,rgba(255,255,255,0.9)_50%,rgba(0,0,0,0)_100%)]" />
         
         {/* Inner Glass Pill */}
         <div className="absolute inset-[2px] -z-10 rounded-full bg-black/90 backdrop-blur-xl transition-colors group-hover:bg-black/70" />
 
         {/* Outer Glow */}
-        <div className="absolute inset-0 -z-40 rounded-full opacity-50 shadow-[0_0_20px_rgba(34,197,94,0.4)] transition-all duration-500 group-hover:opacity-100 group-hover:shadow-[0_0_40px_rgba(34,197,94,0.8)]" />
+        <div className="absolute inset-0 -z-40 rounded-full opacity-50 shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-500 group-hover:opacity-100 group-hover:shadow-[0_0_40px_rgba(255,255,255,0.4)]" />
 
-        <Cpu className="w-4 h-4 text-green-400 drop-shadow-[0_0_5px_rgba(34,197,94,0.8)] transition-transform group-hover:rotate-180 duration-700" />
-        <span className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] group-hover:text-green-300 transition-colors">TahAI</span>
-        <Zap className="w-3.5 h-3.5 text-yellow-400 animate-pulse drop-shadow-[0_0_8px_rgba(250,204,21,0.8)]" />
+        <Cpu className="w-4 h-4 text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)] transition-transform group-hover:rotate-180 duration-700" />
+        <span className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] group-hover:text-white transition-colors">TahAI</span>
+        <Zap className="w-3.5 h-3.5 text-white animate-pulse drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
       </button>
 
       {/* Sidebar Interface */}
