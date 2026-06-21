@@ -38,12 +38,12 @@ const HeroSection = () => {
   useEffect(() => {
     let fired = false;
 
-      const goToAbout = () => {
-        if (fired) return;
-        fired = true;
-        const about = document.getElementById('about');
-        if (about) about.scrollIntoView({ behavior: 'auto', block: 'start' });
-      };
+    const goToAbout = () => {
+      if (fired) return;
+      fired = true;
+      const about = document.getElementById('about');
+      if (about) about.scrollIntoView({ behavior: 'auto', block: 'start' });
+    };
 
     const onWheel = (e: WheelEvent) => {
       if (fired) return;
@@ -56,7 +56,7 @@ const HeroSection = () => {
     const onKey = (e: KeyboardEvent) => {
       if (fired) return;
       if (window.scrollY > 50) return;
-      
+
       // Prevent scroll jump if the user is typing in an input (like the AI chat)
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
         return;
@@ -155,7 +155,17 @@ const HeroSection = () => {
         {/* Middle-left: PORTFOLIO + Name + Subtitle */}
         <div className="flex flex-1 items-center pt-8 sm:pt-12 md:pt-16">
           <div className="w-full max-w-7xl px-6 md:px-10">
-
+            <FadeIn delay={0.3} y={20}>
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-4 py-1.5 shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all hover:bg-white/10 hover:border-white/30">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-50"></span>
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
+                </span>
+                <p className="text-[10px] sm:text-xs font-medium uppercase tracking-[0.35em] text-white/80">
+                  Portfolio · 2026
+                </p>
+              </div>
+            </FadeIn>
 
 
 
@@ -219,7 +229,7 @@ const HeroSection = () => {
               className="group relative flex items-center justify-center rounded-full border border-white/10 bg-[#0A0A0A]/90 w-10 h-10 sm:w-12 sm:h-12 text-white shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all hover:border-white/30 hover:bg-white/10 hover:scale-105"
             >
               <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-white/10 to-white/5 blur-md opacity-0 transition-opacity group-hover:opacity-100" />
-              
+
               {speaking ? (
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" className="sm:w-5 sm:h-5">
                   <rect x="6" y="4" width="4" height="16" />
