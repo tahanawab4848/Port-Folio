@@ -155,7 +155,7 @@ const TerminalMode = () => {
            output = new Date().toString();
         } else if (cmd === 'matrix') {
            output = 'Wake up, Neo... The Matrix has you...';
-        } else if (cmd === 'install tahai' || cmd === 'npm install tahai' || cmd === 'apt install tahai') {
+        } else if (cmd.includes('install tahai')) {
            setIsBusy(true);
            output = <FakeInstaller onComplete={() => setIsBusy(false)} />;
         } else if (cmd === 'tahai' || cmd.startsWith('tahai ')) {
