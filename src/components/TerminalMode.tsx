@@ -108,6 +108,7 @@ const TerminalMode = () => {
             <span className="text-green-400">whoami</span> - Display biography<br />
             <span className="text-green-400">ls</span> - List directory contents<br />
             <span className="text-green-400">cat &lt;file&gt;</span> - View file contents<br />
+            <span className="text-green-400">tahai &lt;query&gt;</span> - Ask the TahAI assistant<br />
             <span className="text-green-400">clear</span> - Clear terminal<br />
             <span className="text-green-400">exit</span> - Close terminal mode
           </div>
