@@ -123,14 +123,10 @@ const HeroSection = () => {
       {/* Content layer */}
       <div className="relative z-10 flex h-full flex-col">
         {/* Top bar */}
-        <FadeIn delay={0} y={-20} className="absolute top-6 sm:top-10 inset-x-0 z-50 flex items-center w-full px-6 md:px-12">
-          {/* Animated Left Spacer for Centering -> Left alignment */}
-          <div className={`transition-all duration-[1200ms] ease-in-out ${speaking ? 'w-0 flex-none' : 'flex-1'}`} />
-          
-          {/* Content Wrapper */}
-          <div className={`flex items-center transition-all duration-[1200ms] ease-in-out ${speaking ? 'gap-0' : 'gap-4 sm:gap-6'}`}>
+        <FadeIn delay={0} y={-20} className="absolute top-6 sm:top-10 inset-x-0 z-50 w-full pointer-events-none">
+          <div className="relative mx-auto flex items-center justify-center w-full max-w-7xl h-12 px-6 md:px-10 pointer-events-auto">
             {/* Portfolio Badge */}
-            <div className={`overflow-hidden transition-all duration-[1200ms] ease-in-out flex items-center ${speaking ? 'max-w-0 opacity-0 scale-75' : 'max-w-[300px] opacity-100 scale-100'}`}>
+            <div className={`absolute left-6 md:left-10 overflow-hidden transition-all duration-[1200ms] ease-in-out flex items-center ${speaking ? 'max-w-0 opacity-0 scale-75' : 'max-w-[300px] opacity-100 scale-100'}`}>
               <div className="w-max inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-5 py-2 shadow-[0_0_20px_rgba(255,255,255,0.1)] whitespace-nowrap">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-50"></span>
@@ -143,7 +139,7 @@ const HeroSection = () => {
             </div>
 
             {/* Floating Glassmorphic Navbar */}
-            <nav className={`inline-flex items-center rounded-full border border-white/10 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.8)] transition-all duration-[1200ms] ease-in-out hover:bg-[#0A0A0A]/80 hover:border-white/30 ${speaking ? 'bg-[#0A0A0A]/20 px-6 py-3 opacity-60 hover:opacity-100' : 'bg-[#0A0A0A]/60 px-8 py-3.5 sm:px-12 sm:py-4 opacity-100'}`}>
+            <nav className={`absolute transition-all duration-[1200ms] ease-in-out inline-flex items-center rounded-full border border-white/10 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.8)] hover:bg-[#0A0A0A]/80 hover:border-white/30 ${speaking ? 'left-6 md:left-10 translate-x-0 bg-[#0A0A0A]/20 px-6 py-3 opacity-60 hover:opacity-100' : 'left-1/2 -translate-x-1/2 bg-[#0A0A0A]/60 px-8 py-3.5 sm:px-12 sm:py-4 opacity-100'}`}>
               <ul className={`flex items-center transition-all duration-[1200ms] ease-in-out ${speaking ? 'gap-6 sm:gap-8' : 'gap-8 sm:gap-14'}`}>
                 {NAV_LINKS.map((link) => (
                   <li key={link.label}>
@@ -159,9 +155,6 @@ const HeroSection = () => {
               </ul>
             </nav>
           </div>
-          
-          {/* Right Spacer for Centering */}
-          <div className="flex-1" />
         </FadeIn>
 
         {/* Middle-left: PORTFOLIO + Name + Subtitle */}
