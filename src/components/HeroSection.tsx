@@ -171,8 +171,8 @@ const HeroSection = () => {
 
             <FadeIn delay={0.65} y={30}>
               <h1
-                className={`mt-4 sm:mt-6 md:mt-8 text-white uppercase tracking-tighter leading-[0.85] break-words [text-shadow:0_0_40px_rgba(255,255,255,0.15)] transition-all duration-1000 origin-left ${speaking ? 'scale-[0.4] sm:scale-[0.5] font-light opacity-50 pointer-events-none' : 'scale-100 font-black opacity-100'}`}
-                style={{ fontSize: 'clamp(2.25rem, 8vw, 150px)' }}
+                className={`mt-4 sm:mt-6 md:mt-8 text-white uppercase tracking-tight leading-[0.95] break-words [text-shadow:0_0_40px_rgba(255,255,255,0.15)] transition-all duration-1000 origin-left ${speaking ? 'scale-[0.4] sm:scale-[0.5] font-light opacity-50 pointer-events-none' : 'scale-100 font-extrabold opacity-100'}`}
+                style={{ fontSize: 'clamp(2.25rem, 7vw, 120px)' }}
               >
                 <ScrambleText text="Muhammad Taha Nawab" delay={0.8} />
               </h1>
