@@ -44,8 +44,16 @@ const DEFAULT_RESPONSE = "> ERROR: QUERY NOT RECOGNIZED.\n> Please restrict quer
 
 export default function NeuralInterfaceSection() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isInstalled, setIsInstalled] = useState(() => typeof window !== 'undefined' ? sessionStorage.getItem('tahai_installed') === 'true' : false);
   const [messages, setMessages] = useState<Message[]>([
-    { id: '1', sender: 'ai', text: "> Welcome. I am a custom AI engineered by Taha Nawab. Ask me about his projects, skills, or experience.", isTyping: true }
+    { 
+      id: '1', 
+      sender: 'ai', 
+      text: typeof window !== 'undefined' && sessionStorage.getItem('tahai_installed') === 'true'
+        ? "> Welcome. I am a custom AI engineered by Taha Nawab. Ask me about his projects, skills, or experience."
+        : "> SYSTEM OFFLINE: TahAI Core not installed.\n> Please click the Terminal icon above this chat and run 'taha install tahai' to activate the AI.", 
+      isTyping: true 
+    }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isAiTyping, setIsAiTyping] = useState(true);
@@ -56,7 +64,24 @@ export default function NeuralInterfaceSection() {
   };
 
   useEffect(() => {
-    if (isOpen) scrollToBottom();
+    if (isOpen) {
+      const currentlyInstalled = sessionStorage.getItem('tahai_installed') === 'true';
+      setIsInstalled(currentlyInstalled);
+      
+      setMessages(prev => {
+        const firstMsg = prev[0];
+        const newText = currentlyInstalled 
+          ? "> Welcome. I am a custom AI engineered by Taha Nawab. Ask me about his projects, skills, or experience."
+          : "> SYSTEM OFFLINE: TahAI Core not installed.\n> Please click the Terminal icon above this chat and run 'taha install tahai' to activate the AI.";
+          
+        if (firstMsg.text !== newText) {
+          return [{ ...firstMsg, text: newText }, ...prev.slice(1)];
+        }
+        return prev;
+      });
+      
+      scrollToBottom();
+    }
   }, [messages, isAiTyping, isOpen]);
 
   // Handle typing effect for the first message
@@ -89,6 +114,20 @@ export default function NeuralInterfaceSection() {
       // Load API key from environment variable to prevent GitHub auto-revocation
       const apiKey = (import.meta as any).env.VITE_GROQ_API_KEY;
       
+      // If not installed, refuse to answer
+      if (sessionStorage.getItem('tahai_installed') !== 'true') {
+        setTimeout(() => {
+          const aiMsg: Message = {
+            id: (Date.now() + 1).toString(),
+            sender: 'ai',
+            text: "> ERROR: AI Core is offline. Installation required via terminal.\n> Command: 'taha install tahai'"
+          };
+          setMessages(prev => [...prev, aiMsg]);
+          setIsAiTyping(false);
+        }, 1000);
+        return;
+      }
+
       // If no API key, fallback to local knowledge base
       if (!apiKey) {
         setTimeout(() => {
