@@ -115,7 +115,7 @@ const AboutSection = () => {
               </div>
             </div>
 
-            <h3 className="mb-6 lg:mb-10 text-center text-xs sm:text-sm font-bold uppercase tracking-[0.4em] text-white/50 relative z-10">
+            <h3 className="mb-6 lg:mb-10 text-center text-lg sm:text-xl md:text-2xl font-black uppercase tracking-[0.3em] text-white/70 relative z-10">
               Technical Arsenal
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8 w-full max-w-7xl mx-auto px-4 sm:px-0">
