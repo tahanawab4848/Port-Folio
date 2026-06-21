@@ -205,7 +205,7 @@ const TerminalMode = () => {
       {/* Trigger Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 left-6 z-[60] flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black/50 backdrop-blur-md shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:scale-110 hover:border-green-500/50 hover:bg-black/80 hover:shadow-[0_0_30px_rgba(34,197,94,0.3)] group"
+        className="fixed bottom-20 right-6 sm:right-6 z-[60] flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-black/50 backdrop-blur-md shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:scale-110 hover:border-green-500/50 hover:bg-black/80 hover:shadow-[0_0_30px_rgba(34,197,94,0.3)] group"
         title="Open Terminal"
       >
         <TerminalIcon className="h-5 w-5 text-white/50 transition-colors group-hover:text-green-400" />
