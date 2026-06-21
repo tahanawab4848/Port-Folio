@@ -124,10 +124,7 @@ const HeroSection = () => {
       <div className="relative z-10 flex h-full flex-col">
         {/* Top bar */}
         <FadeIn delay={0} y={-20} className="w-full pt-6 sm:pt-8 px-4 sm:px-6 md:px-10">
-          <div className="mx-auto flex w-full max-w-7xl items-center justify-center sm:justify-between">
-            {/* Spacer for perfect centering on desktop */}
-            <div className="hidden sm:block w-[130px]" />
-            
+          <div className="mx-auto flex w-full max-w-7xl items-center justify-between">
             {/* Floating Glassmorphic Navbar */}
             <nav className="inline-flex items-center rounded-full border border-white/10 bg-[#0A0A0A]/40 backdrop-blur-xl px-6 py-3 sm:px-8 sm:py-3.5 shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all hover:bg-[#0A0A0A]/60 hover:border-white/20">
               <ul className="flex items-center gap-5 sm:gap-10">
