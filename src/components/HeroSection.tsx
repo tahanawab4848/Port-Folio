@@ -165,8 +165,8 @@ const HeroSection = () => {
           <div className="w-full max-w-7xl px-6 md:px-10 pointer-events-auto">
             <FadeIn delay={0.65} y={30}>
               <h1
-                className={`mt-4 sm:mt-6 md:mt-8 text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-white/20 uppercase tracking-tight leading-[0.95] break-words drop-shadow-2xl transition-all duration-1000 origin-left ${speaking ? 'scale-[0.4] sm:scale-[0.5] font-light opacity-50 pointer-events-none' : 'scale-100 font-extrabold opacity-100'}`}
-                style={{ fontSize: 'clamp(2.25rem, 7vw, 120px)' }}
+                className={`mt-4 sm:mt-6 md:mt-8 text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-white/20 uppercase tracking-tight leading-[0.95] break-words drop-shadow-2xl transition-all duration-1000 origin-left ${speaking ? 'scale-[0.4] sm:scale-[0.5] font-light opacity-50 pointer-events-none' : 'scale-100 font-black opacity-100'}`}
+                style={{ fontSize: 'clamp(2.5rem, 8.5vw, 150px)' }}
               >
                 <ScrambleText text="Muhammad Taha Nawab" delay={0.8} />
               </h1>
