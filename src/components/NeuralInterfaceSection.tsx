@@ -45,7 +45,7 @@ const DEFAULT_RESPONSE = "> ERROR: QUERY NOT RECOGNIZED.\n> Please restrict quer
 export default function NeuralInterfaceSection() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { id: '1', sender: 'ai', text: "> SYSTEM LINK: ESTABLISHED\n> TahAI Engine v2.0 Online.\n> Welcome. I am a custom AI engineered by Taha Nawab. Ask me about his projects, skills, or experience.", isTyping: true }
+    { id: '1', sender: 'ai', text: "> Welcome. I am a custom AI engineered by Taha Nawab. Ask me about his projects, skills, or experience.", isTyping: true }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isAiTyping, setIsAiTyping] = useState(true);
