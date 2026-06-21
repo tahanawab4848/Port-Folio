@@ -221,28 +221,19 @@ const HeroSection = () => {
             <button
               onClick={toggleSpeech}
               aria-label={speaking ? 'Stop speaking' : 'Speak intro'}
-              className="group relative flex items-center gap-2 rounded-full border border-white/10 bg-[#0A0A0A]/90 px-3 py-1.5 sm:px-4 sm:py-2 text-white shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all hover:border-white/30 hover:bg-white/10 hover:scale-105"
+              className="group relative flex items-center justify-center rounded-full border border-white/10 bg-[#0A0A0A]/90 w-10 h-10 sm:w-12 sm:h-12 text-white shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all hover:border-white/30 hover:bg-white/10 hover:scale-105"
             >
               <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-white/10 to-white/5 blur-md opacity-0 transition-opacity group-hover:opacity-100" />
               
-              <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.2em]">
-                {speaking ? 'Stop' : 'Play'}
-              </span>
-              
               {speaking ? (
-                <div className="flex items-center justify-center w-4 h-4 rounded-full bg-white/20 text-white">
-                  <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2">
-                    <rect x="6" y="4" width="4" height="16" />
-                    <rect x="14" y="4" width="4" height="16" />
-                  </svg>
-                </div>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" className="sm:w-5 sm:h-5">
+                  <rect x="6" y="4" width="4" height="16" />
+                  <rect x="14" y="4" width="4" height="16" />
+                </svg>
               ) : (
-                <div className="flex items-center justify-center w-4 h-4 rounded-full bg-white/20 text-white">
-                  <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
-                  </svg>
-                </div>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-5 sm:h-5 ml-1">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
               )}
             </button>
           </FadeIn>
