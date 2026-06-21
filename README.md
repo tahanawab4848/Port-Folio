@@ -1,6 +1,8 @@
 # Muhammad Taha Nawab - Premium Portfolio 🚀
 
-> **Live Demo:** [https://taha-nawab-portfolio.vercel.app/](https://taha-nawab-portfolio.vercel.app/)
+> **Live Demo:** [Click to witness the Digital Wonder!](https://taha-nawab-portfolio.vercel.app/)
+
+> **Resume:** [Download my Resume](https://taha-nawab-portfolio.vercel.app/Muhammad_Taha_Nawab_Cv.pdf)
 
 A state-of-the-art, premium portfolio showcasing my work as a **Full-Stack Developer** and **AI/ML Engineer**. The platform is designed with a "cyberpunk / mission control" aesthetic, utilizing high-fidelity glassmorphism, fluid micro-interactions, and a sleek dark mode.
 
