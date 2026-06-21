@@ -155,17 +155,7 @@ const HeroSection = () => {
         {/* Middle-left: PORTFOLIO + Name + Subtitle */}
         <div className="flex flex-1 items-center pt-8 sm:pt-12 md:pt-16">
           <div className="w-full max-w-7xl px-6 md:px-10">
-            <FadeIn delay={0.3} y={20}>
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-4 py-1.5 shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all hover:bg-white/10 hover:border-white/30">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-50"></span>
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
-                </span>
-                <p className="text-[10px] sm:text-xs font-medium uppercase tracking-[0.35em] text-white/80">
-                  Portfolio · 2026
-                </p>
-              </div>
-            </FadeIn>
+
 
 
 
