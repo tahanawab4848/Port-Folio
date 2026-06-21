@@ -36,7 +36,7 @@ const KNOWLEDGE_BASE = [
   },
   {
     keywords: ['hi', 'hello', 'hey', 'greetings', 'who', 'system'],
-    response: "> INITIALIZING GREETING PROTOCOL...\n> Welcome, User. I am TahAI. You may query my databases regarding Taha's [PROJECTS], [SKILLS], [EDUCATION], [CONTACT], or [AGE] information."
+    response: "> GREETING PROTOCOL: ENGAGED\n> Hello. I am TahAI, a custom machine learning model architected by Taha. You may query my databanks regarding his [PROJECTS], [SKILLS], [EDUCATION], or [CONTACT] info."
   }
 ];
 
@@ -45,7 +45,7 @@ const DEFAULT_RESPONSE = "> ERROR: QUERY NOT RECOGNIZED.\n> Please restrict quer
 export default function NeuralInterfaceSection() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { id: '1', sender: 'ai', text: "> SYSTEM BOOT_SEQ: OK\n> TahAI: ACTIVE\n> I am TahAI, the portfolio construct. Query me regarding Taha's experience, skills, projects, or contact info.", isTyping: true }
+    { id: '1', sender: 'ai', text: "> SYSTEM LINK: ESTABLISHED\n> TahAI Engine v2.0 Online.\n> Welcome, Guest. I am an AI construct engineered by Muhammad Taha Nawab to assist you. Ask me anything about his engineering skills, professional experience, projects, or contact details.", isTyping: true }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isAiTyping, setIsAiTyping] = useState(true);
