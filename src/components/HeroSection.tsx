@@ -226,7 +226,7 @@ const HeroSection = () => {
               <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-white/10 to-white/5 blur-md opacity-0 transition-opacity group-hover:opacity-100" />
               
               <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.2em]">
-                {speaking ? 'Stop' : 'Hear Intro'}
+                {speaking ? 'Stop' : 'Play'}
               </span>
               
               {speaking ? (
