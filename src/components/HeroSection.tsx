@@ -110,8 +110,9 @@ const HeroSection = () => {
       </video>
 
       {/* Cinematic gradient overlays that react to voice */}
-      <div className={`absolute inset-0 transition-colors duration-1000 ${speaking ? 'bg-gradient-to-r from-black/60 via-transparent to-black/40' : 'bg-gradient-to-r from-black/80 via-black/50 to-black/60'}`} />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70 pointer-events-none" />
+      <div className={`absolute inset-0 transition-colors duration-1000 ${speaking ? 'bg-black/60' : 'bg-black/30'}`} />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(0,0,0,0.8)_100%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90 pointer-events-none" />
 
       {/* Animated glowing orbs & tech grid */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -139,7 +140,7 @@ const HeroSection = () => {
             </div>
 
             {/* Floating Glassmorphic Navbar */}
-            <nav className={`absolute transition-all duration-[1200ms] ease-in-out inline-flex items-center rounded-full border border-white/10 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.8)] hover:bg-[#0A0A0A]/90 hover:border-white/20 hover:shadow-[0_0_40px_rgba(255,255,255,0.08)] ${speaking ? 'left-6 md:left-10 translate-x-0 bg-[#0A0A0A]/20 p-1.5 opacity-60 hover:opacity-100' : 'left-1/2 -translate-x-1/2 bg-[#0A0A0A]/50 p-2 sm:p-2.5 opacity-100'}`}>
+            <nav className={`absolute transition-all duration-[1200ms] ease-in-out inline-flex items-center rounded-full border border-white/5 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.9)] hover:bg-[#0A0A0A]/90 hover:border-white/10 hover:shadow-[0_0_40px_rgba(255,255,255,0.05)] ${speaking ? 'left-6 md:left-10 translate-x-0 bg-[#0A0A0A]/20 p-1 opacity-60 hover:opacity-100' : 'left-1/2 -translate-x-1/2 bg-[#0A0A0A]/40 p-1.5 opacity-100'}`}>
               
               {/* Ambient Breathing Glow */}
               <div className={`absolute inset-0 rounded-full bg-white/10 animate-pulse pointer-events-none transition-all duration-1000 ${speaking ? 'opacity-0' : 'opacity-100'}`} style={{ animationDuration: '4s' }} />
@@ -155,7 +156,7 @@ const HeroSection = () => {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="group relative flex items-center justify-center px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-white/70 transition-all duration-300 hover:text-white hover:scale-105"
+                      className="group relative flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.2em] text-white/60 transition-all duration-300 hover:text-white hover:scale-105"
                     >
                       <span className="relative z-10">{link.label}</span>
                       
@@ -173,37 +174,40 @@ const HeroSection = () => {
         </FadeIn>
 
         {/* Middle-left: PORTFOLIO + Name + Subtitle */}
-        <div className="flex flex-1 items-center pt-8 sm:pt-12 md:pt-16">
-          <div className="w-full max-w-7xl px-6 md:px-10">
+        <div className="flex flex-1 items-center pt-8 sm:pt-12 md:pt-16 pointer-events-none">
+          <div className="w-full max-w-7xl px-6 md:px-10 pointer-events-auto">
             <FadeIn delay={0.65} y={30}>
               <h1
-                className={`mt-4 sm:mt-6 md:mt-8 text-white uppercase tracking-tight leading-[0.95] break-words [text-shadow:0_0_40px_rgba(255,255,255,0.15)] transition-all duration-1000 origin-left ${speaking ? 'scale-[0.4] sm:scale-[0.5] font-light opacity-50 pointer-events-none' : 'scale-100 font-extrabold opacity-100'}`}
-                style={{ fontSize: 'clamp(2.25rem, 7vw, 120px)' }}
+                className={`mt-4 sm:mt-6 md:mt-8 text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-white/20 uppercase tracking-[0.05em] leading-[1.05] drop-shadow-2xl transition-all duration-1000 origin-left ${speaking ? 'scale-[0.5] font-light opacity-40 pointer-events-none' : 'scale-100 font-bold opacity-100'}`}
+                style={{ fontSize: 'clamp(2.5rem, 5.5vw, 90px)' }}
               >
                 <ScrambleText text="Muhammad Taha Nawab" delay={0.8} />
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.85} y={20}>
-              <p className="mt-5 md:mt-7 text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-[0.4em] text-[#E2E8F0] [text-shadow:0_0_20px_rgba(255,255,255,0.3)]">
-                Full-Stack Developer · AI/ML Engineer
-              </p>
+              <div className="mt-5 md:mt-6 flex items-center gap-4">
+                <div className="h-[1px] w-8 sm:w-12 bg-green-500/50" />
+                <p className="text-[9px] sm:text-[10px] md:text-xs font-medium uppercase tracking-[0.3em] text-[#A0AEC0]">
+                  Full-Stack Developer <span className="mx-2 text-white/20">|</span> AI/ML Engineer
+                </p>
+              </div>
             </FadeIn>
 
             <FadeIn delay={1.0} y={20}>
-              <div className="mt-8 md:mt-10">
+              <div className="mt-8 md:mt-12">
                 <a
                   href="/Muhammad_Taha_Nawab_CV.pdf"
                   download="Muhammad_Taha_Nawab_CV.pdf"
-                  className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-4 py-2 sm:px-5 sm:py-2.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-white transition-all hover:border-white/50 hover:bg-white/20 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+                  className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-white/10 bg-black/40 backdrop-blur-xl px-5 py-2.5 sm:px-6 sm:py-3 text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.25em] text-white transition-all hover:border-white/30 hover:bg-white/10 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.1)]"
                 >
-                  <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"></span>
-                  <svg className="relative z-10" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"></span>
+                  <svg className="relative z-10 text-white/70 group-hover:text-white transition-colors" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                     <polyline points="7 10 12 15 17 10" />
                     <line x1="12" y1="15" x2="12" y2="3" />
                   </svg>
-                  <span className="relative z-10">Download CV</span>
+                  <span className="relative z-10 text-white/90 group-hover:text-white transition-colors">Download Resume</span>
                 </a>
               </div>
             </FadeIn>
