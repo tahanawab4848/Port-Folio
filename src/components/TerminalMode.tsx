@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Terminal as TerminalIcon, X } from 'lucide-react';
-import FadeIn from './FadeIn';
+
 
 interface CommandOutput {
   command: string;
@@ -200,8 +200,7 @@ const TerminalMode = () => {
                 <div className="whitespace-pre-wrap">{bootText}<span className="animate-pulse">_</span></div>
               ) : (
                 <>
-                  <FadeIn delay={0.1} y={10}>
-                    <div className="mb-6 whitespace-pre-wrap select-none text-green-400 font-bold">
+                  <div className="mb-6 whitespace-pre-wrap select-none text-green-400 font-bold animate-[fadeIn_0.5s_ease-out]">
 {`
   _____     _           ___  ____  
  |_   _|   | |         / _ \\/ ___| 
@@ -213,8 +212,7 @@ const TerminalMode = () => {
                       Welcome to TahaOS v2.0.4<br/>
                       Type 'help' to see available commands.<br/>
                       <br/>
-                    </div>
-                  </FadeIn>
+                  </div>
 
                   <div className="flex-1">
                     {history.map((entry, i) => (

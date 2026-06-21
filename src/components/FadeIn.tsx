@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import type { ReactNode, ElementType } from 'react';
+import { type ReactNode, type ElementType, useMemo } from 'react';
 
 interface FadeInProps {
   children: ReactNode;
@@ -23,7 +23,8 @@ const FadeIn = ({
   style,
 }: FadeInProps) => {
   // motion.create() supports dynamic element types in framer-motion v12
-  const MotionComponent = motion.create(as);
+  // We MUST memoize this, otherwise it creates a new component reference on every render, causing unmounts and blinking!
+  const MotionComponent = useMemo(() => motion.create(as), [as]);
 
   return (
     <MotionComponent
