@@ -122,28 +122,23 @@ const HeroSection = () => {
 
       {/* Content layer */}
       <div className="relative z-10 flex h-full flex-col">
-        {/* Top bar */}
-        <FadeIn delay={0} y={-20} className="w-full pt-6 sm:pt-8 px-4 sm:px-6 md:px-10">
-          <div className="mx-auto flex w-full max-w-7xl items-center justify-between">
-            {/* Floating Glassmorphic Navbar */}
-            <nav className={`flex items-center rounded-full border border-white/10 bg-[#0A0A0A]/40 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] hover:bg-[#0A0A0A]/60 hover:border-white/20 ${speaking ? 'px-6 py-3 sm:px-8 sm:py-3.5 w-max' : 'px-8 py-4 sm:px-16 sm:py-5 w-full'}`}>
-              <ul className={`flex items-center w-full transition-all duration-1000 ${speaking ? 'gap-5 sm:gap-10 justify-start' : 'justify-between gap-2'}`}>
-                {NAV_LINKS.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="group relative text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-white/60 transition-colors duration-300 hover:text-white"
-                    >
-                      {link.label}
-                      <span className="absolute -bottom-1.5 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-white transition-all duration-300 group-hover:w-full shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-
-          </div>
+        {/* Floating Vertical Navbar */}
+        <FadeIn delay={0} className="absolute right-4 sm:right-6 md:right-10 top-1/2 -translate-y-1/2 z-50">
+          <nav className={`flex flex-col items-center rounded-full border border-white/10 bg-[#0A0A0A]/40 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] hover:bg-[#0A0A0A]/60 hover:border-white/20 py-8 px-2 sm:px-3.5 ${speaking ? 'scale-75 translate-x-10 opacity-30' : 'scale-100 opacity-100'}`}>
+            <ul className="flex flex-col items-center gap-8 sm:gap-12">
+              {NAV_LINKS.map((link) => (
+                <li key={link.label} className="rotate-180" style={{ writingMode: 'vertical-rl' }}>
+                  <a
+                    href={link.href}
+                    className="group relative flex text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-white/60 transition-colors duration-300 hover:text-white"
+                  >
+                    {link.label}
+                    <span className="absolute -left-2 top-0 w-[2px] h-0 bg-white transition-all duration-300 group-hover:h-full shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </FadeIn>
 
         {/* Middle-left: PORTFOLIO + Name + Subtitle */}
