@@ -104,15 +104,15 @@ const HeroSection = () => {
         playsInline
         preload="auto"
         onEnded={() => setSpeaking(false)}
-        className={`absolute inset-0 h-full w-full object-cover transition-all duration-1000 ease-in-out ${speaking ? 'opacity-100 scale-105' : 'opacity-40 scale-100'}`}
+        className={`absolute inset-0 h-full w-full object-cover transition-all duration-1000 ease-in-out ${speaking ? 'opacity-100 scale-105' : 'opacity-80 scale-100'}`}
       >
         <source src="/My_Intro.webm" type="video/webm" />
       </video>
 
       {/* Cinematic gradient overlays that react to voice */}
-      <div className={`absolute inset-0 transition-colors duration-1000 ${speaking ? 'bg-black/60' : 'bg-black/30'}`} />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(0,0,0,0.8)_100%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90 pointer-events-none" />
+      <div className={`absolute inset-0 transition-colors duration-1000 ${speaking ? 'bg-black/40' : 'bg-black/10'}`} />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.6)_100%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70 pointer-events-none" />
 
       {/* Animated glowing orbs & tech grid */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
