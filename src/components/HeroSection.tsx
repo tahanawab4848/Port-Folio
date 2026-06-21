@@ -126,7 +126,7 @@ const HeroSection = () => {
         <FadeIn delay={0} y={-20} className="w-full pt-6 sm:pt-8 px-4 sm:px-6 md:px-10">
           <div className="mx-auto flex w-full max-w-7xl items-center justify-between">
             {/* Floating Glassmorphic Navbar */}
-            <nav className={`flex items-center rounded-full border border-white/10 bg-[#0A0A0A]/40 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] hover:bg-[#0A0A0A]/60 hover:border-white/20 ${speaking ? 'px-6 py-3 sm:px-8 sm:py-3.5 flex-none' : 'px-8 py-4 sm:px-16 sm:py-5 flex-1 mr-6 sm:mr-12 md:mr-24'}`}>
+            <nav className={`flex items-center rounded-full border border-white/10 bg-[#0A0A0A]/40 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] hover:bg-[#0A0A0A]/60 hover:border-white/20 ${speaking ? 'px-6 py-3 sm:px-8 sm:py-3.5 w-max' : 'px-8 py-4 sm:px-16 sm:py-5 w-full'}`}>
               <ul className={`flex items-center w-full transition-all duration-1000 ${speaking ? 'gap-5 sm:gap-10 justify-start' : 'justify-between gap-2'}`}>
                 {NAV_LINKS.map((link) => (
                   <li key={link.label}>
@@ -142,13 +142,7 @@ const HeroSection = () => {
               </ul>
             </nav>
 
-            {/* Email Button */}
-            <a
-              href="#contact"
-              className="hidden sm:inline-flex w-[130px] justify-center items-center rounded-full border border-transparent bg-white px-4 py-2.5 text-[10px] font-black uppercase tracking-widest text-black transition-all duration-300 hover:bg-black hover:text-white hover:border-white hover:scale-105 hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
-            >
-              Email Me
-            </a>
+
           </div>
         </FadeIn>
 
