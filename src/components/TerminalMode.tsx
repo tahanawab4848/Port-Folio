@@ -41,9 +41,9 @@ const TerminalMode = () => {
             setIsBooting(false);
             setBootText('');
             inputRef.current?.focus();
-          }, 500);
+          }, 100);
         }
-      }, 300);
+      }, 40);
       return () => clearInterval(interval);
     }
   }, [isOpen]);
