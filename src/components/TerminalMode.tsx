@@ -17,6 +17,36 @@ const TerminalMode = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
+  // KNOWLEDGE BASE FOR TERMINAL AI
+  const KNOWLEDGE_BASE = [
+    {
+      keywords: ['project', 'work', 'build', 'toxiglow', 'medipredict', 'learnwave'],
+      response: "> QUERY MATCH: 'PROJECTS'\n> Taha has architected several high-performance platforms:\n> 1. [ToxiGlow]: AI wound analysis built for BioNova Innovathon 2026.\n> 2. [MediPredict]: Disease prediction engine with <200ms latency.\n> 3. [Support Ticket System]: Enterprise SLA monitor handling 10k+ concurrent tickets.\n> 4. [LearnWave]: Full-stack E-Learning platform.\n> 5. [Warehouse Robot Sim]: A*, BFS, and Genetic Algorithms in Python."
+    },
+    {
+      keywords: ['skill', 'tech', 'stack', 'language', 'framework', 'react', 'python', 'fastapi', 'database'],
+      response: "> QUERY MATCH: 'SKILLS'\n> FRONTEND: React.js, Vite, HTML5/CSS3, Tailwind\n> BACKEND: Node.js, Express.js, FastAPI, Flask\n> DATABASES: PostgreSQL, MongoDB, MySQL\n> AI/ML: scikit-learn, HuggingFace, OpenCV, Generative AI APIs\n> LANGUAGES: JavaScript, TypeScript, Python, SQL, C++."
+    },
+    {
+      keywords: ['experience', 'education', 'background', 'university', 'comsats', 'internship'],
+      response: "> QUERY MATCH: 'EXPERIENCE & EDUCATION'\n> EDUCATION: BS Computer Science at COMSATS University Islamabad.\n> OBJECTIVE: Seeking an internship or junior role to architect cloud-native MERN apps and applied ML systems.\n> CERTIFICATIONS: AI Hero (School of AI), AI Fluency (Anthropic)."
+    },
+    {
+      keywords: ['contact', 'email', 'phone', 'hire', 'reach', 'github', 'linkedin'],
+      response: "> QUERY MATCH: 'CONTACT_INFO'\n> EMAIL: official.taha.nawab@gmail.com\n> PHONE: +92 305-4776655\n> LINKEDIN: linkedin.com/in/tahanawab4848\n> GITHUB: github.com/tahanawab4848"
+    },
+    {
+      keywords: ['age', 'dob', 'date of birth', 'born', 'birthday', 'old', 'birth'],
+      response: "> QUERY MATCH: 'PERSONAL_INFO'\n> DATE OF BIRTH: 3rd Oct, 2005\n> AGE: 20 years old"
+    },
+    {
+      keywords: ['hi', 'hello', 'hey', 'greetings', 'who', 'system'],
+      response: "> GREETING PROTOCOL: ENGAGED\n> Hello. I am an AI architected by Taha. Query me regarding his [PROJECTS], [SKILLS], or [CONTACT] info."
+    }
+  ];
+
+  const DEFAULT_RESPONSE = "> ERROR: QUERY NOT RECOGNIZED.\n> Please restrict queries to parameters: ['projects', 'skills', 'education', 'contact', 'age'].";
+
   // Boot sequence logic
   useEffect(() => {
     if (isOpen) {
@@ -190,8 +220,23 @@ const TerminalMode = () => {
            }
            setIsBusy(false);
            return;
-        } else if (cmd === 'tahai' || cmd.startsWith('tahai ')) {
-           output = 'TahAI Neural Link active. Please close the terminal and use the main GUI widget to interact with the AI.';
+        } else if (cmd === 'tahai') {
+           output = '> GREETING PROTOCOL: ENGAGED\n> Hello. I am TahAI. Usage: tahai <query>\n> Example: tahai projects, tahai skills, tahai contact';
+        } else if (cmd.startsWith('tahai ')) {
+           const query = cmd.slice(6).toLowerCase();
+           let found = false;
+           
+           for (const kb of KNOWLEDGE_BASE) {
+             if (kb.keywords.some(kw => query.includes(kw))) {
+               output = kb.response;
+               found = true;
+               break;
+             }
+           }
+           
+           if (!found) {
+             output = DEFAULT_RESPONSE;
+           }
         } else {
           output = `Command not found: ${cmd}. Type 'help' for available commands.`;
         }
