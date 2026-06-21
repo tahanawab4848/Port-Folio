@@ -7,9 +7,48 @@ interface CommandOutput {
   output: React.ReactNode;
 }
 
+const FakeInstaller = ({ onComplete }: { onComplete: () => void }) => {
+  const [lines, setLines] = useState<string[]>([]);
+  
+  useEffect(() => {
+    const installSequence = [
+      '> Resolving dependencies...',
+      '> Fetching packages from tahai-registry...',
+      '> Downloading tahai-core-v2.0.0 [====================] 100%',
+      '> Extracting neural models...',
+      '> Compiling quantum pathways...',
+      '> TahAI successfully installed!',
+      'Type "tahai" to initialize the AI assistant.'
+    ];
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i < installSequence.length) {
+        setLines(prev => [...prev, installSequence[i]]);
+        i++;
+      } else {
+        clearInterval(interval);
+        onComplete();
+      }
+    }, 400);
+    return () => clearInterval(interval);
+  }, [onComplete]);
+
+  return (
+    <div className="flex flex-col gap-1 mt-1">
+      {lines.map((line, idx) => (
+        <span key={idx} className={line.includes('successfully') ? 'text-green-400 font-bold' : 'text-gray-300'}>
+          {line}
+        </span>
+      ))}
+      {lines.length < 7 && <span className="animate-pulse text-green-400">_</span>}
+    </div>
+  );
+};
+
 const TerminalMode = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBooting, setIsBooting] = useState(false);
+  const [isBusy, setIsBusy] = useState(false);
   const [bootText, setBootText] = useState('');
   const [history, setHistory] = useState<CommandOutput[]>([]);
   const [input, setInput] = useState('');
@@ -116,6 +155,11 @@ const TerminalMode = () => {
            output = new Date().toString();
         } else if (cmd === 'matrix') {
            output = 'Wake up, Neo... The Matrix has you...';
+        } else if (cmd === 'install tahai' || cmd === 'npm install tahai' || cmd === 'apt install tahai') {
+           setIsBusy(true);
+           output = <FakeInstaller onComplete={() => setIsBusy(false)} />;
+        } else if (cmd === 'tahai' || cmd.startsWith('tahai ')) {
+           output = 'TahAI Neural Link active. Please close the terminal and use the main GUI widget to interact with the AI.';
         } else {
           output = `Command not found: ${cmd}. Type 'help' for available commands.`;
         }
@@ -201,7 +245,8 @@ const TerminalMode = () => {
                         type="text"
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
-                        className="flex-1 min-w-[200px] bg-transparent border-none outline-none text-white font-mono shadow-none focus:ring-0 p-0"
+                        disabled={isBusy}
+                        className={`flex-1 min-w-[200px] bg-transparent border-none outline-none font-mono shadow-none focus:ring-0 p-0 ${isBusy ? 'text-gray-500' : 'text-white'}`}
                         autoComplete="off"
                         spellCheck="false"
                         autoFocus
