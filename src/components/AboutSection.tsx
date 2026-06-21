@@ -139,16 +139,16 @@ const AboutSection = () => {
               ].map((group) => (
                 <div
                   key={group.label}
-                  className="group/card flex flex-col items-center xl:items-start gap-6 p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 hover:bg-white/[0.05] hover:border-white/20 hover:-translate-y-3 hover:shadow-[0_30px_50px_rgba(0,0,0,0.6)] transition-all duration-500"
+                  className="group/card flex flex-col items-center xl:items-start gap-6 p-8 rounded-[2rem] bg-black border border-white hover:bg-white hover:border-black hover:-translate-y-3 hover:shadow-[0_30px_50px_rgba(255,255,255,0.2)] transition-all duration-500"
                 >
-                  <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-white/40 text-center xl:text-left group-hover/card:text-white/70 transition-colors duration-500">
+                  <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-white text-center xl:text-left group-hover/card:text-black transition-colors duration-500">
                     {group.label}
                   </span>
                   <div className="flex flex-wrap justify-center xl:justify-start gap-3">
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-white/15 bg-white/[0.03] px-4 py-2 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white/80 hover:scale-110 hover:-translate-y-1 hover:border-white/50 hover:bg-white/10 hover:text-white hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300"
+                        className="rounded-full border border-white bg-black px-4 py-2 text-[10px] sm:text-xs font-black uppercase tracking-wider text-white hover:scale-110 hover:-translate-y-1 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300 group-hover/card:border-black group-hover/card:bg-white group-hover/card:text-black group-hover/card:hover:bg-black group-hover/card:hover:text-white"
                       >
                         {item}
                       </span>
