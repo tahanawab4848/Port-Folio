@@ -141,14 +141,14 @@ const AboutSection = () => {
                   key={group.label}
                   className="group/card flex flex-col items-center xl:items-start gap-6 p-8 rounded-[2rem] bg-black border border-white hover:bg-white hover:border-black hover:-translate-y-3 hover:shadow-[0_30px_50px_rgba(255,255,255,0.2)] transition-all duration-500"
                 >
-                  <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-white text-center xl:text-left group-hover/card:text-black transition-colors duration-500">
+                  <span className="text-sm font-semibold tracking-wider text-white/80 text-center xl:text-left group-hover/card:text-black/80 transition-colors duration-500">
                     {group.label}
                   </span>
                   <div className="flex flex-wrap justify-center xl:justify-start gap-3">
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-white bg-black px-4 py-2 text-[10px] sm:text-xs font-black uppercase tracking-wider text-white hover:scale-110 hover:-translate-y-1 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300 group-hover/card:border-black group-hover/card:bg-white group-hover/card:text-black group-hover/card:hover:bg-black group-hover/card:hover:text-white"
+                        className="rounded-full border border-white bg-black px-4 py-2 text-xs sm:text-sm font-medium text-white hover:scale-110 hover:-translate-y-1 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all duration-300 group-hover/card:border-black group-hover/card:bg-white group-hover/card:text-black group-hover/card:hover:bg-black group-hover/card:hover:text-white"
                       >
                         {item}
                       </span>
