@@ -142,13 +142,13 @@ const HeroSection = () => {
             <nav className={`absolute transition-all duration-[1200ms] ease-in-out inline-flex items-center rounded-full border border-white/10 backdrop-blur-3xl shadow-[0_20px_40px_rgba(0,0,0,0.8)] hover:bg-[#0A0A0A]/90 hover:border-white/20 hover:shadow-[0_0_40px_rgba(255,255,255,0.08)] ${speaking ? 'left-6 md:left-10 translate-x-0 bg-[#0A0A0A]/20 p-1.5 opacity-60 hover:opacity-100' : 'left-1/2 -translate-x-1/2 bg-[#0A0A0A]/50 p-2 sm:p-2.5 opacity-100'}`}>
               
               {/* Ambient Breathing Glow */}
-              <div className={`absolute inset-0 rounded-full bg-white/[0.03] animate-pulse pointer-events-none transition-all duration-1000 ${speaking ? 'opacity-0' : 'opacity-100'}`} style={{ animationDuration: '4s' }} />
+              <div className={`absolute inset-0 rounded-full bg-white/10 animate-pulse pointer-events-none transition-all duration-1000 ${speaking ? 'opacity-0' : 'opacity-100'}`} style={{ animationDuration: '4s' }} />
               
               {/* Pulsing Top Edge Light */}
-              <div className={`absolute top-0 left-[20%] w-[60%] h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none animate-pulse transition-opacity duration-1000 ${speaking ? 'opacity-0' : 'opacity-100'}`} style={{ animationDuration: '3s' }} />
+              <div className={`absolute -top-[1px] left-[15%] w-[70%] h-[2px] bg-gradient-to-r from-transparent via-white/80 to-transparent pointer-events-none animate-pulse transition-opacity duration-1000 ${speaking ? 'opacity-0' : 'opacity-100'}`} style={{ animationDuration: '2s' }} />
               
               {/* Pulsing Bottom Edge Light */}
-              <div className={`absolute bottom-0 right-[20%] w-[60%] h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none animate-pulse transition-opacity duration-1000 ${speaking ? 'opacity-0' : 'opacity-100'}`} style={{ animationDuration: '5s', animationDelay: '1s' }} />
+              <div className={`absolute -bottom-[1px] right-[15%] w-[70%] h-[2px] bg-gradient-to-r from-transparent via-white/60 to-transparent pointer-events-none animate-pulse transition-opacity duration-1000 ${speaking ? 'opacity-0' : 'opacity-100'}`} style={{ animationDuration: '3s' }} />
 
               <ul className={`relative z-10 flex items-center transition-all duration-[1200ms] ease-in-out ${speaking ? 'gap-1' : 'gap-2 sm:gap-4'}`}>
                 {NAV_LINKS.map((link) => (
