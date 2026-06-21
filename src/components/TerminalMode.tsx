@@ -11,6 +11,7 @@ const TerminalMode = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBooting, setIsBooting] = useState(false);
   const [isBusy, setIsBusy] = useState(false);
+  const [isTahAiInstalled, setIsTahAiInstalled] = useState(() => sessionStorage.getItem('tahai_installed') === 'true');
   const [bootText, setBootText] = useState('');
   const [history, setHistory] = useState<CommandOutput[]>([]);
   const [input, setInput] = useState('');
@@ -219,24 +220,34 @@ const TerminalMode = () => {
                 return newHistory;
              });
            }
+           sessionStorage.setItem('tahai_installed', 'true');
+           setIsTahAiInstalled(true);
            setIsBusy(false);
            return;
-        } else if (cmd === 'tahai') {
-           output = '> GREETING PROTOCOL: ENGAGED\n> Hello. I am TahAI. Usage: tahai <query>\n> Example: tahai projects, tahai skills, tahai contact';
-        } else if (cmd.startsWith('tahai ')) {
-           const query = cmd.slice(6).toLowerCase();
-           let found = false;
-           
-           for (const kb of KNOWLEDGE_BASE) {
-             if (kb.keywords.some(kw => query.includes(kw))) {
-               output = kb.response;
-               found = true;
-               break;
-             }
-           }
-           
-           if (!found) {
-             output = DEFAULT_RESPONSE;
+        } else if (cmd === 'tahai' || cmd.startsWith('tahai ')) {
+           if (!isTahAiInstalled) {
+             output = (
+               <span className="text-red-400">
+                 Error: TahAI is not installed. Please run <span className="text-white">"taha install tahai"</span> first.
+               </span>
+             );
+           } else if (cmd === 'tahai') {
+              output = '> GREETING PROTOCOL: ENGAGED\n> Hello. I am TahAI. Usage: tahai <query>\n> Example: tahai projects, tahai skills, tahai contact';
+           } else {
+              const query = cmd.slice(6).toLowerCase();
+              let found = false;
+              
+              for (const kb of KNOWLEDGE_BASE) {
+                if (kb.keywords.some(kw => query.includes(kw))) {
+                  output = kb.response;
+                  found = true;
+                  break;
+                }
+              }
+              
+              if (!found) {
+                output = DEFAULT_RESPONSE;
+              }
            }
         } else {
           output = `Command not found: ${cmd}. Type 'help' for available commands.`;
