@@ -33,7 +33,7 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setStatusIndex((prev) => (prev + 1) % HTTP_CODES.length);
-    }, 2000);
+    }, 6500);
     return () => clearInterval(interval);
   }, []);
 
