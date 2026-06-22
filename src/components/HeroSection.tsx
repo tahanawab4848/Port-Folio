@@ -37,6 +37,33 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Attempt to auto-play intro video with sound immediately on page load
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+
+    const timer = setTimeout(() => {
+      v.muted = false;
+      v.currentTime = 0;
+      const playPromise = v.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          // Success! Browser allowed unmuted autoplay
+          setSpeaking(true);
+        }).catch((err) => {
+          // Blocked by browser policies. Fallback to muted.
+          console.warn('Autoplay with sound blocked by browser:', err);
+          v.muted = true;
+          v.play();
+          setSpeaking(false);
+        });
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   // Auto-mute video when scrolling past hero
   useEffect(() => {
     const section = sectionRef.current;
