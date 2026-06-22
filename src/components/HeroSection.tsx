@@ -129,7 +129,7 @@ const HeroSection = () => {
             <div className="relative mx-auto flex items-center justify-center w-full h-12 pointer-events-auto">
               
               {/* Highly Refined Integrated Navbar */}
-              <nav className={`absolute transition-all duration-[1000ms] ease-[cubic-bezier(0.23,1,0.32,1)] flex items-center rounded-full border border-white/5 bg-transparent backdrop-blur-sm shadow-sm p-1 sm:p-1.5 ${speaking ? 'left-4 sm:left-6 md:left-8 lg:left-10 translate-x-0 scale-[0.85] opacity-60 hover:opacity-100 origin-top-left' : 'left-1/2 -translate-x-1/2 scale-100 opacity-100 origin-top'}`}>
+              <nav className={`absolute transition-all duration-[1000ms] ease-[cubic-bezier(0.23,1,0.32,1)] flex items-center rounded-full border border-white/5 bg-transparent backdrop-blur-sm shadow-sm px-3 py-1 sm:px-5 sm:py-1.5 ${speaking ? 'left-4 sm:left-6 md:left-8 lg:left-10 translate-x-0 scale-[0.85] opacity-60 hover:opacity-100 origin-top-left' : 'left-1/2 -translate-x-1/2 scale-100 opacity-100 origin-top'}`}>
               
               {/* Integrated Badge */}
               <div className={`overflow-hidden transition-all duration-[1000ms] ease-in-out flex items-center ${speaking ? 'max-w-0 opacity-0 px-0' : 'max-w-[200px] opacity-100 px-5 sm:px-6 border-r border-white/10 mr-1 sm:mr-2'}`}>
@@ -137,7 +137,7 @@ const HeroSection = () => {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-60"></span>
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
                 </span>
-                <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-white/90 whitespace-nowrap">
+                <span className="text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.25em] text-white/90 whitespace-nowrap">
                   Taha Nawab
                 </span>
               </div>
@@ -147,7 +147,7 @@ const HeroSection = () => {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="group relative flex items-center justify-center px-4 py-1.5 sm:px-5 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.15em] text-[#A0AEC0] transition-colors duration-300 hover:text-white"
+                      className="group relative flex items-center justify-center px-5 py-2 sm:px-7 sm:py-2 rounded-full text-[11px] sm:text-[13px] font-medium uppercase tracking-[0.15em] text-[#A0AEC0] transition-colors duration-300 hover:text-white"
                     >
                       <span className="relative z-10">{link.label}</span>
                       
