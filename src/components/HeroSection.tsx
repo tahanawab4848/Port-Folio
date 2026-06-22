@@ -116,8 +116,8 @@ const HeroSection = () => {
 
       {/* Animated glowing orbs & tech grid */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[10%] left-[20%] h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle,rgba(255,255,255,0.06)_0%,transparent_60%)]" style={{ animation: 'floatOrb 15s ease-in-out infinite' }} />
-        <div className="absolute bottom-[10%] right-[10%] h-[1000px] w-[1000px] translate-x-1/4 translate-y-1/4 bg-[radial-gradient(circle,rgba(255,255,255,0.04)_0%,transparent_60%)]" style={{ animation: 'floatOrb 18s ease-in-out infinite reverse' }} />
+        <div className="absolute top-[10%] left-[20%] h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle,rgba(16,185,129,0.08)_0%,transparent_60%)]" style={{ animation: 'floatOrb 15s ease-in-out infinite' }} />
+        <div className="absolute bottom-[10%] right-[10%] h-[1000px] w-[1000px] translate-x-1/4 translate-y-1/4 bg-[radial-gradient(circle,rgba(6,182,212,0.06)_0%,transparent_60%)]" style={{ animation: 'floatOrb 18s ease-in-out infinite reverse' }} />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA0MCAwIEwgMCAwIDAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20" />
       </div>
 
@@ -167,7 +167,7 @@ const HeroSection = () => {
           <div className="w-full max-w-7xl px-6 md:px-10 pointer-events-auto">
             <FadeIn delay={0.65} y={30}>
               <h1
-                className={`mt-4 sm:mt-6 md:mt-8 text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-white/20 uppercase tracking-tight leading-[0.95] break-words drop-shadow-2xl transition-all duration-1000 origin-left ${speaking ? 'scale-[0.4] sm:scale-[0.5] font-light opacity-50 pointer-events-none' : 'scale-100 font-black opacity-100'}`}
+                className={`mt-4 sm:mt-6 md:mt-8 text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/40 uppercase tracking-tight leading-[0.95] break-words drop-shadow-[0_0_25px_rgba(255,255,255,0.15)] transition-all duration-1000 origin-left ${speaking ? 'scale-[0.4] sm:scale-[0.5] font-light opacity-50 pointer-events-none' : 'scale-100 font-black opacity-100'}`}
                 style={{ fontSize: 'clamp(2.5rem, 8.5vw, 150px)' }}
               >
                 <ScrambleText text="Muhammad Taha Nawab" delay={0.8} />
@@ -177,7 +177,7 @@ const HeroSection = () => {
             <FadeIn delay={0.85} y={20}>
               <div className="mt-5 md:mt-6 flex items-center gap-4">
                 <div className="h-[1px] w-8 sm:w-12 bg-green-500/50" />
-                <p className="text-[9px] sm:text-[10px] md:text-xs font-medium uppercase tracking-[0.3em] text-[#A0AEC0]">
+                <p className="text-[9px] sm:text-[10px] md:text-xs font-medium uppercase tracking-[0.3em] text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 drop-shadow-[0_0_15px_rgba(16,185,129,0.2)]">
                   Full-Stack Developer <span className="mx-2 text-white/20">|</span> AI/ML Engineer
                 </p>
               </div>
@@ -188,9 +188,9 @@ const HeroSection = () => {
                 <a
                   href="/Muhammad_Taha_Nawab_CV.pdf"
                   download="Muhammad_Taha_Nawab_CV.pdf"
-                  className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-white/10 bg-black/40 backdrop-blur-xl px-5 py-2.5 sm:px-6 sm:py-3 text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.25em] text-white transition-all hover:border-white/30 hover:bg-white/10 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.1)]"
+                  className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-white/10 bg-white/5 backdrop-blur-xl px-5 py-2.5 sm:px-6 sm:py-3 text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.25em] text-white transition-all hover:border-emerald-500/50 hover:bg-emerald-500/10 hover:scale-105 hover:shadow-[0_0_30px_rgba(16,185,129,0.2)]"
                 >
-                  <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"></span>
+                  <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-emerald-400/20 to-transparent transition-transform duration-700 ease-in-out group-hover:translate-x-full"></span>
                   <svg className="relative z-10 text-white/70 group-hover:text-white transition-colors" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                     <polyline points="7 10 12 15 17 10" />
