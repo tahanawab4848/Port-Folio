@@ -279,13 +279,13 @@ const HeroSection = () => {
             <button
               onClick={toggleSpeech}
               aria-label={speaking ? 'Stop speaking' : 'Speak intro'}
-              className="group relative flex items-center justify-center rounded-full w-14 h-14 sm:w-16 sm:h-16 text-white transition-all hover:scale-110"
+              className="group relative flex items-center justify-center rounded-full w-10 h-10 sm:w-12 sm:h-12 text-white transition-all hover:scale-110"
             >
               {/* Outer Ripple Effects */}
               {!speaking && (
                 <>
                   <div className="absolute inset-0 rounded-full bg-emerald-500/20 animate-ping" style={{ animationDuration: '3s' }} />
-                  <div className="absolute inset-[-8px] rounded-full border border-emerald-500/20 animate-[pulse_2s_ease-in-out_infinite]" />
+                  <div className="absolute inset-[-6px] rounded-full border border-emerald-500/20 animate-[pulse_2s_ease-in-out_infinite]" />
                 </>
               )}
 
@@ -296,13 +296,13 @@ const HeroSection = () => {
               <div className="relative z-10 flex items-center justify-center">
                 {speaking ? (
                   // Stop/Pause Icon (Animated Pills)
-                  <div className="flex gap-1.5">
-                    <span className="w-1.5 h-4 sm:h-5 bg-white rounded-full animate-[pulse_1s_ease-in-out_infinite]" />
-                    <span className="w-1.5 h-4 sm:h-5 bg-white rounded-full animate-[pulse_1s_ease-in-out_infinite_0.5s]" />
+                  <div className="flex gap-1 sm:gap-1.5">
+                    <span className="w-1 sm:w-1.5 h-3 sm:h-4 bg-white rounded-full animate-[pulse_1s_ease-in-out_infinite]" />
+                    <span className="w-1 sm:w-1.5 h-3 sm:h-4 bg-white rounded-full animate-[pulse_1s_ease-in-out_infinite_0.5s]" />
                   </div>
                 ) : (
                   // Play Icon
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 sm:w-6 sm:h-6 ml-1 text-emerald-400 drop-shadow-[0_0_10px_rgba(16,185,129,0.8)] group-hover:text-white transition-colors duration-300">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 sm:w-5 sm:h-5 ml-0.5 text-emerald-400 drop-shadow-[0_0_10px_rgba(16,185,129,0.8)] group-hover:text-white transition-colors duration-300">
                     <path d="M5.5 3.5L20.5 12L5.5 20.5V3.5Z" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" />
                   </svg>
                 )}
