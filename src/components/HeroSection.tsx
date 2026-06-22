@@ -9,10 +9,34 @@ const NAV_LINKS = [
   { label: 'Contact', href: '#contact' },
 ];
 
+const HTTP_CODES = [
+  "200 OK", 
+  "201 CREATED", 
+  "202 ACCEPTED", 
+  "301 MOVED", 
+  "400 BAD REQ", 
+  "401 UNAUTH", 
+  "403 FORBIDDEN", 
+  "404 NOT FOUND", 
+  "418 TEAPOT", 
+  "500 ERROR", 
+  "502 BAD GATE"
+];
+
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [speaking, setSpeaking] = useState(false);
+  const [statusIndex, setStatusIndex] = useState(0);
+
+  // Cycle through HTTP codes
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStatusIndex((prev) => (prev + 1) % HTTP_CODES.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   // Auto-mute video when scrolling past hero
   useEffect(() => {
     const section = sectionRef.current;
@@ -137,8 +161,11 @@ const HeroSection = () => {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-60"></span>
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
                 </span>
-                <span className="text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.25em] text-white/90 whitespace-nowrap">
-                  Architect
+                <span 
+                  key={HTTP_CODES[statusIndex]} 
+                  className="w-24 sm:w-32 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-white/90 whitespace-nowrap animate-[pulseFade_1s_ease-in-out]"
+                >
+                  {HTTP_CODES[statusIndex]}
                 </span>
               </div>
 
