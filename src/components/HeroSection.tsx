@@ -279,20 +279,34 @@ const HeroSection = () => {
             <button
               onClick={toggleSpeech}
               aria-label={speaking ? 'Stop speaking' : 'Speak intro'}
-              className="group relative flex items-center justify-center rounded-full border border-white/10 bg-[#0A0A0A]/90 w-10 h-10 sm:w-12 sm:h-12 text-white shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all hover:border-white/30 hover:bg-white/10 hover:scale-105"
+              className="group relative flex items-center justify-center rounded-full w-14 h-14 sm:w-16 sm:h-16 text-white transition-all hover:scale-110"
             >
-              <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-white/10 to-white/5 blur-md opacity-0 transition-opacity group-hover:opacity-100" />
-
-              {speaking ? (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" className="sm:w-5 sm:h-5">
-                  <rect x="6" y="4" width="4" height="16" />
-                  <rect x="14" y="4" width="4" height="16" />
-                </svg>
-              ) : (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-5 sm:h-5 ml-1">
-                  <polygon points="5 3 19 12 5 21 5 3" />
-                </svg>
+              {/* Outer Ripple Effects */}
+              {!speaking && (
+                <>
+                  <div className="absolute inset-0 rounded-full bg-emerald-500/20 animate-ping" style={{ animationDuration: '3s' }} />
+                  <div className="absolute inset-[-8px] rounded-full border border-emerald-500/20 animate-[pulse_2s_ease-in-out_infinite]" />
+                </>
               )}
+
+              {/* Button Body (Glass) */}
+              <div className={`absolute inset-0 rounded-full border backdrop-blur-xl transition-all duration-500 ${speaking ? 'bg-white/10 border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.1)]' : 'bg-emerald-500/10 border-emerald-500/30 shadow-[0_0_40px_rgba(16,185,129,0.3)] group-hover:bg-emerald-500/20 group-hover:border-emerald-500/50'}`} />
+
+              {/* Icon */}
+              <div className="relative z-10 flex items-center justify-center">
+                {speaking ? (
+                  // Stop/Pause Icon (Animated Pills)
+                  <div className="flex gap-1.5">
+                    <span className="w-1.5 h-4 sm:h-5 bg-white rounded-full animate-[pulse_1s_ease-in-out_infinite]" />
+                    <span className="w-1.5 h-4 sm:h-5 bg-white rounded-full animate-[pulse_1s_ease-in-out_infinite_0.5s]" />
+                  </div>
+                ) : (
+                  // Play Icon
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 sm:w-6 sm:h-6 ml-1 text-emerald-400 drop-shadow-[0_0_10px_rgba(16,185,129,0.8)] group-hover:text-white transition-colors duration-300">
+                    <path d="M5.5 3.5L20.5 12L5.5 20.5V3.5Z" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" />
+                  </svg>
+                )}
+              </div>
             </button>
           </FadeIn>
 
