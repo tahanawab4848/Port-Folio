@@ -295,15 +295,20 @@ const HeroSection = () => {
               {/* Icon */}
               <div className="relative z-10 flex items-center justify-center">
                 {speaking ? (
-                  // Stop/Pause Icon (Animated Pills)
-                  <div className="flex gap-0.5 sm:gap-1">
-                    <span className="w-0.5 sm:w-1 h-2.5 sm:h-3 bg-white rounded-full animate-[pulse_1s_ease-in-out_infinite]" />
-                    <span className="w-0.5 sm:w-1 h-2.5 sm:h-3 bg-white rounded-full animate-[pulse_1s_ease-in-out_infinite_0.5s]" />
-                  </div>
+                  // Minimize Icon
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3 sm:w-4 sm:h-4 text-white transition-transform hover:scale-110">
+                    <polyline points="4 14 10 14 10 20"></polyline>
+                    <line x1="3" y1="21" x2="10" y2="14"></line>
+                    <polyline points="20 10 14 10 14 4"></polyline>
+                    <line x1="14" y1="10" x2="21" y2="3"></line>
+                  </svg>
                 ) : (
-                  // Play Icon
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-3 h-3 sm:w-4 sm:h-4 ml-0.5 text-emerald-400 drop-shadow-[0_0_10px_rgba(16,185,129,0.8)] group-hover:text-white transition-colors duration-300">
-                    <path d="M5.5 3.5L20.5 12L5.5 20.5V3.5Z" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" />
+                  // Expand Icon
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3 sm:w-4 sm:h-4 text-emerald-400 drop-shadow-[0_0_10px_rgba(16,185,129,0.8)] group-hover:text-white transition-colors duration-300">
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="14" y1="10" x2="21" y2="3"></line>
+                    <polyline points="9 21 3 21 3 15"></polyline>
+                    <line x1="10" y1="14" x2="3" y2="21"></line>
                   </svg>
                 )}
               </div>
