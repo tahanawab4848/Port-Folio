@@ -129,7 +129,7 @@ const HeroSection = () => {
             <div className="relative mx-auto flex items-center justify-center w-full h-12 pointer-events-auto">
               
               {/* Highly Refined Integrated Navbar */}
-              <nav className={`absolute transition-all duration-[1000ms] ease-[cubic-bezier(0.23,1,0.32,1)] flex items-center rounded-full border border-white/20 bg-white/5 backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] p-1 sm:p-1.5 ${speaking ? 'left-4 sm:left-6 md:left-8 lg:left-10 translate-x-0 scale-[0.85] opacity-60 hover:opacity-100 origin-top-left' : 'left-1/2 -translate-x-1/2 scale-100 opacity-100 origin-top'}`}>
+              <nav className={`absolute transition-all duration-[1000ms] ease-[cubic-bezier(0.23,1,0.32,1)] flex items-center rounded-full border border-white/10 bg-transparent backdrop-blur-lg shadow-[0_4px_24px_0_rgba(0,0,0,0.2)] p-1 sm:p-1.5 ${speaking ? 'left-4 sm:left-6 md:left-8 lg:left-10 translate-x-0 scale-[0.85] opacity-60 hover:opacity-100 origin-top-left' : 'left-1/2 -translate-x-1/2 scale-100 opacity-100 origin-top'}`}>
               
               {/* Integrated Badge */}
               <div className={`overflow-hidden transition-all duration-[1000ms] ease-in-out flex items-center ${speaking ? 'max-w-0 opacity-0 px-0' : 'max-w-[200px] opacity-100 px-5 sm:px-6 border-r border-white/10 mr-1 sm:mr-2'}`}>
