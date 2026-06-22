@@ -138,7 +138,7 @@ const HeroSection = () => {
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
                 </span>
                 <span className="text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.25em] text-white/90 whitespace-nowrap">
-                  Portfolio
+                  Software Engineer
                 </span>
               </div>
 
