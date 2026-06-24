@@ -47,7 +47,7 @@ const ServicesSection = () => {
         {SERVICES.map((service, i) => (
           <FadeIn key={service.number} delay={i * 0.1} y={30}>
             <div
-              className="flex flex-row items-start gap-6 sm:gap-10 md:gap-14 py-8 sm:py-10 md:py-12"
+              className="flex flex-col sm:flex-row items-start gap-4 sm:gap-10 md:gap-14 py-6 sm:py-10 md:py-12"
               style={{
                 borderTop: '1px solid rgba(12, 12, 12, 0.15)',
                 ...(i === SERVICES.length - 1

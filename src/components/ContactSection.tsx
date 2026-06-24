@@ -181,6 +181,21 @@ const ContactSection = () => {
         .iso-btn:hover::after {
           opacity: 0;
         }
+
+        @media (max-width: 640px) {
+          .iso-btn {
+            transform: rotate(0deg) skew(0deg) !important;
+            box-shadow: 0px 8px 24px rgba(0,0,0,0.5) !important;
+            margin: 0 auto;
+          }
+          .iso-btn::before, .iso-btn::after {
+            display: none !important;
+          }
+          .iso-btn:hover {
+            transform: translateY(-5px) scale(1.05) !important;
+            background: var(--hover-color) !important;
+          }
+        }
       `}</style>
 
       {/* Footer line */}

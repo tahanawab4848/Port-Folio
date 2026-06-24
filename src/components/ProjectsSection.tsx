@@ -76,48 +76,51 @@ const ProjectCard = ({ project, index, total, containerRef }: ProjectCardProps) 
   return (
     <div
       ref={cardRef}
-      className="sticky top-24 md:top-32 h-[85vh] w-full"
-      style={{ top: `${96 + index * 28}px` }}
+      className="sticky h-[70vh] sm:h-[85vh] w-full project-card-sticky"
+      style={{
+        '--card-top': `${96 + index * 28}px`,
+        '--card-top-mobile': `${64 + index * 16}px`
+      } as React.CSSProperties}
     >
       <motion.article
         style={{ scale }}
-        className="origin-top mx-auto h-full w-full flex flex-col gap-4 sm:gap-6 md:gap-8 rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-4 sm:p-6 md:p-8"
+        className="origin-top mx-auto h-full w-full flex flex-col gap-3 sm:gap-6 md:gap-8 rounded-[24px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-4 sm:p-6 md:p-8"
       >
-          {/* Top row: number + meta + button */}
-                  <div className="flex flex-col sm:flex-row items-start sm:justify-between gap-4 sm:gap-6">
-                    <div className="flex flex-row items-start gap-3 sm:gap-6 md:gap-10 min-w-0 w-full">
-                      <div
-                        className="shrink-0 font-black text-[#D7E2EA] leading-none"
-                        style={{ fontSize: 'clamp(2.5rem, 10vw, 140px)' }}
-                      >
-                        {project.number}
-                      </div>
+        {/* Top row: number + meta + button */}
+        <div className="flex flex-col sm:flex-row items-start sm:justify-between gap-3 sm:gap-6">
+          <div className="flex flex-row items-start gap-3 sm:gap-6 md:gap-10 min-w-0 w-full">
+            <div
+              className="shrink-0 font-black text-[#D7E2EA] leading-none"
+              style={{ fontSize: 'clamp(2rem, 8vw, 140px)' }}
+            >
+              {project.number}
+            </div>
 
-                      <div className="flex flex-col gap-1 sm:gap-3 pt-1 sm:pt-3 md:pt-4 min-w-0 flex-1">
-                        <span
-                          className="font-light uppercase tracking-widest text-[#D7E2EA]/60"
-                          style={{ fontSize: 'clamp(0.65rem, 1.2vw, 1rem)' }}
-                        >
-                          {project.category}
-                        </span>
-                        <h3
-                          className="font-medium uppercase text-[#D7E2EA] leading-tight"
-                          style={{ fontSize: 'clamp(1.1rem, 2.2vw, 2.1rem)' }}
-                        >
-                          {project.name}
-                        </h3>
-                      </div>
-                    </div>
+            <div className="flex flex-col gap-1 sm:gap-3 pt-1 sm:pt-3 md:pt-4 min-w-0 flex-1">
+              <span
+                className="font-light uppercase tracking-widest text-[#D7E2EA]/60"
+                style={{ fontSize: 'clamp(0.65rem, 1.2vw, 1rem)' }}
+              >
+                {project.category}
+              </span>
+              <h3
+                className="font-medium uppercase text-[#D7E2EA] leading-tight"
+                style={{ fontSize: 'clamp(1.1rem, 2.2vw, 2.1rem)' }}
+              >
+                {project.name}
+              </h3>
+            </div>
+          </div>
 
-                    <div className="shrink-0 self-start sm:self-auto pt-1 sm:pt-2 md:pt-3 w-full sm:w-auto">
-                      <LiveProjectButton href={project.liveUrl} className="w-full sm:w-auto" />
-                    </div>
-                  </div>
+          <div className="shrink-0 self-start sm:self-auto pt-1 sm:pt-2 md:pt-3 w-full sm:w-auto">
+            <LiveProjectButton href={project.liveUrl} className="w-full sm:w-auto" />
+          </div>
+        </div>
 
-        {/* Bottom row: two-column image grid */}
-        <div className="grid grid-cols-[40%_60%] gap-3 sm:gap-4 md:gap-5 flex-1 min-h-0">
-          {/* Left column - 2 stacked */}
-          <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 min-h-0">
+        {/* Bottom row: image layout (1 large image on mobile, full grid on tablet+) */}
+        <div className="grid grid-cols-1 sm:grid-cols-[40%_60%] gap-3 sm:gap-4 md:gap-5 flex-1 min-h-0 overflow-hidden">
+          {/* Left column - 2 stacked (hidden on mobile, visible on sm) */}
+          <div className="hidden sm:flex flex-col gap-3 sm:gap-4 md:gap-5 min-h-0">
             <div
               className="overflow-hidden rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
               style={{ height: 'clamp(130px, 16vw, 230px)' }}
@@ -144,8 +147,8 @@ const ProjectCard = ({ project, index, total, containerRef }: ProjectCardProps) 
             </div>
           </div>
 
-          {/* Right column - 1 tall */}
-          <div className="overflow-hidden rounded-[40px] sm:rounded-[50px] md:rounded-[60px] min-h-0">
+          {/* Right column - 1 tall (takes full space on mobile, 60% on sm) */}
+          <div className="overflow-hidden rounded-[16px] sm:rounded-[50px] md:rounded-[60px] min-h-0 w-full h-full">
             <img
               src={project.col2Image}
               alt={`${project.name} preview 3`}

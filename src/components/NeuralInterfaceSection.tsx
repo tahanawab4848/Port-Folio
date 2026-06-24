@@ -282,7 +282,7 @@ English (Professional), Urdu (Native), Punjabi (Native)
       {/* Floating Action Button - Highly Animated AI Core */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-40 group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[11px] font-black tracking-widest text-white transition-all duration-300 hover:scale-110 cursor-pointer overflow-hidden isolate"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 group inline-flex items-center justify-center rounded-full h-10 w-10 sm:h-auto sm:w-auto sm:px-5 sm:py-2.5 text-[11px] font-black tracking-widest text-white transition-all duration-300 hover:scale-110 cursor-pointer overflow-hidden isolate"
       >
         {/* Dark Base */}
         <div className="absolute inset-0 -z-30 bg-black" />
@@ -297,8 +297,8 @@ English (Professional), Urdu (Native), Punjabi (Native)
         <div className="absolute inset-0 -z-40 rounded-full opacity-50 shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-500 group-hover:opacity-100 group-hover:shadow-[0_0_40px_rgba(255,255,255,0.4)]" />
 
         <Cpu className="w-4 h-4 text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)] transition-transform group-hover:rotate-180 duration-700" />
-        <span className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] group-hover:text-white transition-colors">TahAI</span>
-        <Zap className="w-3.5 h-3.5 text-white animate-pulse drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
+        <span className="hidden sm:inline relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] group-hover:text-white transition-colors">TahAI</span>
+        <Zap className="hidden sm:inline w-3.5 h-3.5 text-white animate-pulse drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
       </button>
 
       {/* Sidebar Interface */}
@@ -322,7 +322,7 @@ English (Professional), Urdu (Native), Punjabi (Native)
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed bottom-24 right-6 z-50 h-[420px] max-h-[70dvh] w-[320px] max-w-[calc(100vw-3rem)] bg-black/40 backdrop-blur-2xl border border-white/20 rounded-3xl shadow-[0_0_30px_rgba(255,255,255,0.15)] flex flex-col overflow-hidden origin-bottom-right"
+              className="fixed bottom-[130px] right-4 left-4 sm:bottom-24 sm:right-6 sm:left-auto z-50 h-[420px] max-h-[60dvh] sm:max-h-[70dvh] w-auto sm:w-[320px] bg-black/40 backdrop-blur-2xl border border-white/20 rounded-3xl shadow-[0_0_30px_rgba(255,255,255,0.15)] flex flex-col overflow-hidden origin-bottom-right"
             >
               {/* Animated HUD Grid Background */}
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-20" />

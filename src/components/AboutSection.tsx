@@ -20,7 +20,7 @@ const AboutSection = () => {
         x={-80}
         y={0}
         duration={0.9}
-        className="pointer-events-none absolute top-10 sm:top-20 left-[1%] sm:left-[2%] md:left-[4%] opacity-20 animate-[float_7s_ease-in-out_infinite]"
+        className="pointer-events-none absolute top-10 sm:top-20 left-[1%] sm:left-[2%] md:left-[4%] opacity-20 animate-[float_7s_ease-in-out_infinite] hidden sm:block"
       >
         <Moon size={120} className="text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]" />
       </FadeIn>
@@ -30,7 +30,7 @@ const AboutSection = () => {
         x={80}
         y={0}
         duration={0.9}
-        className="pointer-events-none absolute top-10 sm:top-20 right-[1%] sm:right-[2%] md:right-[4%] opacity-20 animate-[float_8s_ease-in-out_infinite_reverse]"
+        className="pointer-events-none absolute top-10 sm:top-20 right-[1%] sm:right-[2%] md:right-[4%] opacity-20 animate-[float_8s_ease-in-out_infinite_reverse] hidden sm:block"
       >
         <Hexagon size={120} className="text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]" />
       </FadeIn>
@@ -103,14 +103,14 @@ const AboutSection = () => {
           {/* Bottom Row: Tech Stack */}
           <FadeIn delay={0.15} className="relative w-full mt-4 lg:mt-6 border-t border-white/5 pt-8 lg:pt-10">
             {/* Tech Animations */}
-            <div className="pointer-events-none absolute -top-8 sm:-top-10 left-[5%] sm:left-[10%] opacity-40">
+            <div className="pointer-events-none absolute -top-8 sm:-top-10 left-[5%] sm:left-[10%] opacity-40 hidden sm:block">
               <div className="relative flex h-14 w-14 sm:h-20 sm:w-20 items-center justify-center rounded-full border border-white/10 bg-[#0C0C0C] shadow-[0_0_30px_rgba(255,255,255,0.05)] animate-[spin_12s_linear_infinite]">
                 <Cpu size={28} className="text-white/60 animate-[pulse_3s_ease-in-out_infinite]" />
                 <div className="absolute -inset-3 sm:-inset-4 rounded-full border border-dashed border-white/20 animate-[spin_20s_linear_infinite_reverse]" />
               </div>
             </div>
 
-            <div className="pointer-events-none absolute -top-8 sm:-top-10 right-[5%] sm:right-[10%] opacity-40">
+            <div className="pointer-events-none absolute -top-8 sm:-top-10 right-[5%] sm:right-[10%] opacity-40 hidden sm:block">
               <div className="relative flex h-14 w-14 sm:h-20 sm:w-20 items-center justify-center rounded-full border border-white/10 bg-[#0C0C0C] shadow-[0_0_30px_rgba(255,255,255,0.05)] animate-[float_4s_ease-in-out_infinite]">
                 <Terminal size={28} className="text-white/60" />
                 <div className="absolute -inset-3 sm:-inset-4 rounded-full border border-dotted border-white/30 animate-[spin_15s_linear_infinite]" />
@@ -173,7 +173,7 @@ const AboutSection = () => {
               </h3>
             </div>
             
-            <div className="w-full flex justify-center rounded-2xl border border-white/10 bg-[#0A0A0A]/40 backdrop-blur-md p-6 sm:p-10 shadow-[0_0_30px_rgba(0,0,0,0.5)] overflow-x-auto transition-all hover:bg-[#0A0A0A]/60 hover:border-white/20">
+            <div className="w-full flex justify-start sm:justify-center rounded-2xl border border-white/10 bg-[#0A0A0A]/40 backdrop-blur-md p-6 sm:p-10 shadow-[0_0_30px_rgba(0,0,0,0.5)] overflow-x-auto transition-all hover:bg-[#0A0A0A]/60 hover:border-white/20">
               <div className="min-w-max">
                 <GitHubCalendar 
                   username="tahanawab4848" 
@@ -181,9 +181,9 @@ const AboutSection = () => {
                   theme={{
                     dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
                   }}
-                  blockSize={14}
-                  blockMargin={6}
-                  fontSize={14}
+                  blockSize={13}
+                  blockMargin={5}
+                  fontSize={13}
                 />
               </div>
             </div>

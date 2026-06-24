@@ -62,6 +62,16 @@ a, button, [role="button"], input, select, textarea, .cursor-pointer {
   cursor: pointer;
 }
 
+/* Responsive Sticky Card Offset for Projects Section */
+.project-card-sticky {
+  top: var(--card-top-mobile, 64px);
+}
+@media (min-width: 640px) {
+  .project-card-sticky {
+    top: var(--card-top, 96px);
+  }
+}
+
 
 
 
