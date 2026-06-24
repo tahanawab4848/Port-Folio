@@ -1,5 +1,24 @@
 # Muhammad Taha Nawab - Premium Portfolio 🚀
 
+👋 Hi, I'm Muhammad Taha Nawab
+Full Stack Developer · ML Enthusiast · Open to Work
+
+I build production-ready APIs, scalable backends, and machine learning systems that actually work.
+
+name:        Muhammad Taha Nawab
+role:        Full Stack Developer & ML Enthusiast
+status:      Available for Work
+building:    Mars-Studio — MIPS Dev Environment (custom compiler + pipeline viz)
+learning:    MLOps · Cloud Architecture · Generative AI
+open_to:     Collaborations · Freelance · Full-time
+location:    Islamabad, Pakistan 🇵🇰
+philosophy:  "Code is craft. Build with intention."
+contact:     official.taha.nawab@gmail.com | laurel4848@gmail.com | nawabtaha61@gmail.com
+I build things that actually work — clean frontends, robust APIs, and ML systems that solve real problems. My philosophy: Great software is equal parts engineering and craft. Write code you'd be proud to show in two years.
+
+
+
+
 > **Live Demo:** [Click to witness the Digital Wonder!](https://taha-nawab-portfolio.vercel.app/)
 
 > **Resume:** [Download my Resume](https://taha-nawab-portfolio.vercel.app/Muhammad_Taha_Nawab_Cv.pdf)
