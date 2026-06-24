@@ -162,19 +162,24 @@ const AboutSection = () => {
           </FadeIn>
 
           {/* Live Activity Section */}
-          <FadeIn delay={0.6} y={30} className="mt-20">
-            <div className="flex items-center gap-4 mb-10">
-              <div className="relative flex h-3 w-3">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
-                <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500"></span>
+          <FadeIn delay={0.6} y={30} className="w-full mt-20">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-8">
+              <div className="flex items-center gap-3">
+                <div className="relative flex h-2.5 w-2.5 shrink-0">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500"></span>
+                </div>
+                <h3 className="text-lg sm:text-2xl font-bold tracking-wider sm:tracking-widest text-white uppercase">
+                  Live GitHub Activity
+                </h3>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold tracking-widest text-white uppercase">
-                Live GitHub Activity
-              </h3>
+              <span className="block sm:hidden text-[9px] font-mono text-green-400/80 animate-pulse tracking-wider self-end sm:self-auto">
+                ← SWIPE TO VIEW →
+              </span>
             </div>
             
-            <div className="w-full flex justify-start sm:justify-center rounded-2xl border border-white/10 bg-[#0A0A0A]/40 backdrop-blur-md p-6 sm:p-10 shadow-[0_0_30px_rgba(0,0,0,0.5)] overflow-x-auto transition-all hover:bg-[#0A0A0A]/60 hover:border-white/20">
-              <div className="min-w-max">
+            <div className="w-full flex justify-start sm:justify-center rounded-2xl border border-white/10 bg-[#0A0A0A]/40 backdrop-blur-md p-4 sm:p-10 shadow-[0_0_30px_rgba(0,0,0,0.5)] overflow-x-auto transition-all hover:bg-[#0A0A0A]/60 hover:border-white/20 github-calendar-card">
+              <div className="min-w-max github-calendar-wrap">
                 <GitHubCalendar 
                   username="tahanawab4848" 
                   colorScheme="dark"
