@@ -87,18 +87,31 @@ const ContactSection = () => {
                   className="iso-btn group flex items-center justify-center gap-3 text-[#D7E2EA]/80 hover:text-white"
                   style={{ '--hover-color': method.hoverColor } as React.CSSProperties}
                 >
-                  {/* Sweeping Light Glare Wrapper */}
-                  <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-sm">
-                    <div className="absolute top-0 bottom-0 w-[40px] bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-[45deg] -left-[100px] group-hover:animate-[sweepBtn_0.6s_ease-in-out_forwards]" />
+                  {/* Inner wrapper for effects to avoid clipping 3D sides */}
+                  <div className="absolute inset-0 overflow-hidden rounded-sm pointer-events-none">
+                    {/* Moving dot pattern background on hover */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none mix-blend-overlay"
+                         style={{
+                           backgroundImage: 'radial-gradient(circle at center, white 1.5px, transparent 1.5px)',
+                           backgroundSize: '16px 16px',
+                           animation: 'moveBg 3s linear infinite'
+                         }}
+                    />
+
+                    {/* Spinning conic gradient for a subtle aura inside */}
+                    <div className="absolute -inset-[100%] opacity-0 group-hover:opacity-20 animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,white_50%,transparent_100%)] mix-blend-overlay" />
+
+                    {/* Sweeping Light Glare Wrapper (Continuous on hover) */}
+                    <div className="absolute top-0 bottom-0 w-[60px] bg-gradient-to-r from-transparent via-white/60 to-transparent -skew-x-[45deg] -left-[100px] group-hover:animate-[sweepBtn_2.5s_ease-in-out_infinite]" />
                   </div>
 
                   {/* DP Image that pops in on hover */}
-                  <div className="relative z-10 flex h-0 w-0 items-center justify-center overflow-hidden rounded-full border-2 border-white/50 opacity-0 transition-all duration-300 ease-out group-hover:h-8 group-hover:w-8 group-hover:opacity-100 group-hover:scale-110">
+                  <div className="relative z-10 flex h-0 w-0 items-center justify-center overflow-hidden rounded-full border border-white/80 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] group-hover:h-9 group-hover:w-9 group-hover:opacity-100 group-hover:scale-110 group-hover:rotate-[360deg] shadow-[0_0_15px_rgba(255,255,255,0.5)]">
                     <img src="/profile.webp" alt="Taha" className="h-full w-full object-cover" />
                   </div>
 
-                  <Icon size={24} strokeWidth={2} className="transition-transform duration-300 group-hover:scale-110 relative z-10" />
-                  <span className="font-bold uppercase tracking-widest text-sm sm:text-base relative z-10">
+                  <Icon size={24} strokeWidth={2} className="icon-hover-anim transition-all duration-500 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] relative z-10 drop-shadow-lg" />
+                  <span className="font-bold uppercase tracking-widest text-sm sm:text-base relative z-10 drop-shadow-md group-hover:translate-x-1 transition-transform duration-300">
                     {method.label}
                   </span>
                 </a>
@@ -116,9 +129,19 @@ const ContactSection = () => {
 
         @keyframes sweepBtn {
           0% { left: -100px; opacity: 0; }
-          20% { opacity: 1; }
-          80% { opacity: 1; }
-          100% { left: 250px; opacity: 0; }
+          15% { opacity: 1; }
+          30% { left: 300px; opacity: 0; }
+          100% { left: 300px; opacity: 0; }
+        }
+
+        @keyframes moveBg {
+          0% { background-position: 0 0; }
+          100% { background-position: 32px 32px; }
+        }
+
+        @keyframes floatIconHover {
+          0%, 100% { transform: translateY(-4px) scale(1.25); }
+          50% { transform: translateY(2px) scale(1.25); }
         }
 
         .iso-btn {
@@ -167,11 +190,15 @@ const ContactSection = () => {
         }
 
         .iso-btn:hover {
-          transform: rotate(0deg) skew(0deg) scale(1.25) translateY(-15px);
-          box-shadow: 0px 30px 40px rgba(0,0,0,0.8);
+          transform: rotate(0deg) skew(0deg) scale(1.20) translateY(-15px);
+          box-shadow: 0px 25px 40px rgba(0,0,0,0.8), 0 0 35px var(--hover-color), inset 0 0 15px rgba(255,255,255,0.2);
           background: var(--hover-color);
           z-index: 20;
           transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.4s ease, z-index 0s;
+        }
+
+        .iso-btn:hover .icon-hover-anim {
+          animation: floatIconHover 2s ease-in-out infinite;
         }
 
         .iso-btn:hover::before {
@@ -194,6 +221,7 @@ const ContactSection = () => {
           .iso-btn:hover {
             transform: translateY(-5px) scale(1.05) !important;
             background: var(--hover-color) !important;
+            box-shadow: 0px 15px 25px rgba(0,0,0,0.6), 0 0 20px var(--hover-color) !important;
           }
         }
       `}</style>
