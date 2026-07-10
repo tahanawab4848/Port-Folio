@@ -1,4 +1,5 @@
-import { Mail, MessageCircle, Linkedin, Github, ArrowUpRight } from 'lucide-react';
+import { useState } from 'react';
+import { Mail, MessageCircle, Linkedin, Github, Send } from 'lucide-react';
 import FadeIn from './FadeIn';
 
 interface ContactMethod {
@@ -42,6 +43,36 @@ const CONTACT_METHODS: ContactMethod[] = [
 ];
 
 const ContactSection = () => {
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setFormStatus('sending');
+
+    try {
+      const response = await fetch('https://formspree.io/f/mbdvngpr', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        form.reset();
+        setTimeout(() => setFormStatus('idle'), 5000); // Reset status after 5s
+      } else {
+        setFormStatus('error');
+        setTimeout(() => setFormStatus('idle'), 5000);
+      }
+    } catch (error) {
+      setFormStatus('error');
+      setTimeout(() => setFormStatus('idle'), 5000);
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -67,7 +98,7 @@ const ContactSection = () => {
       </FadeIn>
 
       {/* Contact cards - 3D Isometric */}
-      <div className="mx-auto flex flex-wrap justify-center gap-12 sm:gap-16 md:gap-20 pt-16 pb-24">
+      <div className="mx-auto flex flex-wrap justify-center gap-12 sm:gap-16 md:gap-20 pt-16 pb-12">
         {CONTACT_METHODS.map((method, i) => {
           const Icon = method.icon;
           const isExternal = method.href.startsWith('http');
@@ -120,6 +151,73 @@ const ContactSection = () => {
           );
         })}
       </div>
+
+      {/* Direct Message Form */}
+      <FadeIn delay={0.4} y={30}>
+        <div className="mx-auto mt-8 max-w-3xl px-4 sm:px-0 pb-16">
+          <div className="mb-10 text-center">
+            <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-widest text-white mb-2">Send a Message</h3>
+            <div className="h-px w-16 bg-white/20 mx-auto" />
+          </div>
+
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6 rounded-[20px] border border-white/10 bg-[#111111]/80 backdrop-blur-md p-6 sm:p-10 shadow-[0_0_40px_rgba(0,0,0,0.3)]">
+            <div className="flex flex-col sm:flex-row gap-6">
+              <div className="flex flex-col gap-2 w-full group">
+                <label htmlFor="name" className="text-xs uppercase tracking-widest text-white/50 font-bold ml-1 transition-colors group-focus-within:text-white">Name</label>
+                <input 
+                  type="text" 
+                  name="name" 
+                  id="name" 
+                  required
+                  className="w-full rounded-xl border border-white/10 bg-black/50 px-5 py-4 text-sm text-white outline-none transition-all focus:border-white/40 focus:bg-white/5 focus:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div className="flex flex-col gap-2 w-full group">
+                <label htmlFor="email" className="text-xs uppercase tracking-widest text-white/50 font-bold ml-1 transition-colors group-focus-within:text-white">Email</label>
+                <input 
+                  type="email" 
+                  name="email" 
+                  id="email" 
+                  required
+                  className="w-full rounded-xl border border-white/10 bg-black/50 px-5 py-4 text-sm text-white outline-none transition-all focus:border-white/40 focus:bg-white/5 focus:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
+                  placeholder="john@example.com"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col gap-2 group">
+              <label htmlFor="message" className="text-xs uppercase tracking-widest text-white/50 font-bold ml-1 transition-colors group-focus-within:text-white">Message</label>
+              <textarea 
+                name="message" 
+                id="message" 
+                rows={5}
+                required
+                className="w-full resize-none rounded-xl border border-white/10 bg-black/50 px-5 py-4 text-sm text-white outline-none transition-all focus:border-white/40 focus:bg-white/5 focus:shadow-[0_0_20px_rgba(255,255,255,0.05)] custom-scrollbar"
+                placeholder="Hello Taha, I have an opportunity for you..."
+              ></textarea>
+            </div>
+            
+            <button 
+              type="submit" 
+              disabled={formStatus === 'sending'}
+              className="group relative mt-4 flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-white px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all hover:bg-gray-200 hover:scale-[1.01] active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+            >
+              {formStatus === 'sending' ? (
+                <span className="flex items-center gap-2 animate-pulse">Sending...</span>
+              ) : formStatus === 'success' ? (
+                <span className="text-green-600">Message Sent Successfully!</span>
+              ) : formStatus === 'error' ? (
+                <span className="text-red-600">Failed to send (Invalid Endpoint)</span>
+              ) : (
+                <>
+                  <span className="relative z-10">Send Message</span>
+                  <Send size={16} className="relative z-10 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </>
+              )}
+            </button>
+          </form>
+        </div>
+      </FadeIn>
 
       <style>{`
         @keyframes floatIso {
@@ -227,8 +325,8 @@ const ContactSection = () => {
       `}</style>
 
       {/* Footer line */}
-      <FadeIn delay={0.4} y={20}>
-        <footer className="mx-auto mt-20 sm:mt-24 md:mt-28 flex max-w-5xl flex-col items-center gap-3 border-t border-[#D7E2EA]/10 pt-8 text-center sm:flex-row sm:justify-between">
+      <FadeIn delay={0.6} y={20}>
+        <footer className="mx-auto mt-10 sm:mt-16 flex max-w-5xl flex-col items-center gap-3 border-t border-[#D7E2EA]/10 pt-8 text-center sm:flex-row sm:justify-between">
           <span
             className="font-light uppercase tracking-widest text-[#D7E2EA]/50"
             style={{ fontSize: 'clamp(0.7rem, 1.1vw, 0.9rem)' }}
