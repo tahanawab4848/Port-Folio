@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import FadeIn from './FadeIn';
 
 interface Certificate {
@@ -64,9 +64,12 @@ const CertificationsSection = () => {
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
+    offset: ["start start", "end end"]
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "calc(-100% + 100vw)"]);
+  const smoothProgress = useSpring(scrollYProgress, { damping: 20, stiffness: 100, mass: 0.2 });
+
+  const x = useTransform(smoothProgress, [0, 1], ["0%", "calc(-100% + 100vw)"]);
 
   return (
     <section id="certifications" ref={targetRef} className="relative w-full bg-black h-[300vh]">
