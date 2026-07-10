@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://taha-nawab-portfolio.vercel.app/sitemap.xml
