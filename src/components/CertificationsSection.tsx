@@ -75,9 +75,7 @@ const CertificationsSection = () => {
   return (
     <section id="certifications" ref={targetRef} className="relative w-full bg-black h-[600vh]">
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden">
-        {/* Background Glows (Optimized with Radial Gradients) */}
-        <div className="absolute top-[10%] right-[-10%] h-[1000px] w-[1000px] -translate-y-1/2 translate-x-1/4 bg-[radial-gradient(circle,rgba(255,255,255,0.03)_0%,transparent_60%)] pointer-events-none" />
-        <div className="absolute bottom-[10%] left-[-10%] h-[1000px] w-[1000px] translate-y-1/4 -translate-x-1/4 bg-[radial-gradient(circle,rgba(255,255,255,0.03)_0%,transparent_60%)] pointer-events-none" />
+        {/* Background Glows (Removed for Performance) */}
 
         <div className="relative z-10 w-full flex flex-col">
           <FadeIn y={20}>
@@ -92,18 +90,18 @@ const CertificationsSection = () => {
             </div>
           </FadeIn>
 
-          <motion.div style={{ x }} className="flex gap-6 sm:gap-8 px-4 sm:px-10 md:px-20 w-max pr-10 md:pr-32">
+          <motion.div style={{ x }} className="flex gap-6 sm:gap-8 px-4 sm:px-10 md:px-20 w-max pr-10 md:pr-32 will-change-transform">
             {CERTIFICATES.map((cert, idx) => (
               <FadeIn key={cert.id} delay={idx * 0.1} y={30}>
                 <div 
-                  className="group relative flex flex-col shrink-0 h-auto w-[280px] sm:w-[340px] md:w-[380px] cursor-pointer overflow-hidden rounded-[15px] border border-white/10 bg-[#0c0c0c]/80 backdrop-blur-sm p-4 md:p-5 transition-all duration-500 hover:scale-[1.02] hover:z-50 hover:bg-white/10 hover:border-white/40 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]"
+                  className="group relative flex flex-col shrink-0 h-auto w-[280px] sm:w-[340px] md:w-[380px] cursor-pointer overflow-hidden rounded-[15px] border border-white/10 bg-[#111111] p-4 md:p-5 transition-all duration-500 hover:scale-[1.02] hover:z-50 hover:bg-white/10 hover:border-white/40"
                   onClick={() => setSelectedCert(cert)}
                 >
                   <div className="relative h-48 sm:h-56 md:h-64 w-full flex items-center justify-center overflow-hidden rounded-lg bg-black/20 mb-4">
                     <img 
                       src={cert.images[0]} 
                       alt={cert.alt} 
-                      className="max-h-full max-w-full object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.05)] transition-transform duration-500 group-hover:scale-110"
+                      className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
                       draggable={false}
                     />
