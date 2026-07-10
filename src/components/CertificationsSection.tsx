@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import FadeIn from './FadeIn';
 
 interface Certificate {
@@ -59,31 +60,39 @@ const CERTIFICATES: Certificate[] = [
 
 const CertificationsSection = () => {
   const [selectedCert, setSelectedCert] = useState<Certificate | null>(null);
+  const targetRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "calc(-100% + 100vw)"]);
 
   return (
-    <section id="certifications" className="relative w-full bg-black py-20 sm:py-32 px-4 sm:px-6 md:px-10 overflow-hidden">
-      {/* Background Glows (Optimized with Radial Gradients) */}
-      <div className="absolute top-[10%] right-[-10%] h-[1000px] w-[1000px] -translate-y-1/2 translate-x-1/4 bg-[radial-gradient(circle,rgba(255,255,255,0.03)_0%,transparent_60%)] pointer-events-none" />
-      <div className="absolute bottom-[10%] left-[-10%] h-[1000px] w-[1000px] translate-y-1/4 -translate-x-1/4 bg-[radial-gradient(circle,rgba(255,255,255,0.03)_0%,transparent_60%)] pointer-events-none" />
+    <section id="certifications" ref={targetRef} className="relative w-full bg-black h-[300vh]">
+      <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden">
+        {/* Background Glows (Optimized with Radial Gradients) */}
+        <div className="absolute top-[10%] right-[-10%] h-[1000px] w-[1000px] -translate-y-1/2 translate-x-1/4 bg-[radial-gradient(circle,rgba(255,255,255,0.03)_0%,transparent_60%)] pointer-events-none" />
+        <div className="absolute bottom-[10%] left-[-10%] h-[1000px] w-[1000px] translate-y-1/4 -translate-x-1/4 bg-[radial-gradient(circle,rgba(255,255,255,0.03)_0%,transparent_60%)] pointer-events-none" />
 
-      <div className="relative z-10 mx-auto max-w-7xl">
-        <FadeIn y={20}>
-          <div className="mb-16 md:mb-24 flex flex-col items-center text-center">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white">
-              Certifications
-            </h2>
-            <div className="mt-4 h-px w-20 bg-white/30 rounded-full" />
-            <p className="mt-6 max-w-2xl text-sm md:text-base text-white/60">
-              Verified credentials and professional achievements.
-            </p>
-          </div>
-        </FadeIn>
+        <div className="relative z-10 w-full flex flex-col">
+          <FadeIn y={20}>
+            <div className="mb-10 md:mb-16 flex flex-col items-center text-center">
+              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white">
+                Certifications
+              </h2>
+              <div className="mt-4 h-px w-20 bg-white/30 rounded-full" />
+              <p className="mt-6 max-w-2xl text-sm md:text-base text-white/60">
+                Verified credentials and professional achievements.
+              </p>
+            </div>
+          </FadeIn>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
-          {CERTIFICATES.map((cert, idx) => (
-            <FadeIn key={cert.id} delay={idx * 0.1} y={30}>
+          <motion.div style={{ x }} className="flex gap-6 sm:gap-8 px-4 sm:px-10 md:px-20 w-max pr-10 md:pr-32 pb-10">
+            {CERTIFICATES.map((cert) => (
               <div 
-                className="group relative flex flex-col h-auto w-full cursor-pointer overflow-hidden rounded-[15px] border border-white/10 bg-[#0c0c0c]/80 backdrop-blur-sm p-4 md:p-5 transition-all duration-500 hover:scale-[1.02] hover:z-50 hover:bg-white/10 hover:border-white/40 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]"
+                key={cert.id}
+                className="group relative flex flex-col shrink-0 h-auto w-[280px] sm:w-[340px] md:w-[380px] cursor-pointer overflow-hidden rounded-[15px] border border-white/10 bg-[#0c0c0c]/80 backdrop-blur-sm p-4 md:p-5 transition-all duration-500 hover:scale-[1.02] hover:z-50 hover:bg-white/10 hover:border-white/40 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]"
                 onClick={() => setSelectedCert(cert)}
               >
                 <div className="relative h-48 sm:h-56 md:h-64 w-full flex items-center justify-center overflow-hidden rounded-lg bg-black/20 mb-4">
@@ -115,8 +124,8 @@ const CertificationsSection = () => {
                   <p className="text-white/50 text-xs sm:text-sm line-clamp-2" title={cert.description}>{cert.description}</p>
                 </div>
               </div>
-            </FadeIn>
-          ))}
+            ))}
+          </motion.div>
         </div>
       </div>
 

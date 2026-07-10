@@ -22,7 +22,7 @@ const TerminalMode = () => {
   const KNOWLEDGE_BASE = [
     {
       keywords: ['project', 'work', 'build', 'toxiglow', 'medipredict', 'learnwave'],
-      response: "> QUERY MATCH: 'PROJECTS'\n> Taha has architected several high-performance platforms:\n> 1. [ToxiGlow]: AI wound analysis built for BioNova Innovathon 2026.\n> 2. [MediPredict]: Disease prediction engine with <200ms latency.\n> 3. [Support Ticket System]: Enterprise SLA monitor handling 10k+ concurrent tickets.\n> 4. [LearnWave]: Full-stack E-Learning platform.\n> 5. [Warehouse Robot Sim]: A*, BFS, and Genetic Algorithms in Python."
+      response: "> QUERY MATCH: 'PROJECTS'\n> Taha has architected several high-performance platforms:\n> 1. [ToxiGlow]: AI wound analysis built for BioNova Innovathon 2026.\n> 2. [MediPredict]: Disease prediction engine with <200ms latency.\n> 3. [Support Ticket System]: Enterprise SLA monitor handling 10k+ concurrent tickets.\n> 4. [LearnWave]: Full-stack E-Learning platform.\n> 5. [Warehouse Robot Sim]: A*, BFS, and Genetic Algorithms in Python.\n> 6. [FlowForge]: Visual database designer and AI orchestration platform."
     },
     {
       keywords: ['skill', 'tech', 'stack', 'language', 'framework', 'react', 'python', 'fastapi', 'database'],

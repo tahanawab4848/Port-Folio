@@ -177,7 +177,7 @@ const HeroSection = () => {
       {/* Content layer */}
       <div className="relative z-10 flex h-full flex-col">
         {/* Top bar */}
-        <header className={`absolute inset-x-0 z-50 w-full pointer-events-none transition-all duration-[1000ms] ease-[cubic-bezier(0.23,1,0.32,1)] ${speaking ? 'top-4 sm:top-6' : 'top-6 sm:top-8'}`}>
+        <header className={`fixed inset-x-0 z-[90] w-full pointer-events-none transition-all duration-[1000ms] ease-[cubic-bezier(0.23,1,0.32,1)] ${speaking ? 'top-4 sm:top-6' : 'top-6 sm:top-8'}`}>
           <FadeIn delay={0} y={-20}>
             <div className="relative mx-auto flex items-center justify-between md:justify-center w-full h-10 px-6 md:px-0 pointer-events-auto">
               
