@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Terminal as TerminalIcon, X } from 'lucide-react';
 
-
 interface CommandOutput {
   command: string;
   output: React.ReactNode;
@@ -55,8 +54,8 @@ const TerminalMode = () => {
       setHistory([]);
       let step = 0;
       const bootLines = [
-        'Booting TahaOS v2.0.4 (x86_64)...',
-        'Loading kernel modules... OK',
+        'Booting Neural_Interface_Node_01...',
+        'Loading monochrome aesthetic modules... OK',
         'Mounting virtual filesystems... OK',
         'Starting neural network interface... OK',
         'Establishing secure connection... OK',
@@ -104,14 +103,14 @@ const TerminalMode = () => {
     switch (cmd) {
       case 'help':
         output = (
-          <div className="text-gray-300">
+          <div className="text-white/70">
             Available commands:<br />
-            <span className="text-green-400">whoami</span> - Display biography<br />
-            <span className="text-green-400">ls</span> - List directory contents<br />
-            <span className="text-green-400">cat &lt;file&gt;</span> - View file contents<br />
-            <span className="text-green-400">tahai &lt;query&gt;</span> - Ask the TahAI assistant<br />
-            <span className="text-green-400">clear</span> - Clear terminal<br />
-            <span className="text-green-400">exit</span> - Close terminal mode
+            <span className="text-white font-bold">whoami</span> - Display biography<br />
+            <span className="text-white font-bold">ls</span> - List directory contents<br />
+            <span className="text-white font-bold">cat &lt;file&gt;</span> - View file contents<br />
+            <span className="text-white font-bold">tahai &lt;query&gt;</span> - Ask the TahAI assistant<br />
+            <span className="text-white font-bold">clear</span> - Clear terminal<br />
+            <span className="text-white font-bold">exit</span> - Close terminal mode
           </div>
         );
         break;
@@ -122,31 +121,31 @@ const TerminalMode = () => {
               <img 
                 src="/profile.webp" 
                 alt="Taha Nawab" 
-                className="w-32 h-32 sm:w-48 sm:h-48 object-cover rounded-sm border-2 border-green-500/30 opacity-80 filter grayscale contrast-150 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+                className="w-32 h-32 sm:w-48 sm:h-48 object-cover rounded-sm border-2 border-white/20 opacity-80 filter grayscale contrast-150 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
               />
-              <div className="absolute inset-0 bg-green-500/10 mix-blend-overlay pointer-events-none" />
+              <div className="absolute inset-0 bg-white/5 mix-blend-overlay pointer-events-none" />
               {/* Scanline over image */}
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] pointer-events-none opacity-50" />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,255,255,0.02),rgba(255,255,255,0.02),rgba(255,255,255,0.02))] bg-[length:100%_4px,3px_100%] pointer-events-none opacity-50" />
             </div>
-            <div className="flex flex-col text-green-400 gap-1 font-mono">
+            <div className="flex flex-col text-[#D7E2EA]/80 gap-1 font-mono">
               <div className="text-white font-bold text-lg mb-2">taha@portfolio-os</div>
               <div>-------------------</div>
-              <div><span className="text-blue-400 font-bold">OS:</span> TahaOS v2.0.4</div>
-              <div><span className="text-blue-400 font-bold">Host:</span> Neural_Interface_Node_01</div>
-              <div><span className="text-blue-400 font-bold">Kernel:</span> 5.15.0-generic (Cybernetics)</div>
-              <div><span className="text-blue-400 font-bold">Uptime:</span> 21 years, 5 months</div>
-              <div><span className="text-blue-400 font-bold">Packages:</span> 4096 (npm), 256 (pip)</div>
-              <div><span className="text-blue-400 font-bold">Shell:</span> bash 5.1.16</div>
-              <div><span className="text-blue-400 font-bold">Role:</span> Full-Stack Dev & ML Engineer</div>
-              <div><span className="text-blue-400 font-bold">Location:</span> Islamabad, Pakistan</div>
-              <div className="mt-2 flex gap-2">
-                <span className="bg-black w-4 h-4 inline-block" />
-                <span className="bg-red-500 w-4 h-4 inline-block" />
-                <span className="bg-green-500 w-4 h-4 inline-block" />
-                <span className="bg-yellow-500 w-4 h-4 inline-block" />
-                <span className="bg-blue-500 w-4 h-4 inline-block" />
-                <span className="bg-purple-500 w-4 h-4 inline-block" />
-                <span className="bg-cyan-500 w-4 h-4 inline-block" />
+              <div><span className="text-white/50 font-bold">OS:</span> TahaOS v2.0.4</div>
+              <div><span className="text-white/50 font-bold">Host:</span> Neural_Interface_Node_01</div>
+              <div><span className="text-white/50 font-bold">Kernel:</span> 5.15.0-generic (Cybernetics)</div>
+              <div><span className="text-white/50 font-bold">Uptime:</span> 21 years, 5 months</div>
+              <div><span className="text-white/50 font-bold">Packages:</span> 4096 (npm), 256 (pip)</div>
+              <div><span className="text-white/50 font-bold">Shell:</span> bash 5.1.16</div>
+              <div><span className="text-white/50 font-bold">Role:</span> Full-Stack Dev & ML Engineer</div>
+              <div><span className="text-white/50 font-bold">Location:</span> Islamabad, Pakistan</div>
+              <div className="mt-2 flex gap-2 opacity-50">
+                <span className="bg-[#111] w-4 h-4 inline-block" />
+                <span className="bg-[#333] w-4 h-4 inline-block" />
+                <span className="bg-[#555] w-4 h-4 inline-block" />
+                <span className="bg-[#777] w-4 h-4 inline-block" />
+                <span className="bg-[#999] w-4 h-4 inline-block" />
+                <span className="bg-[#bbb] w-4 h-4 inline-block" />
+                <span className="bg-[#ddd] w-4 h-4 inline-block" />
                 <span className="bg-white w-4 h-4 inline-block" />
               </div>
             </div>
@@ -156,10 +155,10 @@ const TerminalMode = () => {
       case 'ls':
         output = (
           <div className="flex gap-4">
-            <span className="text-blue-400 font-bold">projects/</span>
-            <span className="text-blue-400 font-bold">skills/</span>
-            <span className="text-white">resume.pdf</span>
-            <span className="text-white">contact.txt</span>
+            <span className="text-white font-bold">projects/</span>
+            <span className="text-white font-bold">skills/</span>
+            <span className="text-white/70">resume.pdf</span>
+            <span className="text-white/70">contact.txt</span>
           </div>
         );
         break;
@@ -207,13 +206,13 @@ const TerminalMode = () => {
                 newHistory[lastIdx] = {
                   ...newHistory[lastIdx],
                   output: (
-                    <div className="flex flex-col gap-1 mt-1 text-gray-300">
+                    <div className="flex flex-col gap-1 mt-1 text-white/60">
                       {installSequence.slice(0, i + 1).map((line, idx) => (
-                        <span key={idx} className={line.includes('successfully') ? 'text-green-400 font-bold' : ''}>
+                        <span key={idx} className={line.includes('successfully') ? 'text-white font-bold' : ''}>
                           {line}
                         </span>
                       ))}
-                      {i < installSequence.length - 1 && <span className="animate-pulse text-green-400">_</span>}
+                      {i < installSequence.length - 1 && <span className="animate-pulse text-white">_</span>}
                     </div>
                   )
                 };
@@ -227,8 +226,8 @@ const TerminalMode = () => {
         } else if (cmd === 'tahai' || cmd.startsWith('tahai ')) {
            if (!isTahAiInstalled) {
              output = (
-               <span className="text-red-400">
-                 Error: TahAI is not installed. Please run <span className="text-white">"taha install tahai"</span> first.
+               <span className="text-white/60">
+                 Error: TahAI is not installed. Please run <span className="text-white font-bold">"taha install tahai"</span> first.
                </span>
              );
            } else if (cmd === 'tahai') {
@@ -262,37 +261,37 @@ const TerminalMode = () => {
       {/* Trigger Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-[76px] right-4 sm:bottom-20 sm:right-6 z-[60] flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-white/10 bg-black/50 backdrop-blur-md shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-300 hover:scale-110 hover:border-green-500/50 hover:bg-black/80 hover:shadow-[0_0_30px_rgba(34,197,94,0.3)] group"
+        className="fixed bottom-[76px] right-4 sm:bottom-20 sm:right-6 z-[60] flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-white/10 bg-black/50 backdrop-blur-md shadow-[0_0_20px_rgba(255,255,255,0.05)] transition-all duration-300 hover:scale-110 hover:border-white/50 hover:bg-black/80 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] group"
         title="Open Terminal"
       >
-        <TerminalIcon className="h-5 w-5 text-white/50 transition-colors group-hover:text-green-400" />
+        <TerminalIcon className="h-5 w-5 text-white/50 transition-colors group-hover:text-white" />
       </button>
 
       {/* Terminal Overlay */}
       {isOpen && (
         <div className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-xl flex items-center justify-center p-2 sm:p-6 cursor-default">
-          {/* MacOS style window */}
-          <div className="w-full max-w-5xl h-[85vh] bg-[#0A0A0A] rounded-xl border border-white/20 shadow-[0_0_50px_rgba(0,0,0,0.8),inset_0_0_20px_rgba(34,197,94,0.05)] flex flex-col overflow-hidden relative">
+          {/* Minimalist Glass Window */}
+          <div className="w-full max-w-5xl h-[85vh] bg-[#0C0C0C]/95 backdrop-blur-3xl rounded-xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.8),inset_0_0_20px_rgba(255,255,255,0.02)] flex flex-col overflow-hidden relative">
             
             {/* Header bar */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-[#111] select-none">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-white/[0.02] select-none">
               <div className="flex items-center gap-2">
-                <div className="h-3 w-3 rounded-full bg-red-500 hover:bg-red-400 cursor-pointer transition-colors" onClick={() => setIsOpen(false)} title="Close" />
-                <div className="h-3 w-3 rounded-full bg-yellow-500" />
-                <div className="h-3 w-3 rounded-full bg-green-500" />
+                <div className="h-3 w-3 rounded-full border border-white/20 bg-white/10 hover:bg-white/40 cursor-pointer transition-colors" onClick={() => setIsOpen(false)} title="Close" />
+                <div className="h-3 w-3 rounded-full border border-white/10 bg-transparent" />
+                <div className="h-3 w-3 rounded-full border border-white/10 bg-transparent" />
               </div>
-              <div className="text-gray-400 text-xs font-mono">guest@tahanawab.portfolio: ~ (bash)</div>
+              <div className="text-white/40 text-xs font-mono uppercase tracking-[0.2em]">Neural_Terminal_v2</div>
               <div className="w-16"></div> {/* Spacer for centering */}
             </div>
 
             {/* Terminal Body */}
-            <div className="flex-1 overflow-y-auto p-4 sm:p-6 font-mono text-sm sm:text-base text-green-500 [text-shadow:0_0_5px_rgba(34,197,94,0.4)] cursor-text" onClick={() => !isBooting && inputRef.current?.focus()}>
+            <div className="flex-1 overflow-y-auto p-4 sm:p-6 font-mono text-sm sm:text-base text-[#D7E2EA]/80 cursor-text custom-scrollbar" onClick={() => !isBooting && inputRef.current?.focus()}>
               
               {isBooting ? (
                 <div className="whitespace-pre-wrap">{bootText}<span className="animate-pulse">_</span></div>
               ) : (
                 <>
-                  <div className="mb-6 whitespace-pre-wrap select-none text-green-400 font-bold animate-[fadeIn_0.5s_ease-out]">
+                  <div className="mb-8 whitespace-pre-wrap select-none text-white font-bold animate-[fadeIn_0.5s_ease-out]">
 {`
   _____     _           ___  ____  
  |_   _|   | |         / _ \\/ ___| 
@@ -301,39 +300,39 @@ const TerminalMode = () => {
    |_| (_| | | | | (_| | |_| |____/ 
                                    
 `}
-                      Welcome to TahaOS v2.0.4<br/>
-                      Type 'help' to see available commands.<br/>
+                      <span className="text-white/60 font-normal">Welcome to Neural Terminal</span><br/>
+                      <span className="text-white/60 font-normal">Type <span className="text-white">'help'</span> to see available commands.</span><br/>
                       <br/>
                   </div>
 
                   <div className="flex-1">
                     {history.map((entry, i) => (
-                      <div key={i} className="mb-4">
-                        <div className="flex items-center gap-2 select-none flex-wrap">
-                          <span className="text-blue-400 font-bold">guest@portfolio</span>
-                          <span className="text-white">:</span>
-                          <span className="text-green-400 font-bold">~</span>
-                          <span className="text-white">$</span>
-                          <span className="text-white">{entry.command}</span>
+                      <div key={i} className="mb-5">
+                        <div className="flex items-center gap-2 select-none flex-wrap opacity-70">
+                          <span className="text-white font-bold">guest@portfolio</span>
+                          <span className="text-white/50">:</span>
+                          <span className="text-white/80 font-bold">~</span>
+                          <span className="text-white/50">$</span>
+                          <span className="text-white font-medium">{entry.command}</span>
                         </div>
-                        <div className="mt-1 whitespace-pre-wrap text-green-300 opacity-90 leading-relaxed">
+                        <div className="mt-2 whitespace-pre-wrap text-white/70 leading-relaxed font-light">
                           {entry.output}
                         </div>
                       </div>
                     ))}
 
-                    <form onSubmit={handleCommand} className="flex items-center gap-2 mt-4 flex-wrap">
-                      <span className="text-blue-400 font-bold select-none">guest@portfolio</span>
-                      <span className="text-white select-none">:</span>
-                      <span className="text-green-400 font-bold select-none">~</span>
-                      <span className="text-white select-none">$</span>
+                    <form onSubmit={handleCommand} className="flex items-center gap-2 mt-4 flex-wrap opacity-70 focus-within:opacity-100 transition-opacity">
+                      <span className="text-white font-bold select-none">guest@portfolio</span>
+                      <span className="text-white/50 select-none">:</span>
+                      <span className="text-white/80 font-bold select-none">~</span>
+                      <span className="text-white/50 select-none">$</span>
                       <input
                         ref={inputRef}
                         type="text"
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                         disabled={isBusy}
-                        className={`flex-1 min-w-[200px] bg-transparent border-none outline-none font-mono shadow-none focus:ring-0 p-0 ${isBusy ? 'text-gray-500' : 'text-white'}`}
+                        className={`flex-1 min-w-[200px] bg-transparent border-none outline-none font-mono shadow-none focus:ring-0 p-0 font-medium ${isBusy ? 'text-white/30' : 'text-white'}`}
                         autoComplete="off"
                         spellCheck="false"
                         autoFocus
@@ -345,8 +344,8 @@ const TerminalMode = () => {
               )}
             </div>
             
-            {/* CRT Scanline effect overlaid on terminal window */}
-            <div className="absolute inset-0 pointer-events-none opacity-10 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] z-0 mix-blend-overlay"></div>
+            {/* Minimal Scanline effect overlaid on terminal window */}
+            <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[linear-gradient(rgba(255,255,255,0)_50%,rgba(255,255,255,1)_50%)] bg-[length:100%_4px] z-0 mix-blend-overlay"></div>
           </div>
         </div>
       )}
