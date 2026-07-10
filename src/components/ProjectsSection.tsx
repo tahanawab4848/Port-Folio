@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import FadeIn from './FadeIn';
-import LiveProjectButton from './LiveProjectButton';
 
 interface ProjectData {
   number: string;
@@ -112,9 +111,7 @@ const ProjectCard = ({ project, index, total, containerRef }: ProjectCardProps) 
             </div>
           </div>
 
-          <div className="shrink-0 self-start sm:self-auto pt-1 sm:pt-2 md:pt-3 w-full sm:w-auto">
-            <LiveProjectButton href={project.liveUrl} className="w-full sm:w-auto" />
-          </div>
+          {/* Live Link Button Removed */}
         </div>
 
         {/* Bottom row: image layout (1 large image on mobile, full grid on tablet+) */}
