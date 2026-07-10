@@ -105,8 +105,8 @@ const ContactSection = () => {
 
           return (
             <FadeIn key={method.label} delay={i * 0.1} y={30}>
-              <div 
-                style={{ 
+              <div
+                style={{
                   animation: 'floatIso 4s ease-in-out infinite',
                   animationDelay: `${i * 0.2}s`
                 }}
@@ -122,11 +122,11 @@ const ContactSection = () => {
                   <div className="absolute inset-0 overflow-hidden rounded-sm pointer-events-none">
                     {/* Moving dot pattern background on hover */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none mix-blend-overlay"
-                         style={{
-                           backgroundImage: 'radial-gradient(circle at center, white 1.5px, transparent 1.5px)',
-                           backgroundSize: '16px 16px',
-                           animation: 'moveBg 3s linear infinite'
-                         }}
+                      style={{
+                        backgroundImage: 'radial-gradient(circle at center, white 1.5px, transparent 1.5px)',
+                        backgroundSize: '16px 16px',
+                        animation: 'moveBg 3s linear infinite'
+                      }}
                     />
 
                     {/* Spinning conic gradient for a subtle aura inside */}
@@ -164,41 +164,41 @@ const ContactSection = () => {
             <div className="flex flex-col sm:flex-row gap-6">
               <div className="flex flex-col gap-2 w-full group">
                 <label htmlFor="name" className="text-xs uppercase tracking-widest text-white/50 font-bold ml-1 transition-colors group-focus-within:text-white">Name</label>
-                <input 
-                  type="text" 
-                  name="name" 
-                  id="name" 
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
                   required
                   className="w-full rounded-xl border border-white/10 bg-black/50 px-5 py-4 text-sm text-white outline-none transition-all focus:border-white/40 focus:bg-white/5 focus:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
-                  placeholder="John Doe"
+                  placeholder="Taha Nawab"
                 />
               </div>
               <div className="flex flex-col gap-2 w-full group">
                 <label htmlFor="email" className="text-xs uppercase tracking-widest text-white/50 font-bold ml-1 transition-colors group-focus-within:text-white">Email</label>
-                <input 
-                  type="email" 
-                  name="email" 
-                  id="email" 
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
                   required
                   className="w-full rounded-xl border border-white/10 bg-black/50 px-5 py-4 text-sm text-white outline-none transition-all focus:border-white/40 focus:bg-white/5 focus:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
-                  placeholder="john@example.com"
+                  placeholder="taha@taha.com"
                 />
               </div>
             </div>
             <div className="flex flex-col gap-2 group">
               <label htmlFor="message" className="text-xs uppercase tracking-widest text-white/50 font-bold ml-1 transition-colors group-focus-within:text-white">Message</label>
-              <textarea 
-                name="message" 
-                id="message" 
+              <textarea
+                name="message"
+                id="message"
                 rows={5}
                 required
                 className="w-full resize-none rounded-xl border border-white/10 bg-black/50 px-5 py-4 text-sm text-white outline-none transition-all focus:border-white/40 focus:bg-white/5 focus:shadow-[0_0_20px_rgba(255,255,255,0.05)] custom-scrollbar"
                 placeholder="Hello Taha, I have an opportunity for you..."
               ></textarea>
             </div>
-            
-            <button 
-              type="submit" 
+
+            <button
+              type="submit"
               disabled={formStatus === 'sending'}
               className="group relative mt-4 flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-white px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all hover:bg-gray-200 hover:scale-[1.01] active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
             >
